@@ -87,7 +87,7 @@ spec:
         steps {
             dir('mosaic') {
                 checkout scm: [$class: 'GitSCM', 
-                  userRemoteConfigs: [[url: 'https://github.com/eclipse/mosaic.git']], 
+                  userRemoteConfigs: [[url: 'https://github.com/eclipse-mosaic/mosaic.git']], 
                   branches: [[name: "refs/tags/${params.JAVADOC_VERSION}"]]
                 ], poll: false
                 sh '/opt/tools/apache-maven/3.6.3/bin/mvn install -DskipTests=true -Dmaven.repo.local=.m2'
