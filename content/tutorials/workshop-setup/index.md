@@ -35,5 +35,5 @@ image:
 - [Eclipse SUMO](https://eclipse.dev/sumo/)
   - [Windows Installer](https://sumo.dlr.de/releases/{{< version of="sumo" >}}/sumo-win64-{{< version of="sumo" >}}.msi)
   - [MacOS Installer](https://sumo.dlr.de/docs/Downloads.php#macos)
-- [Eclipse MOSAIC Source Code (version {{<version of = "mosaic">}})](https://github.com/eclipse/mosaic/archive/refs/tags/{{<version of = "mosaic">}}.zip)
+- [Eclipse MOSAIC Source Code (version {{<version of = "mosaic">}})](https://github.com/eclipse-mosaic/mosaic/archive/refs/tags/{{<version of = "mosaic">}}.zip)
 - [MOSAIC Extended (version {{<version of = "mosaic">}})](https://www.dcaiti.tu-berlin.de/research/simulation/extended/) (User licence required)

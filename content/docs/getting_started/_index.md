@@ -54,7 +54,7 @@ table {
 |:--------------------------------------------------------------------------------------------------:|:--------:|-------------------------------------------------------------------:|:-------------------------------------------------------:|:---------------------------------------------------------------------|
 | **[Java](https://adoptium.net/de/temurin/releases?version={{< version of="java_recommended" >}})** |   yes    |          {{< version of="java_no_support" >}}<br/> _not supported_ |     **{{< version of="java" >}}** <br/> _supported_     | {{< version of="java_limited_support" >}} <br/> _not tested_         |
 |                                                                                                    |          |                                                                    |                                                         |                                                                      |
-|                          **[Eclipse SUMO](https://www.eclipse.org/sumo)**                          |   yes*   |          {{< version of="sumo_no_support" >}}<br/> _not supported_ | **{{< version of="sumo_support" >}}** <br/> _supported_ | {{< version of="sumo_not_tested" >}} <br/> _not tested_              |
+|                          **[Eclipse SUMO](https://www.eclipse.dev/sumo)**                          |   yes*   |          {{< version of="sumo_no_support" >}}<br/> _not supported_ | **{{< version of="sumo_support" >}}** <br/> _supported_ | {{< version of="sumo_not_tested" >}} <br/> _not tested_              |
 |                          **[OMNeT++](https://omnetpp.org/download/old)**                           | optional | {{< version of="omnetpp_no_support_below" >}}<br/> _not supported_ |   **{{< version of="omnetpp" >}}** <br/> _supported_    | {{< version of="omnetpp_no_support_above" >}} <br/>  _not supported_ |
 |                         **[INET](https://inet.omnetpp.org/Download.html)**                         | optional |    {{< version of="inet_no_support_below" >}}<br/> _not supported_ |     **{{< version of="inet" >}}** <br/> _supported_     | {{< version of="inet_no_support_above" >}} <br/> _not supported_     |
 |        **[ns-3](https://www.nsnam.org/releases/ns-{{< version of="ns3_release_link" >}})**         | optional |     {{< version of="ns3_no_support_below" >}}<br/> _not supported_ |     **{{< version of="ns3" >}}** <br/> _supported_      | {{< version of="ns3_not_tested" >}} <br/> _not tested_               |
@@ -66,7 +66,7 @@ is coupled, SUMO is not necessarily required.
 
 {{% alert note %}}
 An Eclipse MOSAIC bundle is built with every commit on our main branch in
-our [<i class="fab fa-github"></i> GitHub repository</a>](https://github.com/eclipse/mosaic). You
+our [<i class="fab fa-github"></i> GitHub repository</a>](https://github.com/eclipse-mosaic/mosaic). You
 can access and download this distribution following [this link](https://ci.eclipse.org/mosaic/job/mosaic/job/main/).
 {{% /alert %}}
 

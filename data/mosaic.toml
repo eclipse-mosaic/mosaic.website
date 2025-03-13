@@ -1,7 +1,7 @@
 serverRootDir = "/mosaic"
 
 [url]
-    mosaic_github = "https://github.com/eclipse/mosaic"
+    mosaic_github = "https://github.com/eclipse-mosaic/mosaic"
 
 [logo]
     eclipse_mosaic_rgb_positiv = "/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg"

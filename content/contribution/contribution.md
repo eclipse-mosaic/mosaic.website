@@ -11,7 +11,7 @@ weight = 40  # Order that this section will appear in.
 
 ## Issues
 
-You are more than welcomed to report bugs or suggest enhancements on our [GitHub repository](https://github.com/eclipse/mosaic).
+You are more than welcomed to report bugs or suggest enhancements on our [GitHub repository](https://github.com/eclipse-mosaic/mosaic).
 Before creating a new issue, please check if the problem or feature was not reported already by someone else. 
 
 When reporting bugs, please follow the guidelines 
@@ -163,4 +163,4 @@ Each Java file must include the following license header at the top of each file
  */
 ```
 
-If this is your first contribution, please also add your Copyright information to [NOTICE.md](https://github.com/eclipse/mosaic/blob/main/NOTICE.md).
+If this is your first contribution, please also add your Copyright information to [NOTICE.md](https://github.com/eclipse-mosaic/mosaic/blob/main/NOTICE.md).

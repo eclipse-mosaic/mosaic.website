@@ -86,7 +86,7 @@ define a prototype that is used for all subsequent traffic lights:
 ```
 
 The following listing shows an additional prototype called `TrafficLight` that gets associated
-with the [`TrafficLightApp`](https://github.com/eclipse/mosaic/blob/main/app/tutorials/traffic-light-communication/src/main/java/org/eclipse/mosaic/app/tutorial/TrafficLightApp.java) application. Note that the application that should run on the traffic light has to extend
+with the [`TrafficLightApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/traffic-light-communication/src/main/java/org/eclipse/mosaic/app/tutorial/TrafficLightApp.java) application. Note that the application that should run on the traffic light has to extend
 `AbstractApplication<TrafficLightOperatingSystem>` in order to work. The next step is to use this prototype and assign
 it to a traffic light we found in the section before using the sumo gui:
 
@@ -145,7 +145,7 @@ interface as described [here](http://sumo.dlr.de/wiki/TraCI/Change_Traffic_Light
 
 ## TrafficLightApp
 
-The [`TrafficLightApp`](https://github.com/eclipse/mosaic/blob/main/app/tutorials/traffic-light-communication/src/main/java/org/eclipse/mosaic/app/tutorial/TrafficLightApp.java) is being used in the [Tiergarten: Communication](/tutorials/tiergarten_communication) scenario. It sets the traffic light it is mapped on to always be red but when it receives a **V2X** signal with the correct passphrase, it will turn green for a defined duration.
+The [`TrafficLightApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/traffic-light-communication/src/main/java/org/eclipse/mosaic/app/tutorial/TrafficLightApp.java) is being used in the [Tiergarten: Communication](/tutorials/tiergarten_communication) scenario. It sets the traffic light it is mapped on to always be red but when it receives a **V2X** signal with the correct passphrase, it will turn green for a defined duration.
 This is an example of simple traffic light manipulation via ad-hoc communication. 
 
 ```

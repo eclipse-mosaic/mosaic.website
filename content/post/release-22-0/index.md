@@ -4,7 +4,7 @@ categories:
   - Release
 release:
   name: "Eclipse MOSAIC 22.0"
-  github_url: "https://github.com/eclipse/mosaic/releases/tag/22.0"
+  github_url: "https://github.com/eclipse-mosaic/mosaic/releases/tag/22.0"
 date: "2022-05-04T00:00:00Z"
 lastMod: "2022-05-04T00:00:00Z"
 math: false
@@ -21,7 +21,7 @@ image:
 **The spring release of Eclipse MOSAIC has arrived! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 22.0 to the open source community. 
 This new version introduces perception facilities to the Application simulator and improved the integration of the traffic simulator SUMO.**
 
-You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse/mosaic).
+You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse-mosaic/mosaic).
 
 ### Release Date
 2022-05-04

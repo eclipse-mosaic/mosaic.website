@@ -87,13 +87,17 @@ processing of the obtained data.
     
 {{% alert note %}}
 For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g., Highway tutorial).
+The detectors have to be mapped to at least one TMC in order to be noticed in the output generator.
+If you want to exclude detector flow updates containing zeros, use `<filter filterType="keep">MoreThan:0</filter>`.
+You cannot group by `VehicleType` or `VehicleGroup` for the `DetectorFlow`.
 {{% /alert %}}
 
 2. `group-by`: The vehicles will be grouped by its vehicle type name (`VehicleType`), group they belong
 to (`VehicleGroup`), or obtained data value (e.g. `Interval:200` categorizes values into groups of
 size 200).
 
-3. `aggregation`: `Average` | `Harmonic` aggregation of the obtained values. An attribute `deviation`
+3. `aggregation`: `Average` | `Harmonic` | `Min` | `Max` | `Sum` | `Count` aggregation of the obtained
+values. For `Average` and `Harmonic` an attribute `deviation`
 can be set to true or false (it’s false if the attribute is not given). This attribute can be used for
 grouped values to get the deviation of each value from the aggregated group value or to get a
 standard deviation based on biased sample variance for groups (in the short output version).

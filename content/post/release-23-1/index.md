@@ -4,7 +4,7 @@ categories:
   - Release
 release:
   name: "Eclipse MOSAIC 23.1"
-  github_url: "https://github.com/eclipse/mosaic/releases/tag/23.1"
+  github_url: "https://github.com/eclipse-mosaic/mosaic/releases/tag/23.1"
 date: "2023-10-06T00:00:00Z"
 lastMod: "2023-10-06T00:00:00Z"
 math: false
@@ -25,7 +25,7 @@ This new version brings the perception facilities in the Application simulator t
 MOSAIC 23.1 now requires at least **Java 11 Runtime Environment** to be executed. For more details, see [Getting Started](/tutorials/getting_started/).
 {{% /alert %}}
 
-:rocket: You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse/mosaic). 
+:rocket: You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse-mosaic/mosaic). 
 
 ### Release Date
 2023-10-06

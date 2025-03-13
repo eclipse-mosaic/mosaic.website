@@ -11,7 +11,7 @@ header:
 
 This online documentation provides detailed information for the latest release of Eclipse MOSAIC. Some details may
 deviate, however, as we constantly keep this documentation in sync with the current main branch of our
-[<i class="fab fa-github"></i> GitHub repository</a>](https://github.com/eclipse/mosaic).
+[<i class="fab fa-github"></i> GitHub repository</a>](https://github.com/eclipse-mosaic/mosaic).
 
 This documentation is accompanied by our **[Tutorials](/tutorials)**. Generally, it is recommended to read
 the documentation first, especially the sections on [How To Get Started](/docs/getting_started) and

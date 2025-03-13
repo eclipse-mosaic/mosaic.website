@@ -4,7 +4,7 @@ categories:
   - Release
 release:
   name: "Eclipse MOSAIC 24.1"
-  github_url: "https://github.com/eclipse/mosaic/releases/tag/24.1"
+  github_url: "https://github.com/eclipse-mosaic/mosaic/releases/tag/24.1"
 date: "2024-09-06T00:00:00Z"
 lastMod: "2024-09-06T00:00:00Z"
 math: false
@@ -21,7 +21,7 @@ image:
 **The autumn release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 24.1 to the open source community.
 This release concentrates less on new features, but on improving documentation and tutorials.**
 
-:rocket: You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse/mosaic). 
+:rocket: You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse-mosaic/mosaic). 
 
 ### Release Date
 2024-09-06

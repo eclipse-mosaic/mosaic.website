@@ -80,7 +80,7 @@ edit_page = {repo_url = "https://github.com/gcushen/hugo-academic", content_dir 
 show_related = {docs = true, page = false, post = true, project = true, publication = true, talk = true}
 
 # Github
-github = "https://github.com/eclipse/mosaic"
+github = "https://github.com/eclipse-mosaic/mosaic"
 
 ############################
 ## Contact details

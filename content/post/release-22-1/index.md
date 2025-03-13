@@ -4,7 +4,7 @@ categories:
   - Release
 release:
   name: "Eclipse MOSAIC 22.1"
-  github_url: "https://github.com/eclipse/mosaic/releases/tag/22.1"
+  github_url: "https://github.com/eclipse-mosaic/mosaic/releases/tag/22.1"
 date: "2022-10-18T00:00:00Z"
 lastMod: "2022-10-19T00:00:00Z"
 math: false
@@ -21,7 +21,7 @@ image:
 **The autumn release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 22.1 to the open source community. 
 This new version extends the recently introduced perception facilities in the Application simulator and upgrades the ns-3 simulator coupling.**
 
-You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse/mosaic).
+You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse-mosaic/mosaic).
 
 ### Release Date
 2022-10-19

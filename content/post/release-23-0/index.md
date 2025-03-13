@@ -4,7 +4,7 @@ categories:
   - Release
 release:
   name: "Eclipse MOSAIC 23.0"
-  github_url: "https://github.com/eclipse/mosaic/releases/tag/23.0"
+  github_url: "https://github.com/eclipse-mosaic/mosaic/releases/tag/23.0"
 date: "2023-04-20T00:00:00Z"
 lastMod: "2023-04-20T00:00:00Z"
 math: false
@@ -21,7 +21,7 @@ image:
 **The autumn release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 23.0 to the open source community. 
 This new version improves the recently introduced perception facilities in the Application simulator and brings better handling of the traffic simulation SUMO.**
 
-You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse/mosaic).
+You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse-mosaic/mosaic).
 
 ### Release Date
 2023-04-20

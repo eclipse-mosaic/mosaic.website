@@ -4,7 +4,7 @@ categories:
   - Release
 release:
   name: "Eclipse MOSAIC 24.0"
-  github_url: "https://github.com/eclipse/mosaic/releases/tag/24.0"
+  github_url: "https://github.com/eclipse-mosaic/mosaic/releases/tag/24.0"
 date: "2024-03-25T00:00:00Z"
 lastMod: "2024-03-25T00:00:00Z"
 math: false
@@ -21,7 +21,7 @@ image:
 **The spring release of Eclipse MOSAIC has arrived! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 24.0 to the open source community. 
 This new version comes with an updated routing library and improved simulation of cellular communication.**
 
-:rocket: You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse/mosaic). 
+:rocket: You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse-mosaic/mosaic). 
 
 ### Release Date
 2024-03-25

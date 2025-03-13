@@ -13,5 +13,5 @@ subtitle = "We are waiting for your contributions. First read the following few 
   
 [[button]]
   title = "<i class=\"fab fa-github\"></i> Eclipse MOSAIC @ GitHub"
-  url = "https://github.com/eclipse/mosaic"
+  url = "https://github.com/eclipse-mosaic/mosaic"
 +++

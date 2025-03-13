@@ -4,7 +4,7 @@ categories:
   - Release
 release:
   name: "Eclipse MOSAIC 21.1"
-  github_url: "https://github.com/eclipse/mosaic/releases/tag/21.1"
+  github_url: "https://github.com/eclipse-mosaic/mosaic/releases/tag/21.1"
 date: "2021-10-07T00:00:00Z"
 lastMod: "2021-10-07T00:00:00Z"
 math: false
@@ -21,7 +21,7 @@ image:
 **A new release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 21.1 to the open source community. 
 This new version focuses on a better usage of communication simulators SNS, OMNeT++, and ns-3, and allows to use a much faster integration of the traffic simulator SUMO.**
 
-You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse/mosaic).
+You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse-mosaic/mosaic).
 
 ### Release Date
 2021-10-07

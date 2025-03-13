@@ -109,7 +109,7 @@
       weight = 2
     [[footer]]
       name = "Github"
-      url = "https://github.com/eclipse/mosaic"
+      url = "https://github.com/eclipse-mosaic/mosaic"
       identifier = "github"
       parent = "community"
       weight = 3

@@ -23,12 +23,12 @@ You have to install the [same requirements](/docs/getting_started/#additional-so
 
 ### Get the code
 
-Please find the MOSAIC code in the GitHub repository [here](https://github.com/eclipse/mosaic). Let's say you would like to contribute your changes, so you fork the repository first, and read [guideline how to contribute](https://github.com/eclipse/mosaic/blob/main/CONTRIBUTING.md).
+Please find the MOSAIC code in the GitHub repository [here](https://github.com/eclipse-mosaic/mosaic). Let's say you would like to contribute your changes, so you fork the repository first, and read [guideline how to contribute](https://github.com/eclipse-mosaic/mosaic/blob/main/CONTRIBUTING.md).
 
 ```bash
 git clone git@github.com:<github-username>/mosaic.git eclipse-mosaic
 cd eclipse-mosaic
-git remote add upstream git@github.com:eclipse/mosaic.git # when using ssh
+git remote add upstream git@github.com:eclipse-mosaic/mosaic.git # when using ssh
 mvn clean install
 ```
 
@@ -44,7 +44,7 @@ The entry class `MosaicStarter` has a lot of dependencies which need to be refer
 
 - Start IntelliJ IDEA and choose `Open or Import` (see Figure 1).
 - Choose the cloned `eclipse-mosaic` repository
-- For IntelliJ there's already a [pre-defined run configuration](https://github.com/eclipse/mosaic/blob/main/rti/mosaic-starter/MosaicStarter.run.xml) in the repo which should work right away when you run it (see Figure 2).
+- For IntelliJ there's already a [pre-defined run configuration](https://github.com/eclipse-mosaic/mosaic/blob/main/rti/mosaic-starter/MosaicStarter.run.xml) in the repo which should work right away when you run it (see Figure 2).
 
 Good to know: 
 - When changing any `pom.xml` you need to: `Rightclick on root-module > Maven > Reload project`

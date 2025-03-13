@@ -70,7 +70,7 @@ Some examples of events are shown below, but a more detailed description can be 
 
 ## WeatherServer Application
 
-The [`WeatherServer`](https://github.com/eclipse/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherServerApp.java) is a simulation unit without geographical location which has knowledge about the hazardous area and it is responsible to 
+The [`WeatherServer`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherServerApp.java) is a simulation unit without geographical location which has knowledge about the hazardous area and it is responsible to 
 transmit DEN-Messages periodically to vehicles equipped with  `WeatherWarningAppCell`-application via cellular communication. 
 Firstly, the hazardous area (Road-ID and GeoPoint coordinates), the type of the warning (Sensor type), message interval 
 and the resulted speed will be defined to be used later: 
@@ -160,7 +160,7 @@ private Denm constructDenm() {
 
 ## WeatherWarningApp 
 
-The [`WeatherWarningApp`](https://github.com/eclipse/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherWarningApp.java) application illustrates the vehicles and their behaviour in particular with regard to the 
+The [`WeatherWarningApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherWarningApp.java) application illustrates the vehicles and their behaviour in particular with regard to the 
 detecting hazardous area, the receiving and sending messages. We will also cover how alternative routes 
 will be calculated and how vehicles change their route in order to circumnavigate the affected road area.
 
@@ -278,12 +278,12 @@ private void circumnavigateAffectedRoad(DENM denm, final String affectedRoadId) 
 
 ## WeatherWarningAppCell
 
-The only difference of the [`WeatherWarningAppCell`](https://github.com/eclipse/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherWarningAppCell.java) to detailed described WeatherWarningApp is that the 
+The only difference of the [`WeatherWarningAppCell`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherWarningAppCell.java) to detailed described WeatherWarningApp is that the 
 `WeatherWarningAppCell`-application enabled the use of the cellular network. 
 
 ## SlowDownApp
 
-The [`SlowDownApp`](https://github.com/eclipse/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/SlowDownApp.java) induces a speed reduction as soon as the on-board sensors detect hazardous conditions.
+The [`SlowDownApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/SlowDownApp.java) induces a speed reduction as soon as the on-board sensors detect hazardous conditions.
 To detect the change in the on-board sensors, the state of the sensors have to be queried whenever the
 vehicle has moved. This is achieved by implementing the `onVehicleUpdated()` method which is called
 whenever the traffic simulator executed one simulation step. 

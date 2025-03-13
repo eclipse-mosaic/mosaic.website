@@ -4,7 +4,7 @@ categories:
   - Release
 release:
   name: "Eclipse MOSAIC 21.0"
-  github_url: "https://github.com/eclipse/mosaic/releases/tag/21.0"
+  github_url: "https://github.com/eclipse-mosaic/mosaic/releases/tag/21.0"
 date: "2021-03-10T00:00:00Z"
 lastMod: "2021-03-10T00:00:00Z"
 math: false
@@ -25,7 +25,7 @@ image:
 **The spring release has arrived! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 21.0 to the open source community. 
 This new version focuses on a much better integration of SUMO configurations, and introduces a new Server entity to the Application Simulator.**
 
-You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse/mosaic).
+You can find the new version in our [Download section](/download), and in our [GitHub repository](https://github.com/eclipse-mosaic/mosaic).
 
 Please note our [Migration Guide](#migration-guide) below when updating Eclipse MOSAIC.
 
@@ -68,7 +68,7 @@ The following steps should be followed if you want to migrate your already exist
 3. Run `scenario-convert --db2sumo -d path/to/database.db` to generate a new SUMO network.
 4. Move the generated `*.net.xml` file to the `sumo` directory of your scenario and replace the existing one with it.
 
-If you need further advice, please head over to our all new [discussion board](https://github.com/eclipse/mosaic/discussions). 
+If you need further advice, please head over to our all new [discussion board](https://github.com/eclipse-mosaic/mosaic/discussions). 
 
 
 ---

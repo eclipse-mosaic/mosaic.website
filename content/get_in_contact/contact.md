@@ -12,7 +12,7 @@ subtitle = "Please select the contact channel depending on your demands:"
     text = "If you have questions about using or extending MOSAIC, you can get in touch with us on our GitHub discussions page."
     [card.button]
         title = "Join GitHub Discussions"
-        url = "https://github.com/eclipse/mosaic/discussions"
+        url = "https://github.com/eclipse-mosaic/mosaic/discussions"
         icon = "comments"
 [[card]]
     subtitle = "Versions & Licences"

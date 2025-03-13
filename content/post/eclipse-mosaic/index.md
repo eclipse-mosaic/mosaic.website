@@ -51,7 +51,7 @@ Fraunhofer FOKUS has been a strategic development member of the Eclipse Foundati
 
 Further information about Eclipse MOSAIC:
 https://www.eclipse.dev/mosaic
-https://github.com/eclipse/mosaic
+https://github.com/eclipse-mosaic/mosaic
 
 Further information about INFRAMIX:
 https://www.fokus.fraunhofer.de/de/fokus/news/inframix-projekt_2020_08

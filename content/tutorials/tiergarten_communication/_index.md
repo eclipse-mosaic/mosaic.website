@@ -44,7 +44,7 @@ After completing this tutorial the reader should be able to deploy own applicati
 according to his needs and make use of ad-hoc communication among vehicles and intra-vehicle 
 communication among applications on the same vehicle. The
 [Eclipse MOSAIC Cell](/docs/simulators/network_simulator_cell)
-simulator that is used to simulate cellular network communication will be covered in tutorial 2. The source code for all the applications in this tutorial can be found [here](https://github.com/eclipse/mosaic/tree/main/app/tutorials/traffic-light-communication/src/main/java/org/eclipse/mosaic/app/tutorial).
+simulator that is used to simulate cellular network communication will be covered in tutorial 2. The source code for all the applications in this tutorial can be found [here](https://github.com/eclipse-mosaic/mosaic/tree/main/app/tutorials/traffic-light-communication/src/main/java/org/eclipse/mosaic/app/tutorial).
 
 ## Mapping Configuration
 
@@ -217,7 +217,7 @@ Since the receiving application is now set up we move on to the sending side of 
 The sending takes place from the RSU via a broadcast, so every vehicle in transmission range
 will receive the message sent by it. The picture above shows the communication range of the RSU
 which is dependent from the settings in the communication simulator.
-The actual sending takes place in the [`RoadSideUnitApp`](https://github.com/eclipse/mosaic/blob/main/app/tutorials/traffic-light-communication/src/main/java/org/eclipse/mosaic/app/tutorial/RoadSideUnitApp.java) application which is equipped to the RSU
+The actual sending takes place in the [`RoadSideUnitApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/traffic-light-communication/src/main/java/org/eclipse/mosaic/app/tutorial/RoadSideUnitApp.java) application which is equipped to the RSU
 via the mapping configuration.
 
 #### Application simulator event model
