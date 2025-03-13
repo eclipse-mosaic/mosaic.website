@@ -4051,7 +4051,10 @@ processing of the obtained data.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
-&lt;p&gt;For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g., Highway tutorial).&lt;/p&gt;
+&lt;p&gt;For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g., Highway tutorial).
+The detectors have to be mapped to at least one TMC in order to be noticed in the output generator.
+If you want to exclude detector flow updates containing zeros, use &lt;code&gt;&amp;lt;filter filterType=&amp;quot;keep&amp;quot;&amp;gt;MoreThan:0&amp;lt;/filter&amp;gt;&lt;/code&gt;.
+You cannot group by &lt;code&gt;VehicleType&lt;/code&gt; or &lt;code&gt;VehicleGroup&lt;/code&gt; for the &lt;code&gt;DetectorFlow&lt;/code&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;ol start=&#34;2&#34;&gt;
@@ -4061,7 +4064,8 @@ to (&lt;code&gt;VehicleGroup&lt;/code&gt;), or obtained data value (e.g. &lt;cod
 size 200).&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;aggregation&lt;/code&gt;: &lt;code&gt;Average&lt;/code&gt; | &lt;code&gt;Harmonic&lt;/code&gt; aggregation of the obtained values. An attribute &lt;code&gt;deviation&lt;/code&gt;
+&lt;p&gt;&lt;code&gt;aggregation&lt;/code&gt;: &lt;code&gt;Average&lt;/code&gt; | &lt;code&gt;Harmonic&lt;/code&gt; | &lt;code&gt;Min&lt;/code&gt; | &lt;code&gt;Max&lt;/code&gt; | &lt;code&gt;Sum&lt;/code&gt; | &lt;code&gt;Count&lt;/code&gt; aggregation of the obtained
+values. For &lt;code&gt;Average&lt;/code&gt; and &lt;code&gt;Harmonic&lt;/code&gt; an attribute &lt;code&gt;deviation&lt;/code&gt;
 can be set to true or false (it’s false if the attribute is not given). This attribute can be used for
 grouped values to get the deviation of each value from the aggregated group value or to get a
 standard deviation based on biased sample variance for groups (in the short output version).&lt;/p&gt;
@@ -16258,7 +16262,7 @@ modeling of charging stations, without the need of being super accurate with the
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic/archive/refs/tags/24.1.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse MOSAIC Source Code (version 24.1)&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic/archive/refs/tags/24.1.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse MOSAIC Source Code (version 24.1)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
@@ -16306,7 +16310,7 @@ This release concentrates less on new features, but on improving documentation a
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2024-09-06&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -16587,7 +16591,7 @@ This new version comes with an updated routing library and improved simulation o
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2024-03-25&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -16862,7 +16866,7 @@ This new version brings the perception facilities in the Application simulator t
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2023-10-06&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -17034,7 +17038,7 @@ This new version improves the recently introduced perception facilities in the A
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2023-04-20&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -17140,7 +17144,7 @@ This new version extends the recently introduced perception facilities in the Ap
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2022-10-19&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -17635,7 +17639,7 @@ This new version introduces perception facilities to the Application simulator a
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2022-05-04&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -18074,7 +18078,7 @@ This new version focuses on a better usage of communication simulators SNS, OMNe
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2021-10-07&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -18227,7 +18231,7 @@ This new version focuses on a much better integration of SUMO configurations, an
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Please note our 
 
 
@@ -18304,7 +18308,7 @@ road network model in a way that it matches better the network representation of
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic/discussions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;discussion board&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic/discussions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;discussion board&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
@@ -19111,7 +19115,7 @@ agreement no 723016.&lt;/p&gt;
 &lt;p&gt;Fraunhofer FOKUS has been a strategic development member of the Eclipse Foundation since May of this year and works in close cooperation with the partners of the working groups OpenMobility and openADx (Open Source for Autonomous Driving).&lt;/p&gt;
 &lt;p&gt;Further information about Eclipse MOSAIC:
 &lt;a href=&#34;https://www.eclipse.dev/mosaic&#34;&gt;https://www.eclipse.dev/mosaic&lt;/a&gt;
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34;&gt;https://github.com/eclipse/mosaic&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34;&gt;https://github.com/eclipse-mosaic/mosaic&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Further information about INFRAMIX:
 &lt;a href=&#34;https://www.fokus.fraunhofer.de/de/fokus/news/inframix-projekt_2020_08&#34;&gt;https://www.fokus.fraunhofer.de/de/fokus/news/inframix-projekt_2020_08&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Further information about EclipseCon:

@@ -607,7 +607,7 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
 
       
       <li class="nav-item ">
-        <a href="https://github.com/eclipse/mosaic" target="blank">
+        <a href="https://github.com/eclipse-mosaic/mosaic" target="blank">
           <i class="fab fa-github" aria-hidden="true"></i>
         </a>
       </li>
@@ -834,7 +834,7 @@ For further information on licenses, feel free to contact us via  mosaic@fokus.f
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.0-SNAPSHOT." href="https://github.com/eclipse/mosaic">
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.0-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
     <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.0-SNAPSHOT
   </a>
 </div>
@@ -1324,7 +1324,10 @@ processing of the obtained data.</p>
 </ol>
 <div class="alert alert-note">
   <div>
-<p>For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g., Highway tutorial).</p>
+<p>For using the detector flow type, inductions loops need to be configured in the SUMO and mapping configuration files (e.g., Highway tutorial).
+The detectors have to be mapped to at least one TMC in order to be noticed in the output generator.
+If you want to exclude detector flow updates containing zeros, use <code>&lt;filter filterType=&quot;keep&quot;&gt;MoreThan:0&lt;/filter&gt;</code>.
+You cannot group by <code>VehicleType</code> or <code>VehicleGroup</code> for the <code>DetectorFlow</code>.</p>
   </div>
 </div>
 <ol start="2">
@@ -1334,7 +1337,8 @@ to (<code>VehicleGroup</code>), or obtained data value (e.g. <code>Interval:200<
 size 200).</p>
 </li>
 <li>
-<p><code>aggregation</code>: <code>Average</code> | <code>Harmonic</code> aggregation of the obtained values. An attribute <code>deviation</code>
+<p><code>aggregation</code>: <code>Average</code> | <code>Harmonic</code> | <code>Min</code> | <code>Max</code> | <code>Sum</code> | <code>Count</code> aggregation of the obtained
+values. For <code>Average</code> and <code>Harmonic</code> an attribute <code>deviation</code>
 can be set to true or false (it’s false if the attribute is not given). This attribute can be used for
 grouped values to get the deviation of each value from the aggregated group value or to get a
 standard deviation based on biased sample variance for groups (in the short output version).</p>
@@ -1612,7 +1616,7 @@ Unequipped;459.18;84;
                   
                 
                 <li>
-                  <a href="https://github.com/eclipse/mosaic" title="Github"  target="_blank" rel="noopener">
+                  <a href="https://github.com/eclipse-mosaic/mosaic" title="Github"  target="_blank" rel="noopener">
                     
                       Github
                     
@@ -1780,7 +1784,7 @@ Unequipped;459.18;84;
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 11 Mar 2025, 08:28 UTC
+      Website built on 13 Mar 2025, 12:40 UTC
     </p>
     
   </div>

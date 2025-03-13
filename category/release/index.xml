@@ -49,7 +49,7 @@ This release concentrates less on new features, but on improving documentation a
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2024-09-06&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -147,7 +147,7 @@ This new version comes with an updated routing library and improved simulation o
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2024-03-25&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -276,7 +276,7 @@ This new version brings the perception facilities in the Application simulator t
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2023-10-06&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -383,7 +383,7 @@ This new version improves the recently introduced perception facilities in the A
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2023-04-20&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -489,7 +489,7 @@ This new version extends the recently introduced perception facilities in the Ap
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2022-10-19&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -615,7 +615,7 @@ This new version introduces perception facilities to the Application simulator a
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2022-05-04&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -722,7 +722,7 @@ This new version focuses on a better usage of communication simulators SNS, OMNe
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
 &lt;p&gt;2021-10-07&lt;/p&gt;
 &lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
@@ -835,7 +835,7 @@ This new version focuses on a much better integration of SUMO configurations, an
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Please note our 
 
 
@@ -912,7 +912,7 @@ road network model in a way that it matches better the network representation of
 
 
 
-&lt;a href=&#34;https://github.com/eclipse/mosaic/discussions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;discussion board&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic/discussions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;discussion board&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
