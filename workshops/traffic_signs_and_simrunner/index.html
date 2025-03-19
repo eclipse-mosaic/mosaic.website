@@ -1,0 +1,1467 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+
+
+  
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="
+    upgrade-insecure-requests;
+    base-uri        'self';
+    default-src     'none';
+    object-src      'none';
+    script-src      'self' 'unsafe-inline' 'unsafe-eval' https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    worker-src      'self'                               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://code.jquery.com https://cdn.jsdelivr.net https://maps.google.com https://cse.google.com ;
+    style-src       'self' 'unsafe-inline'               https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://cdn.jsdelivr.net ;
+    img-src         'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    media-src       'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    font-src        'self' data:                         https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev ;
+    child-src                                            https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev https://*.dcaiti.com https://dcaiti.com https://cse.google.com ;
+    connect-src                                          https://*.dcaiti.tu-berlin.de https://eclipse.dev https://www.eclipse.dev http://localhost:1313/ ws://localhost:1313/ ;
+    manifest-src    'self'                               https://*.dcaiti.tu-berlin.de https://maps.google.com https://cse.google.com https://play.google.com ;
+    frame-ancestors 'self';
+    ">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+      
+    
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Fraunhofer FOKUS">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/workshops/traffic_signs_and_simrunner/">
+
+  
+
+
+  
+  
+  
+  
+  
+  <meta name="theme-color" content="#68145C">
+  
+
+  
+  
+  
+  <script src="/mosaic/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/academicons.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/font-awesome.all.min.css">
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/jquery.fancybox.min.css">
+  
+
+  
+  
+  
+    
+  
+  
+    <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/highlight.min.css">
+  
+
+
+  
+    
+      <link rel="stylesheet" href="https://www.eclipse.dev/mosaic/css/thirdparty/leaflet.css">
+    
+  
+
+  
+
+  
+  
+  
+    
+  
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/lazysizes.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/tex-chtml.min.js"></script>
+      
+    
+  
+    
+
+    
+    
+
+    
+  
+    
+
+    
+    
+
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/mosaic/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+  <link rel="alternate" href="/mosaic/workshops/traffic_signs_and_simrunner/index.xml" type="application/rss+xml" title="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  
+
+  <link rel="manifest" href="/mosaic/index.webmanifest">
+  <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://www.eclipse.dev/mosaic/workshops/traffic_signs_and_simrunner/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.dev/mosaic/workshops/traffic_signs_and_simrunner/">
+  <meta property="og:title" content="Workshop: Traffic Signs and SimRunner | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
+  <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
+  
+    
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Workshop: Traffic Signs and SimRunner | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-workshops page-traffic_signs_and_simrunner ">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-10 col-md-3">
+          <div class="logo" style="background-image: url(/mosaic/img/logos/mosaic/EclipseMOSAIC-Logo-RGB-positiv.svg)"></div>
+        </div>
+        <div class="col-2 col-md-4 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    <div class="d-none d-lg-inline-flex">
+      <a style="visibility:visible;" class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+
+
+    
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content-mobile" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/mosaic/"><img src="/mosaic/images/logo.svg" alt="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility"></a>
+    </div>
+    
+
+    
+    
+    <div id="navbar-content" class="navbar-collapse main-menu-item collapse justify-content-start">
+
+    
+    <ul class="navbar-nav d-md-inline-flex">
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/docs/"><span>Documentation</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link  active" href="/mosaic/workshops/"><span>Workshops</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/commercial/"><span>Commercial</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <li class="nav-item">
+        <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+      </li>
+
+      
+      
+
+      
+
+      
+    </ul>
+  </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+      <li class="nav-item ">
+        <a href="https://github.com/eclipse-mosaic/mosaic" target="blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+
+    
+    
+    <div id="navbar-content-mobile" class="navbar-collapse main-menu-item collapse justify-content-start d-lg-none">
+
+    
+      <ul class="navbar-nav d-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/about/"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/news/"><span>News</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/docs/"><span>Documentation</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/tutorials/"><span>Tutorials</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/mosaic/workshops/"><span>Workshops</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/download/"><span>Download</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/commercial/"><span>Commercial</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/mosaic/community/"><span>Community</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
+  <h1>Workshop: Traffic Signs and SimRunner</h1>
+
+  
+
+  
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+  <div class="article-style"><p>In this workshop we focus on optimizing travel times for buses on a highway transitioning to a normal road. A natural bottleneck occurs due to the merging of high car and bus flows. Variable message signs (VMS) will be utilized to manage traffic effectively.</p>
+<p>As part of the workshop, you will learn in detail about several features of MOSAIC:</p>
+<ul>
+<li>Placement of Variable Message Signs</li>
+<li>Dynamic change of Variable Message Signs</li>
+<li>Measuring performance via the Statistics Output</li>
+<li>How to setup multiple parallel simulation runs</li>
+<li>Visualization via SUMO GUI</li>
+</ul>
+<p>A major part of the workshop will teach knowledge about MOSAIC and the features required to implement the use-case scenario, as well as theoretical background knowledge about the components VMS, Statistics and Simrunner. To practice the new learnings, we will provide you with a workshop scenario for MOSAIC and several tasks the participants will solve on their own using the MOSAIC framework.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+
+  <a data-fancybox="" href="images/Scenario.png" >
+
+
+  <img src="images/Scenario.png" alt="" width="700px" >
+</a>
+
+
+
+</figure>
+
+<p><strong>Task 1: Static VMS assignment</strong><br>
+Participants will get familiar with the basic handling and configuration of the VMS component. By assigning different vehicle types on the respective three lanes, they will explore and optimize the scenario, following their qualitative judgement.</p>
+<p><strong>Task 2: Statistics Output</strong><br>
+After finding a promising lane assignment, participants will measure the impact of the VMS settings on travel times for both cars and buses. They will configure the output to collect average travel times, analyzing how the VMS influences these times.</p>
+<p><strong>Task 3: Dynamic VMS assignment</strong><br>
+Recognizing that traffic flows change, participants will implement dynamic lane assignments during the simulation. They will use lane area detectors to monitor traffic volume and adjust the VMS settings accordingly. Participants will create an additional lane detector and run the code to determine effective thresholds for controlling the VMS, analyzing the resulting travel times for buses.</p>
+<p><strong>Task 4: SimRunner</strong><br>
+Finally, participants will explore how varying car flow affects bus travel times by using the Simulation Runner tool. They will configure the scenario for both static and dynamic lane assignments and execute a series of simulations with different car flow parameters. After completing the simulations, they will plot their results to compare the performance with and without traffic control.</p>
+<p><strong>Conclusion:</strong><br>
+In this workshop, participants will learn how to manage traffic flow by using VMS. They will gain hands-on experience with dynamic traffic management, data analysis techniques, and simulation tools.</p>
+</div>
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <div class="post-nav prev-next-pages col-12">
+    <div class="row">
+
+      
+      <div class="post-nav-item col-12 col-md-6">
+        
+          <div class="meta-nav">Previous</div>
+          <a href="/mosaic/workshops/perception_and_parking/" rel="next">Perception and Parking Vehicles</a>
+        
+      </div>
+
+      
+      <div class="post-nav-item col-12 col-md-6 align-self-end">
+        
+          <div class="meta-nav">Next</div>
+          <a href="/mosaic/workshops/sensor_data_generation/" rel="next">Sensor Data Generation</a>
+        
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+      
+
+    
+    
+    
+
+    
+
+    
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/popper.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/imagesloaded.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/isotope.pkgd.min.js"></script>
+      <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.fancybox.min.js"></script>
+
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/mermaid.min.js"></script>
+      
+
+      
+        
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-java.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-json.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-xml.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-shell.min.js"></script>
+        
+          <script src="https://www.eclipse.dev/mosaic/js/thirdparty/highlight-dos.min.js"></script>
+        
+      
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/mosaic/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+    
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+      
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/fuse.min.js"></script>
+        <script src="https://www.eclipse.dev/mosaic/js/thirdparty/jquery.mark.min.js"></script>
+      
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script type="application/javascript" src="/mosaic/js/academic.min.27a6ec9020f3e0fadc470c962ab49eb9.js"></script>
+
+    
+
+<script type="application/javascript" src="/mosaic/js/mosaic-wg-cards.js"></script>
+<script type="application/javascript" src="/mosaic/js/mosaic-docs.js"></script>
+
+
+
+
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new window.bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+
+
+  
+  
+  <div class="footer-wrap">
+    <div class="container">
+      <footer class="site-footer">
+  <div class="row">
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse MOSAIC</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/download/" title="Download Eclipse MOSAIC" >
+                    
+                      Download Eclipse MOSAIC
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/docs/" title="Documentation" >
+                    
+                      Documentation
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/tutorials/" title="Tutorials" >
+                    
+                      Tutorials
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/workshops/" title="Workshops" >
+                    
+                      Workshops
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/about/#license" title="License" >
+                    
+                      License
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/#projects" title="Projects" >
+                    
+                      Projects
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/publications/" title="Publications" >
+                    
+                      Publications
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Community</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/community/" title="Eclipse MOSAIC Community" >
+                    
+                      Eclipse MOSAIC Community
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/contribution/" title="How to contribute" >
+                    
+                      How to contribute
+                    
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://github.com/eclipse-mosaic/mosaic" title="Github"  target="_blank" rel="noopener">
+                    
+                      Github
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                
+                <li>
+                  <a href="/mosaic/get_in_contact/" title="Contact &amp; Mailing list" >
+                    
+                      Contact & Mailing list
+                    
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+    
+      <div class="col-sm-4 mb-3 mb-md-0">
+        <b>Eclipse Foundation</b>
+        
+          <ul>
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/" title="About Eclipse Foundation"  target="_blank" rel="noopener">
+                    
+                      About Eclipse Foundation
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/privacy.php" title="Privacy Policy"  target="_blank" rel="noopener">
+                    
+                      Privacy Policy
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/termsofuse.php" title="Website terms of use"  target="_blank" rel="noopener">
+                    
+                      Website terms of use
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal/copyright.php" title="Copyright"  target="_blank" rel="noopener">
+                    
+                      Copyright
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+              
+                
+                
+                
+                  
+                    
+                    
+                  
+                
+                <li>
+                  <a href="https://www.eclipse.org/legal" title="Legal"  target="_blank" rel="noopener">
+                    
+                      Legal
+                    
+                    
+                      <i class="fa fa-external-link-alt" aria-hidden="true"></i>
+                    
+                  </a>
+                </li>
+              
+            
+          </ul>
+        
+      </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row justify-content-center mt-3 position-relative">
+    <p class="powered-by text-center font-italic mb-0 pb-0">
+      Powered by the
+      <a href="https://themes.gohugo.io/themes/starter-hugo-academic" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+      <br>
+      Header image &#169; fanjianhua/ iStock
+      <br>
+      Website built on 19 Mar 2025, 15:21 UTC
+    </p>
+    
+      <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+    
+  </div>
+</footer>
+
+
+<script>
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(["setExcludedQueryParams", ["debug","dry","clean","nomaster"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://www.dcaiti.tu-berlin.de/m/";
+    _paq.push(['setTrackerUrl', u+'m.php']);
+    _paq.push(['setSiteId', 'm4o1kOykpy']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'m.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://www.dcaiti.tu-berlin.de/m/m.php?idsite=m4o1kOykpy&amp;rec=1" style="border:0;display:none;" alt="" />
+
+
+
+    </div>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

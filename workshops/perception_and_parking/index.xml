@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workshop: Perception and Parking Vehicles | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+    <link>https://www.eclipse.dev/mosaic/workshops/perception_and_parking/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/workshops/perception_and_parking/index.xml" rel="self" type="application/rss+xml" />
+    <description>Workshop: Perception and Parking Vehicles</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
+      <title>Workshop: Perception and Parking Vehicles</title>
+      <link>https://www.eclipse.dev/mosaic/workshops/perception_and_parking/</link>
+    </image>
+    
+  </channel>
+</rss>

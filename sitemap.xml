@@ -597,11 +597,19 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/workshops/maintenance_car/</loc>
+    <loc>https://www.eclipse.dev/mosaic/workshops/traffic_signs_and_simrunner/</loc>
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/workshops/parking_observer/</loc>
+    <loc>https://www.eclipse.dev/mosaic/workshops/modelling_mobility/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/workshops/perception_and_parking/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.dev/mosaic/workshops/sensor_data_generation/</loc>
   </url>
   
 </urlset>

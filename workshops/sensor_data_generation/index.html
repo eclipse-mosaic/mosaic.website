@@ -55,7 +55,7 @@
   <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/workshops/parking_observer/">
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/workshops/sensor_data_generation/">
 
   
 
@@ -282,14 +282,14 @@
   
 
   
-  <link rel="alternate" href="/mosaic/workshops/parking_observer/index.xml" type="application/rss+xml" title="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <link rel="alternate" href="/mosaic/workshops/sensor_data_generation/index.xml" type="application/rss+xml" title="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
   
 
   <link rel="manifest" href="/mosaic/index.webmanifest">
   <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://www.eclipse.dev/mosaic/workshops/parking_observer/">
+  <link rel="canonical" href="https://www.eclipse.dev/mosaic/workshops/sensor_data_generation/">
 
   
   
@@ -305,8 +305,8 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:url" content="https://www.eclipse.dev/mosaic/workshops/parking_observer/">
-  <meta property="og:title" content="Workshop Parking Observer | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
+  <meta property="og:url" content="https://www.eclipse.dev/mosaic/workshops/sensor_data_generation/">
+  <meta property="og:title" content="Workshop: Sensor Data Generation | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
   <meta property="og:description" content=""><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
   <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
@@ -327,11 +327,11 @@
 
 
 
-  <title>Workshop Parking Observer | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+  <title>Workshop: Sensor Data Generation | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
 
 </head>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-workshops page-parking_observer ">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-workshops page-sensor_data_generation ">
 
   <aside class="search-results" id="search">
   <div class="container">
@@ -825,7 +825,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>Workshop Parking Observer</h1>
+  <h1>Workshop: Sensor Data Generation</h1>
 
   
 
@@ -836,14 +836,15 @@
 
 <div class="universal-wrapper">
   
-  <div class="article-style"><div class="alert alert-note">
-  <div>
-<p>Rework thoroughly after slides are done</p>
-  </div>
-</div>
-<p>The participants will work on a mobility service aimed at detecting parking offenders using connected vehicles.</p>
-<p><strong>Base Scenario</strong><br>
-Describe the scenario in some few sentences.</p>
+  <div class="article-style"><p>In this workshop, participants will get familiar with the PHABMACS simulator, inspired by the scenario of developing a driver assistance system focused on obstacle detection using LiDAR technology.</p>
+<p>As part of the workshop, you will learn in detail about several features of MOSAIC:</p>
+<ul>
+<li>Generation of a scenario</li>
+<li>Generation of routes in a scenario</li>
+<li>Configuration of PHABMACS</li>
+<li>Write applications using the LiDAR API</li>
+</ul>
+<p>A major part of the workshop will teach knowledge about MOSAIC and the features required to implement the use-case scenario, as well as theoretical background knowledge about Applications, PHABMACS and the LiDAR API. To practice the new learnings, we will provide you with a workshop scenario for MOSAIC and several tasks the participants will solve on their own using the MOSAIC framework.</p>
 
 
 
@@ -862,24 +863,28 @@ Describe the scenario in some few sentences.</p>
 <figure >
 
 
-  <a data-fancybox="" href="images/parking-offender.png" >
+  <a data-fancybox="" href="images/PointCloud.png" >
 
 
-  <img src="images/parking-offender.png" alt=""  >
+  <img src="images/PointCloud.png" alt="" width="700px" >
 </a>
 
 
 
 </figure>
 
-<p><strong>Exercise I: Understanding the Sensor Module</strong><br>
-Explain the Sensor Module in some few sentences.</p>
-<p><strong>Exercise II: Fix Something</strong><br>
-Fix issues with vehicle communication and sensor calibration.</p>
-<p><strong>Exercise III: Visualize and Identify Parking Offenders</strong><br>
-Uncover the hidden message left by parking offenders.</p>
-<p><strong>Conclusion</strong><br>
-The participants successfully detect parking offenders and enhance the mobility service.</p>
+<p><strong>Task 1:</strong><br>
+The first task involves creating the scenario folder and setting up a minimal configuration for the simulation.</p>
+<p><strong>Task 2:</strong><br>
+Participants will create routes by selecting start and end points and adding the route to the database. They will then configure a vehicle and assign it to the newly created route. The PHABMACS Visualizer will display the route and the vehicle following it.</p>
+<p><strong>Task 3:</strong><br>
+In this task, participants will configure various aspects of PHABMACS, including vehicle settings, visualization options, and GUI settings, to ensure an optimal user experience.</p>
+<p><strong>Task 4:</strong><br>
+Participants will add the LiDAR sensors to the scenario. This involves understanding the technology, configuring sensor properties, and assigning the LiDAR sensor to the vehicle.</p>
+<p><strong>Task 5:</strong><br>
+Finally, participants will create custom applications that utilize the LiDAR API. They will develop a new application class, initialize the LiDAR sensor, and implement methods to handle updates from the sensor. Participants will learn to generate log messages for new point clouds, analyze PointCloud objects, and apply point filtering to detect obstacles. They will implement functionality to initiate a lane change when a certain threshold of detected points is exceeded.</p>
+<p><strong>Conclusion:</strong><br>
+In this workshop, participants will gain hands-on experience with the PHABMACS simulator and the utilization of LiDAR technology, e.g. for obstacle detection. They will learn how to configure simulations, create routes, implement sensing technologies, and using that information to initiate lane changes.</p>
 </div>
   
 
@@ -898,7 +903,7 @@ The participants successfully detect parking offenders and enhance the mobility 
       <div class="post-nav-item col-12 col-md-6">
         
           <div class="meta-nav">Previous</div>
-          <a href="/mosaic/workshops/maintenance_car/" rel="next">MOSAIC 101: Modeling Mobility</a>
+          <a href="/mosaic/workshops/traffic_signs_and_simrunner/" rel="next">Traffic Signs and SimRunner</a>
         
       </div>
 
@@ -1393,7 +1398,7 @@ The participants successfully detect parking offenders and enhance the mobility 
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 13 Mar 2025, 12:50 UTC
+      Website built on 19 Mar 2025, 15:21 UTC
     </p>
     
       <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">

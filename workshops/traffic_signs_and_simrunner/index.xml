@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workshop: Traffic Signs and SimRunner | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+    <link>https://www.eclipse.dev/mosaic/workshops/traffic_signs_and_simrunner/</link>
+      <atom:link href="https://www.eclipse.dev/mosaic/workshops/traffic_signs_and_simrunner/index.xml" rel="self" type="application/rss+xml" />
+    <description>Workshop: Traffic Signs and SimRunner</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
+      <title>Workshop: Traffic Signs and SimRunner</title>
+      <link>https://www.eclipse.dev/mosaic/workshops/traffic_signs_and_simrunner/</link>
+    </image>
+    
+  </channel>
+</rss>
