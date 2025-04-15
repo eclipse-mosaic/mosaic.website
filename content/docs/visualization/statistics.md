@@ -92,9 +92,11 @@ If you want to exclude detector flow updates containing zeros, use `<filter filt
 You cannot group by `VehicleType` or `VehicleGroup` for the `DetectorFlow`.
 {{% /alert %}}
 
-2. `group-by`: The vehicles will be grouped by its vehicle type name (`VehicleType`), group they belong
-to (`VehicleGroup`), or obtained data value (e.g. `Interval:200` categorizes values into groups of
-size 200).
+2. `group-by`: The vehicles can be grouped by:
+   * its vehicle type name (`VehicleType`)
+   * the group they belong to (`VehicleGroup`)
+   * the time (`TimeInterval:200`)
+   * or obtained data value (`Interval:200`).
 
 3. `aggregation`: `Average` | `Harmonic` | `Min` | `Max` | `Sum` | `Count` aggregation of the obtained
 values. For `Average` and `Harmonic` an attribute `deviation`

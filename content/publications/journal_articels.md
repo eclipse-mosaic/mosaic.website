@@ -8,6 +8,10 @@ title = "Journal Articles"
 #subtitle = ""
 +++
 
+M. Schweppenhäuser, k. Schrab, R. Protzmann, I. Radusch:\
+**[Evaluating spatiotemporal speed metrics for traffic state estimation on complex urban roads](https://journals.sagepub.com/doi/full/10.1177/00375497241308890)**\
+SIMULATION, January 2025, DOI: [`10.1177/00375497241308890`](https://doi.org/10.1177/00375497241308890)
+
 K. Schrab, M. Neubauer, R. Protzmann, I. Radusch, S. Manganiaris, P. Lytrivis, A. J. Amditis:\
 **["Modeling an ITS Management Solution for Mixed Highway Traffic with Eclipse MOSAIC."](https://ieeexplore.ieee.org/document/9901467)**\
 IEEE Transactions on Intelligent Transportation Systems, pp. 1 - 11, Print ISSN: `1524-9050`, Electronic ISSN: `1558-0016`, 

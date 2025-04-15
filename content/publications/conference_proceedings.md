@@ -8,10 +8,16 @@ title = "Conference Proceedings"
 #subtitle = ""
 +++
 
+[//]: # (TODO: LUCID paper, AI-NET Paper, Berlin Bus Paper)
+K.Schrab, M. Schweppenhäuser, R. Protzmann, K. Massow, I.Radusch:\
+**Modeling and Analyzing Ride-Hailing Services with Eclipse MOSAIC.** \
+In _Advances in Transdisciplinary Engineering 27 - ICITT_ \
+Florence, Italy, 16-18 September 2024, ISBN 978-1-64368-560-1, ISSN 2352751X, DOI: [`10.3233/ATDE241209`](https://doi.org/10.3233/ATDE241209)
+
 M. Schweppenhäuser, K. Schrab, R. Protzmann, I. Radusch:\
 **Traffic State Estimation on Urban Roads Using Perception-Enriched Floating Car Data.** \
 In _Proceedings of the 10th International Conference on Vehicle Technology and Intelligent Transport Systems - VEHITS_ \
-Angers France May 2-4 2024, ISBN 978-989-758-703-0, ISSN 2184-495X, DOI: [`10.5220/0012620500003702`](https://doi.org/10.5220/0012620500003702)
+Angers, France May 2-4 2024, ISBN 978-989-758-703-0, ISSN 2184-495X, DOI: [`10.5220/0012620500003702`](https://doi.org/10.5220/0012620500003702)
 
 M. Schweppenhäuser, K. Schrab, R. Protzmann, I. Radusch:\
 **Spatio-Temporal Speed Metrics for Traffic State Estimation on Complex Urban Roads.** \

@@ -36,7 +36,8 @@ This schema describes the JSON file structure for the mapping configuration, whi
 |config|[`config`](#reference-config)|Object to define additional configuration options for the mapping|No|None|None|
 |prototypes|[`prototype[]`](#reference-prototype)|Array of prototypes, which can complete the definitions of other objects. This can be used to re-use certain configurations. All possible properties of objects are available. Only the ones needed will be used (for example an RSU does not have a length, so this property would be ignored).|No|None|None|
 |typeDistributions|[`typeDistribution`](#reference-typedistribution)|Object to define the distribution of prototypes to reuse in vehicle spawners. A typeDistribution is referenced by it's attribute name, which can be set to any valid string.|No|None|None|
-|vehicles|[`vehicle[]`](#reference-vehicle)|Array of vehicles to be spawned in the simulation. This property describes the vehicles populatingthe simulation. It is possible to create a single vehicle (maxNumberVehicles should be '1' in that case) or a streamof one or multiple vehicles. The type(s) are defined in the field types. When more than one type is defined theweights in the prototype can be used to balance them against each other.|No|None|None|
+|vehicles|[`vehicle[]`](#reference-vehicle)|Array of vehicles to be spawned in the simulation. This property describes the vehicles populating the simulation. It is possible to create a single vehicle (maxNumberVehicles should be '1' in that case) or a stream of one or multiple vehicles. The type(s) are defined in the field types. When more than one type is defined the weights in the prototype can be used to balance them against each other.|No|None|None|
+|agents|[`agent[]`](#reference-agent)|Array of agents to be spawned in the simulation.|No|None|None|
 |matrixMappers|[`matrixMapper[]`](#reference-matrixmapper)|Array of items to define additional traffic that will be spawned using OD-matrices.|No|None|None|
 |rsus|[`rsu[]`](#reference-rsu)|Array of Road Side Units (RSUs). For RSUs only applications can be defined along with the position.|No|None|None|
 |servers|[`server[]`](#reference-server)|Array of servers. Servers are a form of units that have no geographical location. The network properties of a server can be defined in the network.json-configuration in the cell-module.|No|None|None|
@@ -236,6 +237,7 @@ Object to define vehicles to be spawned in the simulation. This property describ
    * `GROW_EXPONENTIAL`
    * `SHRINK_EXPONENTIAL`
    * `GROW_AND_SHRINK_EXPONENTIAL`
+   * `INSTANT`
 
 
 ---------------------------------------
@@ -265,6 +267,26 @@ Object to define geographical point coordinates.
 |---|---|---|---|---|---|
 |longitude|`number`|East-west position of a point on earth.| &#10003; Yes|[-180, 180]|None|
 |latitude|`number`|North-south position of a point on earth.| &#10003; Yes|[-90, 90]|None|
+
+
+
+---------------------------------------
+<a name="reference-agent"></a>
+## agent
+
+An agent has an origin and destination point. The trip selection is done via mapped applications.
+
+**Properties**
+
+|   |Type|Description|Required|Boundaries|Default|
+|---|---|---|---|---|---|
+|startingTime|`string`<br>`number`|Time in seconds at which the agent will be created.| &#10003; Yes|None|None|
+|origin|[`geoPoint`](#reference-geopoint)|Object to define geographical point coordinates.| &#10003; Yes|None|None|
+|destination|[`geoPoint`](#reference-geopoint)|Object to define geographical point coordinates.| &#10003; Yes|None|None|
+|name|`string`|Used to be matched with a prototype. If a prototype name matches this name, all properties not set in this object will be overwritten by those defined in the prototype.|No|None|None|
+|group|`string`|The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple agent entities.|No|None|None|
+|applications|`string[]`|Array of strings that specifies the applications to be used for this object.|No|None|None|
+|walkingSpeed|`string`<br>`number`|Speed which is used for walking, in m/s.|No|None|None|
 
 
 

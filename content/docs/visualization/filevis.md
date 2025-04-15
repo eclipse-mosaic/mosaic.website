@@ -208,6 +208,10 @@ _Output result of the above listing_
 
 Note: the longest matched prefix will be considered as the same iterating operation, which means they are in the same level of iteration structure.
 
+### Use InductionLoopDetector or LaneAreaDetector
+
+Eclipse MOSAIC has to subscribe to updates from detectors. Currently this is done in the TMC unit. In order to receive detector updates from SUMO, which can be then recorded by the output generator, the detector has to be mapped to at least one TMC.
+
 ## Additional features
 
 #### Limit output on time frame
