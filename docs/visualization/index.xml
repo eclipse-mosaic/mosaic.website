@@ -189,6 +189,8 @@ sender2, receiver2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Output result of the above listing&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Note: the longest matched prefix will be considered as the same iterating operation, which means they are in the same level of iteration structure.&lt;/p&gt;
+&lt;h3 id=&#34;use-inductionloopdetector-or-laneareadetector&#34;&gt;Use InductionLoopDetector or LaneAreaDetector&lt;/h3&gt;
+&lt;p&gt;Eclipse MOSAIC has to subscribe to updates from detectors. Currently this is done in the TMC unit. In order to receive detector updates from SUMO, which can be then recorded by the output generator, the detector has to be mapped to at least one TMC.&lt;/p&gt;
 &lt;h2 id=&#34;additional-features&#34;&gt;Additional features&lt;/h2&gt;
 &lt;h4 id=&#34;limit-output-on-time-frame&#34;&gt;Limit output on time frame&lt;/h4&gt;
 &lt;p&gt;You can configure the File Output Generator to write out interactions within a specific frame of simulation time.
@@ -329,9 +331,13 @@ You cannot group by &lt;code&gt;VehicleType&lt;/code&gt; or &lt;code&gt;VehicleG
 &lt;/div&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;group-by&lt;/code&gt;: The vehicles will be grouped by its vehicle type name (&lt;code&gt;VehicleType&lt;/code&gt;), group they belong
-to (&lt;code&gt;VehicleGroup&lt;/code&gt;), or obtained data value (e.g. &lt;code&gt;Interval:200&lt;/code&gt; categorizes values into groups of
-size 200).&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;group-by&lt;/code&gt;: The vehicles can be grouped by:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;its vehicle type name (&lt;code&gt;VehicleType&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;the group they belong to (&lt;code&gt;VehicleGroup&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;the time (&lt;code&gt;TimeInterval:200&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;or obtained data value (&lt;code&gt;Interval:200&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;aggregation&lt;/code&gt;: &lt;code&gt;Average&lt;/code&gt; | &lt;code&gt;Harmonic&lt;/code&gt; | &lt;code&gt;Min&lt;/code&gt; | &lt;code&gt;Max&lt;/code&gt; | &lt;code&gt;Sum&lt;/code&gt; | &lt;code&gt;Count&lt;/code&gt; aggregation of the obtained

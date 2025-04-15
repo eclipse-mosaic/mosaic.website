@@ -834,8 +834,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.0-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.0-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.1-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.1-SNAPSHOT
   </a>
 </div>
 
@@ -1192,6 +1192,7 @@
     </li>
     <li><a href="#geocircle">geoCircle</a></li>
     <li><a href="#geopoint">GeoPoint</a></li>
+    <li><a href="#agent">agent</a></li>
     <li><a href="#matrixmapper">matrixMapper</a>
       <ul>
         <li><a href="#matrixmapperdepartspeedmode">matrixMapper.departSpeedMode</a></li>
@@ -1355,7 +1356,24 @@ have the option of:</p>
   
 
 <a href="#reference-vehicle"><code>vehicle[]</code></a></td>
-<td>Array of vehicles to be spawned in the simulation. This property describes the vehicles populatingthe simulation. It is possible to create a single vehicle (maxNumberVehicles should be &lsquo;1&rsquo; in that case) or a streamof one or multiple vehicles. The type(s) are defined in the field types. When more than one type is defined theweights in the prototype can be used to balance them against each other.</td>
+<td>Array of vehicles to be spawned in the simulation. This property describes the vehicles populating the simulation. It is possible to create a single vehicle (maxNumberVehicles should be &lsquo;1&rsquo; in that case) or a stream of one or multiple vehicles. The type(s) are defined in the field types. When more than one type is defined the weights in the prototype can be used to balance them against each other.</td>
+<td>No</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>agents</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-agent"><code>agent[]</code></a></td>
+<td>Array of agents to be spawned in the simulation.</td>
 <td>No</td>
 <td>None</td>
 <td>None</td>
@@ -2148,6 +2166,7 @@ have the option of:</p>
 <li><code>GROW_EXPONENTIAL</code></li>
 <li><code>SHRINK_EXPONENTIAL</code></li>
 <li><code>GROW_AND_SHRINK_EXPONENTIAL</code></li>
+<li><code>INSTANT</code></li>
 </ul>
 </li>
 </ul>
@@ -2226,6 +2245,99 @@ have the option of:</p>
 <td>North-south position of a point on earth.</td>
 <td>✓ Yes</td>
 <td>[-90, 90]</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a name="reference-agent"></a></p>
+<h2 id="agent">agent</h2>
+<p>An agent has an origin and destination point. The trip selection is done via mapped applications.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Boundaries</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>startingTime</td>
+<td><code>string</code><br><code>number</code></td>
+<td>Time in seconds at which the agent will be created.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>origin</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-geopoint"><code>geoPoint</code></a></td>
+<td>Object to define geographical point coordinates.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>destination</td>
+<td>
+
+
+
+
+
+  
+  
+
+<a href="#reference-geopoint"><code>geoPoint</code></a></td>
+<td>Object to define geographical point coordinates.</td>
+<td>✓ Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>Used to be matched with a prototype. If a prototype name matches this name, all properties not set in this object will be overwritten by those defined in the prototype.</td>
+<td>No</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>group</td>
+<td><code>string</code></td>
+<td>The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple agent entities.</td>
+<td>No</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>applications</td>
+<td><code>string[]</code></td>
+<td>Array of strings that specifies the applications to be used for this object.</td>
+<td>No</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>walkingSpeed</td>
+<td><code>string</code><br><code>number</code></td>
+<td>Speed which is used for walking, in m/s.</td>
+<td>No</td>
+<td>None</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -3168,7 +3280,7 @@ have the option of:</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 19 Mar 2025, 15:21 UTC
+      Website built on 15 Apr 2025, 11:37 UTC
     </p>
     
   </div>

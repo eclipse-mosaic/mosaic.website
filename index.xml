@@ -5,7 +5,7 @@
     <link>https://www.eclipse.dev/mosaic/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/index.xml" rel="self" type="application/rss+xml" />
     <description>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 16 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 14 Apr 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
@@ -363,6 +363,8 @@ sender2, receiver2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Output result of the above listing&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Note: the longest matched prefix will be considered as the same iterating operation, which means they are in the same level of iteration structure.&lt;/p&gt;
+&lt;h3 id=&#34;use-inductionloopdetector-or-laneareadetector&#34;&gt;Use InductionLoopDetector or LaneAreaDetector&lt;/h3&gt;
+&lt;p&gt;Eclipse MOSAIC has to subscribe to updates from detectors. Currently this is done in the TMC unit. In order to receive detector updates from SUMO, which can be then recorded by the output generator, the detector has to be mapped to at least one TMC.&lt;/p&gt;
 &lt;h2 id=&#34;additional-features&#34;&gt;Additional features&lt;/h2&gt;
 &lt;h4 id=&#34;limit-output-on-time-frame&#34;&gt;Limit output on time frame&lt;/h4&gt;
 &lt;p&gt;You can configure the File Output Generator to write out interactions within a specific frame of simulation time.
@@ -1572,7 +1574,7 @@ table th:nth-of-type(2) {
 &lt;/table&gt;
 &lt;p&gt;While Eclipse MOSAIC is running, it prints some information on the command line:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[user@gnulinux mosaic]$ ./mosaic.sh -s HelloWorld
-2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 24.1 on Java JRE v1.8.0_202 (AdoptOpenJdk)
+2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 25.0 on Java JRE v1.8.0_202 (AdoptOpenJdk)
 2020-09-08 16:46:09,941 INFO  FederationManagement - Start federation with id &#39;HelloWorld&#39;
 2020-09-08 16:46:09,943 INFO  FederationManagement - Add ambassador/federate with id &#39;application&#39;
 2020-09-08 16:46:09,944 INFO  FederationManagement - Add ambassador/federate with id &#39;mapping&#39;
@@ -1711,7 +1713,7 @@ in the
 &lt;a class=&#34;mosaic-btn mosaic-btn-primary&#34; href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; title=&#34;Download scenario-convert from DCAITI mirror&#34;&gt;&lt;i class=&#34;fas fa-download&#34;&gt;&lt;/i&gt;Download scenario-convert from DCAITI mirror&lt;/a&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-24.1.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-25.0.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as MOSAIC (&lt;code&gt;&amp;lt;mosaic-root&amp;gt;&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Use the call &lt;code&gt;scenario-convert.bat/sh&lt;/code&gt; on the command line to execute the tool.&lt;/li&gt;
 &lt;/ol&gt;
@@ -2237,7 +2239,7 @@ individually.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Supported version(s)&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Recommended version:&lt;br&gt;Full support:&lt;br&gt;Limited support:&lt;/td&gt;
-&lt;td&gt;1.20.0&lt;br&gt;1.9.2 - 1.20.0&lt;br&gt;below 1.9.2&lt;/td&gt;
+&lt;td&gt;1.22.0&lt;br&gt;1.9.2 - 1.22.0&lt;br&gt;below 1.9.2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -2379,7 +2381,7 @@ to get this running, you need to follow these steps:&lt;/p&gt;
 &lt;li&gt;Check, if there&amp;rsquo;s a &lt;code&gt;bin/libsumojni.dll&lt;/code&gt; or &lt;code&gt;bin/liblibsumojni.so&lt;/code&gt; file in your SUMO installation directory. If not, you might
 need to install the &amp;ldquo;extras&amp;rdquo; release bundle of SUMO (Windows), or you need to re-build SUMO from sources and activate
 the build of libsumo (see &lt;a href=&#34;https://sumo.dlr.de/docs/Libsumo.html#building_it)&#34;&gt;https://sumo.dlr.de/docs/Libsumo.html#building_it)&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Only the recent SUMO version (1.20.0) is supported.&lt;/li&gt;
+&lt;li&gt;Only the recent SUMO version (1.22.0) is supported.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If these pre-requisites are met, you can activate this feature editing the file &lt;code&gt;&amp;lt;mosaic&amp;gt;/etc/runtime.json&lt;/code&gt;.
 Here, the entry
@@ -2734,8 +2736,74 @@ getOs().changeVariableMessageSignState(String signId, int laneIndex).setMaxSpeed
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_phabmacs/</guid>
       <description>&lt;p&gt;The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework for testing ADAS within
-a simulated environment. Vehicles are simulated with advanced models providing them with realistic driving dynamics
-within normal traffic situations.&lt;/p&gt;
+a generated 3D environment. Vehicles are simulated using advanced models providing them with realistic driving dynamics
+within individual traffic situations.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Operating System&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GNU/Linux, Microsoft Windows&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Written in&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Java, Kotlin&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;License&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/#overview&#34;&gt;MOSAIC Extended&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Website&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/phabmacs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;www.dcaiti.tu-berlin.de/research/simulation/phabmacs&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 &lt;div class=&#34;alert alert-extended&#34;&gt;
   &lt;span class=&#34;extended-icon&#34; style=&#34;background-image: url(/mosaic/img/alert-extended.svg)&#34;&gt;&lt;/span&gt;
@@ -2778,7 +2846,21 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
 &lt;a href=&#34;mailto:mosaic@fokus.fraunhofer.de&#34;&gt;mosaic@fokus.fraunhofer.de&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;Extract the &lt;strong&gt;&lt;code&gt;phabmacs-federate-25.0-bundle.zip&lt;/code&gt;&lt;/strong&gt; archive into the &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; directory of your MOSAIC Extended installation. Create the directory, if not existing.&lt;/li&gt;
+&lt;li&gt;Navigate to &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; and execute the &lt;code&gt;activate_phabmacs.sh/bat&lt;/code&gt; file. Enter your MOSAIC credentials.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;PHABMACS is designed to be a lightweight, developer-friendly, easy to modify tool to prototype cooperative driver assistance systems.
+Developers can use the simulated vehicles in PHABMACS first, before applying there code in real test vehicles.
+The environment in PHABMACS allows for creation of arbitrary scenarios. Conveniently, such scenarios can be automatically generated from
+Open Street Map (OSM) map material using the street grid, buildings and natural elements like trees, grass, and water.
+The 3D visualization is based on the 
+
+
+
+
+&lt;a href=&#34;https://github.com/kool-engine/kool&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kool engine&lt;/a&gt; and comes with a puristic, yet appealing rendering style.&lt;/p&gt;
 
 
 
@@ -2813,6 +2895,193 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
 
 &lt;/figure&gt;
 
+&lt;h2 id=&#34;mosaic-scenario-integration&#34;&gt;MOSAIC Scenario Integration&lt;/h2&gt;
+&lt;p&gt;PHABMACS can be used in conjunction with MOSAIC the same way as other traffic simulators, such as SUMO.
+The road network is generated on-the-fly from a given OSM file, which must be the same OSM file from which the MOSAIC scenario
+database was initially created.&lt;/p&gt;
+&lt;h3 id=&#34;basic-configuration&#34;&gt;Basic Configuration&lt;/h3&gt;
+&lt;p&gt;First of all, the simulator must be activated in the &lt;code&gt;federates&lt;/code&gt; section of the &lt;code&gt;scenario_config.json&lt;/code&gt; of the scenario:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;simulation&amp;quot;: {
+       ...
+    },
+    &amp;quot;federates&amp;quot;: {
+        &amp;quot;sumo&amp;quot;: false,
+        &amp;quot;phabmacs&amp;quot;: true,
+        &amp;quot;mapping&amp;quot;: true, 
+        &amp;quot;application&amp;quot;: true
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Secondly, an OSM file must be placed inside the &lt;code&gt;phabmacs&lt;/code&gt; directory of the scenario and referred in the &lt;code&gt;phabmacs_config.json&lt;/code&gt;.
+Furthermore, for testing the scenario, the &lt;code&gt;visualizer&lt;/code&gt; should be enabled to enable the 3D visualization of PHABMACS.
+A basic configuration should look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;map&amp;quot;: &amp;quot;ernst-reuter-platz_large.osm.gz&amp;quot;,
+    &amp;quot;stepSize&amp;quot;: &amp;quot;100ms&amp;quot;,
+    &amp;quot;visualizer&amp;quot;: true,
+    &amp;quot;cameraPosition&amp;quot;: {
+        &amp;quot;latitude&amp;quot;: 52.5122196,
+        &amp;quot;longitude&amp;quot;: 13.3148019
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;vehicles-and-routes&#34;&gt;Vehicles and Routes&lt;/h3&gt;
+&lt;p&gt;Vehicle routes are stored in the scenario-database, and vehicles are spawned using the &lt;code&gt;mapping_config.json&lt;/code&gt;. Please refer to our general
+explanation of 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/scenarios/&#34;&gt;MOSAIC Scenarios&lt;/a&gt; on how this is accomplished.&lt;/p&gt;
+&lt;p&gt;Additionally, the actual vehicle model needs to be configured in the &lt;code&gt;phabmacs_config.json&lt;/code&gt;. Each model has a distinct 3D model
+for its visualization, and matching vehicle properties. In the &lt;code&gt;vehicleTypes&lt;/code&gt; section of the &lt;code&gt;phabmacs_config.json&lt;/code&gt;
+vehicle types (which have been defined in the mapping configuration) are assigned with vehicle models:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    ...
+    &amp;quot;vehicleTypes&amp;quot;: {
+        &amp;quot;Car&amp;quot;: {
+            &amp;quot;vehicleProperties&amp;quot;: &amp;quot;s-class.properties&amp;quot;
+        },
+        &amp;quot;SmallCar&amp;quot;: {
+            &amp;quot;vehicleProperties&amp;quot;: &amp;quot;smart.properties&amp;quot;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The following types of vehicles currently exist: &lt;code&gt;b-class.properties&lt;/code&gt;, &lt;code&gt;bus.properties&lt;/code&gt;, &lt;code&gt;c-class.properties&lt;/code&gt;,
+&lt;code&gt;e-class.properties&lt;/code&gt;, &lt;code&gt;mover.properties&lt;/code&gt;, &lt;code&gt;police.properties&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;lidar-sensor-configuration&#34;&gt;LiDAR sensor Configuration&lt;/h3&gt;
+&lt;p&gt;One use-case of PHABMACS is to create synthetic sensor data, e.g., by utilizing a LiDAR sensor model.
+This can be achieved by adding LiDAR sensors to arbitrary vehicles by configuration in &lt;code&gt;phabmacs_config.json&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;First, we define which vehicle types should be equipped with LiDAR sensors. In the following example, all
+vehicles of type &lt;code&gt;vehicleWithLidar&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    ...
+    &amp;quot;vehicleTypes&amp;quot;: {
+        &amp;quot;Car&amp;quot;: {
+            &amp;quot;vehicleProperties&amp;quot;: &amp;quot;s-class.properties&amp;quot;,
+            &amp;quot;sensors&amp;quot;: [ &amp;quot;LIDAR&amp;quot; ]
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The LiDAR sensor can be configured by filling the &lt;code&gt;defaultLidarConfiguration&lt;/code&gt; section in the &lt;code&gt;phabmacs_config.json&lt;/code&gt;. The following example
+creates a lidar sensor at the front of the car, with a 120 degree field of view to the front, with 5 scanning rows (4 degree vertical field of
+view with 1 degree resolution) and 121 scanning columns (120 degree horizontal field of view with 1 degree resolution). The maximum range of the
+sensor is at 200m and the scan is done every 50 millisecond (20 Hz sampling rate).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    ...
+    &amp;quot;defaultLidarConfiguration&amp;quot;: {
+        &amp;quot;horizontalFieldOfView&amp;quot;: 120,
+        &amp;quot;verticalFieldOfView&amp;quot;: 4.0,
+        &amp;quot;horizontalResolution&amp;quot;: 1.0,
+        &amp;quot;verticalResolution&amp;quot;: 1.0,
+        &amp;quot;pitchOffset&amp;quot;: 2.0,
+        &amp;quot;range&amp;quot;: 200.0,
+        &amp;quot;samplingRate&amp;quot;: 20.0,
+        &amp;quot;position&amp;quot;: {
+            &amp;quot;x&amp;quot;: 0.0,
+            &amp;quot;y&amp;quot;: 0.1,
+            &amp;quot;z&amp;quot;: -1.45
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To see the result of the LiDAR scan, you can enable the visualization of LiDAR point clouds by setting the field &lt;code&gt;showLidar&lt;/code&gt; to true.&lt;/p&gt;
+&lt;h2 id=&#34;scenariose&#34;&gt;ScenarioSE&lt;/h2&gt;
+&lt;p&gt;PHABMACS was initially developed as a standalone tool and comes with an own scenario specification in form of a programming API called &lt;strong&gt;ScenarioSE&lt;/strong&gt;.
+This allows to programmatically create scenarios by spawning vehicles, adding skills and features, or add certain events.
+Vehicles could also be triggered depending on the position of other vehicles to orchestrate complex traffic situations.
+It furthermore allows to integrate custom implementations of skills (vehicle control functions, such as vehicle following strategies),
+features (internal vehicle functions, such as lane changing), and/or custom sensor models.&lt;/p&gt;
+&lt;h3 id=&#34;integration-of-scenariose-with-mosaic&#34;&gt;Integration of ScenarioSE with MOSAIC&lt;/h3&gt;
+&lt;p&gt;To integrate these kind of scenarios, the ScenarioSE code must be compiled into a jar file. The generated jar file must be placed in
+the &lt;code&gt;phabmacs&lt;/code&gt; directory of the MOSAIC scenario. The fully qualified class name must then be referenced in the &lt;code&gt;phabmacs_config.json&lt;/code&gt; file:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;stepSize&amp;quot;: &amp;quot;100ms&amp;quot;,
+    &amp;quot;initialization&amp;quot;: {
+        &amp;quot;scenarioInitializer&amp;quot;: &amp;quot;com.example.MyPhabmacsScenario&amp;quot;,
+        &amp;quot;waitForInitMessages&amp;quot;: true
+    },
+    &amp;quot;visualizer&amp;quot;: true
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;An example for a ScenarioSE definition is given in the following. This scenario loads a map, creates one route and spawns 100 vehicles
+which follow each other till the end:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.example;
+
+public class MyPhabmacsScenario implements ScenarioInitializer {
+    
+    @Override
+    public ScenarioSE createScenarioSE() {
+        ScenarioSE scenario = new ScenarioSE();
+
+        // generate map from OSM data
+        CoreMap map = CoreMap.loadOsmMap(scenario, &amp;quot;ernst-reuter-platz_large.osm.gz&amp;quot;);
+        scenario.setMapLayer(map);
+
+        // create route from list of OSM nodes
+        Route route = scenario.getMapLayer().buildRoute(
+                new AbsoluteLocation(52.511688, 13.310000),
+                new AbsoluteLocation(52.513334, 13.321019),
+                new AbsoluteLocation(52.514046, 13.317432),
+                new AbsoluteLocation(52.525800, 13.314159)
+        );
+
+        // spawn position will be at start of route on fourth lane
+        Location spawnPos = RouteLocation.startLocation(route, 3);
+
+        // configure camera position
+        SimVisualizer vis = PhabmacsModules.getSimVisualizer();
+        Vector3d lookAt = spawnPos.toAbsolute().getLocalPosition();
+        Vector3d camPos = new Vector3d(lookAt).add(new Vector3d(-20.0, 20.0, 0.0));
+        vis.setCameraConfig(camPos, lookAt);
+                
+        // configure spawner for vehicles
+        RouteSpawner spawner = new RouteSpawner(scenario, route, spawnPos, 1)
+                .setSpawnNVehicles(100)
+                .setVehicleFactory(new DefaultVehicleFactory(&amp;quot;s-class.properties&amp;quot;));
+
+        // add a customizer which defines the vehicle behavior
+        spawner.addVehicleCustomizer(vehicle -&amp;gt; {
+            vehicle.getDriver().addSkill(new RouteFollowingSkill());            // ability to follow route
+            vehicle.getDriver().addSkill(new LaneChangeSkill());                // ability to change lanes
+            vehicle.getDriver().addSkill(new FrontVehicleFollowingSkill());     // ability to keep distance to leading vehicle
+            vehicle.getFeatures().registerFeature(RouteProviderFeature.class, new StaticRouteProviderFeature(route));
+            vehicle.getFeatures().registerFeature(SurroundingVehiclesFeature.class, new SurroundingVehiclesFeature());
+
+            vehicle.getSimVehicle().setColor(Color.MAT_PINK);
+        });
+
+        // remove vehicles when route has been completed
+        new EventDespawner(scenario, EndOfRouteEvent.class);
+
+        return scenario;
+    }
+    
+}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -4059,9 +4328,13 @@ You cannot group by &lt;code&gt;VehicleType&lt;/code&gt; or &lt;code&gt;VehicleG
 &lt;/div&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;group-by&lt;/code&gt;: The vehicles will be grouped by its vehicle type name (&lt;code&gt;VehicleType&lt;/code&gt;), group they belong
-to (&lt;code&gt;VehicleGroup&lt;/code&gt;), or obtained data value (e.g. &lt;code&gt;Interval:200&lt;/code&gt; categorizes values into groups of
-size 200).&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;group-by&lt;/code&gt;: The vehicles can be grouped by:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;its vehicle type name (&lt;code&gt;VehicleType&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;the group they belong to (&lt;code&gt;VehicleGroup&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;the time (&lt;code&gt;TimeInterval:200&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;or obtained data value (&lt;code&gt;Interval:200&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;aggregation&lt;/code&gt;: &lt;code&gt;Average&lt;/code&gt; | &lt;code&gt;Harmonic&lt;/code&gt; | &lt;code&gt;Min&lt;/code&gt; | &lt;code&gt;Max&lt;/code&gt; | &lt;code&gt;Sum&lt;/code&gt; | &lt;code&gt;Count&lt;/code&gt; aggregation of the obtained
@@ -4926,13 +5199,13 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;MOSAIC OMNeT++ Federate&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;24.1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;25.0&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 
 
 
 
-&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/24.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/25.0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5024,7 +5297,7 @@ chmod +x omnet_installer.sh`
     --installation-type USER \
     --omnetpp /path/to/omnetpp-5.5.1-src.tgz \
     --inet /path/to/inet-4.1.1-src.tgz \
-    --federate /path/to/omnetpp-federate-24.1.zip
+    --federate /path/to/omnetpp-federate-25.0.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The parameters &lt;code&gt;--omnetpp&lt;/code&gt;, &lt;code&gt;--inet&lt;/code&gt;, and &lt;code&gt;--federate&lt;/code&gt; are optional. If not given, the respective source code package will be downloaded by the installation script.&lt;br&gt;
 The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
@@ -5045,7 +5318,7 @@ make
 chmod +x omnet_installer.sh`
 ./omnet_installer.sh \
     --installation-type DEVELOPER \
-    --federate /path/to/omnetpp-federate-24.1.zip
+    --federate /path/to/omnetpp-federate-25.0.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The installation script should terminate with &lt;code&gt;SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
 &lt;p&gt;Please continue reading 
@@ -10739,7 +11012,24 @@ have the option of:&lt;/p&gt;
   
 
 &lt;a href=&#34;#reference-vehicle&#34;&gt;&lt;code&gt;vehicle[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Array of vehicles to be spawned in the simulation. This property describes the vehicles populatingthe simulation. It is possible to create a single vehicle (maxNumberVehicles should be &amp;lsquo;1&amp;rsquo; in that case) or a streamof one or multiple vehicles. The type(s) are defined in the field types. When more than one type is defined theweights in the prototype can be used to balance them against each other.&lt;/td&gt;
+&lt;td&gt;Array of vehicles to be spawned in the simulation. This property describes the vehicles populating the simulation. It is possible to create a single vehicle (maxNumberVehicles should be &amp;lsquo;1&amp;rsquo; in that case) or a stream of one or multiple vehicles. The type(s) are defined in the field types. When more than one type is defined the weights in the prototype can be used to balance them against each other.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;agents&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-agent&#34;&gt;&lt;code&gt;agent[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of agents to be spawned in the simulation.&lt;/td&gt;
 &lt;td&gt;No&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
@@ -11532,6 +11822,7 @@ have the option of:&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;GROW_EXPONENTIAL&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;SHRINK_EXPONENTIAL&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;GROW_AND_SHRINK_EXPONENTIAL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;INSTANT&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -11610,6 +11901,99 @@ have the option of:&lt;/p&gt;
 &lt;td&gt;North-south position of a point on earth.&lt;/td&gt;
 &lt;td&gt;✓ Yes&lt;/td&gt;
 &lt;td&gt;[-90, 90]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-agent&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;agent&#34;&gt;agent&lt;/h2&gt;
+&lt;p&gt;An agent has an origin and destination point. The trip selection is done via mapped applications.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;startingTime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Time in seconds at which the agent will be created.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;origin&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;destination&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used to be matched with a prototype. If a prototype name matches this name, all properties not set in this object will be overwritten by those defined in the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;group&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple agent entities.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;applications&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Array of strings that specifies the applications to be used for this object.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;walkingSpeed&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Speed which is used for walking, in m/s.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -16062,6 +16446,144 @@ modeling of charging stations, without the need of being super accurate with the
     </item>
     
     <item>
+      <title>2025 Spring Release of Eclipse MOSAIC</title>
+      <link>https://www.eclipse.dev/mosaic/post/release-25-0/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/release-25-0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;The spring release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 25.0 to the open source community.
+This new version comes with an improved Application API, new components towards multi-modality, an extended 2D visualization, as well as usability improvements for the
+communication simulators OMNeT++ and ns-3 .&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;MOSAIC 25.0 now requires at least &lt;strong&gt;Java 17 Runtime Environment&lt;/strong&gt; to be executed. For more details, see 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/getting_started/&#34;&gt;Getting Started&lt;/a&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;🚀 You can find the new version in our 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
+
+
+
+
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
+&lt;p&gt;2025-04-15&lt;/p&gt;
+&lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;* [M+] MOSAIC now requires at least Java 17 Runtime Environment to be executed.
+* [M+] Extended 2D web visualizer to visualize other vehicle classes, such as buses or bicycles.
+* [M+] Provide possibility to run OMNeT++ or ns-3 federate via Windows Subsystem for Linux (WSL). 
+* [M-] Exit simulation if the output configuration is erroneous.
+* [A+] Overhaul of API for building routing information for sending V2X messages (cellular and ad-hoc).
+* [A+] Overhaul of API to access sensor information, such as environmental events or LiDAR point clouds.
+* [A+] Introducing a new routing module for calculating public transport routes based on GTFS data.
+* [S+] Added new option --list-routes to Scenario-Convert to print all routes stored in the scenario database.
+* [T+] Now supports SUMO 1.22.0
+* [X+] Provide a method for electric vehicles applications to search charging stations within a certain area (Extended).
+* [X+] New Agent Simulator allows to model multi-modal journeys for individual agents (Extended).
+* [X-] Improved route compatibility in PHABMACS (Extended). 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;⭐ A huge thanks to all users who contributed to this release:
+
+
+
+
+
+&lt;a href=&#34;https://github.com/FunKuchen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; FunKuchen&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/hoelger&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; hoelger&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/iwillitried&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; iwillitried &lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;, and
+
+
+
+
+
+&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[M]&lt;/code&gt; &lt;em&gt;Eclipse MOSAIC&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[X]&lt;/code&gt; &lt;em&gt;MOSAIC Extended&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[A]&lt;/code&gt; &lt;em&gt;Application simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[C]&lt;/code&gt; &lt;em&gt;Communication simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[E]&lt;/code&gt; &lt;em&gt;Environment simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[N]&lt;/code&gt; &lt;em&gt;Navigation component&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[S]&lt;/code&gt; &lt;em&gt;Scenario-convert&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[T]&lt;/code&gt; &lt;em&gt;Traffic simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[+/-]&lt;/code&gt; &lt;em&gt;new Feature/Bugfix&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
       <title>From Simulation to Innovation: Transforming Mobility with Eclipse MOSAIC</title>
       <link>https://www.eclipse.dev/mosaic/post/mosaic-webinar-2025-03/</link>
       <pubDate>Thu, 16 Jan 2025 00:00:00 +0000</pubDate>
@@ -16223,7 +16745,7 @@ modeling of charging stations, without the need of being super accurate with the
 
 
 
-&lt;a href=&#34;https://adoptium.net/de/temurin/releases?version=11&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Java 11&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://adoptium.net/de/temurin/releases?version=17&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Java 17&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
@@ -16248,7 +16770,7 @@ modeling of charging stations, without the need of being super accurate with the
 
 
 
-&lt;a href=&#34;https://sumo.dlr.de/releases/1.20.0/sumo-win64-1.20.0.msi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Installer&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://sumo.dlr.de/releases/1.22.0/sumo-win64-1.22.0.msi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Installer&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
@@ -16262,13 +16784,13 @@ modeling of charging stations, without the need of being super accurate with the
 
 
 
-&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic/archive/refs/tags/24.1.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse MOSAIC Source Code (version 24.1)&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic/archive/refs/tags/25.0.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse MOSAIC Source Code (version 25.0)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
 
 
-&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/extended/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MOSAIC Extended (version 24.1)&lt;/a&gt; (User licence required)&lt;/li&gt;
+&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/extended/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MOSAIC Extended (version 25.0)&lt;/a&gt; (User licence required)&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

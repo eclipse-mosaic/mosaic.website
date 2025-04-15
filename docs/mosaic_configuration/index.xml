@@ -462,7 +462,24 @@ have the option of:&lt;/p&gt;
   
 
 &lt;a href=&#34;#reference-vehicle&#34;&gt;&lt;code&gt;vehicle[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Array of vehicles to be spawned in the simulation. This property describes the vehicles populatingthe simulation. It is possible to create a single vehicle (maxNumberVehicles should be &amp;lsquo;1&amp;rsquo; in that case) or a streamof one or multiple vehicles. The type(s) are defined in the field types. When more than one type is defined theweights in the prototype can be used to balance them against each other.&lt;/td&gt;
+&lt;td&gt;Array of vehicles to be spawned in the simulation. This property describes the vehicles populating the simulation. It is possible to create a single vehicle (maxNumberVehicles should be &amp;lsquo;1&amp;rsquo; in that case) or a stream of one or multiple vehicles. The type(s) are defined in the field types. When more than one type is defined the weights in the prototype can be used to balance them against each other.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;agents&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-agent&#34;&gt;&lt;code&gt;agent[]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of agents to be spawned in the simulation.&lt;/td&gt;
 &lt;td&gt;No&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
@@ -1255,6 +1272,7 @@ have the option of:&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;GROW_EXPONENTIAL&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;SHRINK_EXPONENTIAL&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;GROW_AND_SHRINK_EXPONENTIAL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;INSTANT&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1333,6 +1351,99 @@ have the option of:&lt;/p&gt;
 &lt;td&gt;North-south position of a point on earth.&lt;/td&gt;
 &lt;td&gt;✓ Yes&lt;/td&gt;
 &lt;td&gt;[-90, 90]&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&#34;reference-agent&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;agent&#34;&gt;agent&lt;/h2&gt;
+&lt;p&gt;An agent has an origin and destination point. The trip selection is done via mapped applications.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;th&gt;Boundaries&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;startingTime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Time in seconds at which the agent will be created.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;origin&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;destination&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+  
+  
+
+&lt;a href=&#34;#reference-geopoint&#34;&gt;&lt;code&gt;geoPoint&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Object to define geographical point coordinates.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used to be matched with a prototype. If a prototype name matches this name, all properties not set in this object will be overwritten by those defined in the prototype.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;group&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The group name is used for (statistical) evaluation purposes with the StatisticOutput and ITEF. It allows to summarize multiple agent entities.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;applications&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Array of strings that specifies the applications to be used for this object.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;walkingSpeed&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Speed which is used for walking, in m/s.&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

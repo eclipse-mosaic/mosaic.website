@@ -830,8 +830,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.0-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.0-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.1-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.1-SNAPSHOT
   </a>
 </div>
 
@@ -1169,7 +1169,11 @@
         <li></li>
       </ul>
     </li>
-    <li><a href="#further-details">Further details</a></li>
+    <li><a href="#further-details">Further details</a>
+      <ul>
+        <li><a href="#use-inductionloopdetector-or-laneareadetector">Use InductionLoopDetector or LaneAreaDetector</a></li>
+      </ul>
+    </li>
     <li><a href="#additional-features">Additional features</a>
       <ul>
         <li></li>
@@ -1397,6 +1401,8 @@ sender2, receiver2
 </code></pre>
 <p><em>Output result of the above listing</em></p>
 <p>Note: the longest matched prefix will be considered as the same iterating operation, which means they are in the same level of iteration structure.</p>
+<h3 id="use-inductionloopdetector-or-laneareadetector">Use InductionLoopDetector or LaneAreaDetector</h3>
+<p>Eclipse MOSAIC has to subscribe to updates from detectors. Currently this is done in the TMC unit. In order to receive detector updates from SUMO, which can be then recorded by the output generator, the detector has to be mapped to at least one TMC.</p>
 <h2 id="additional-features">Additional features</h2>
 <h4 id="limit-output-on-time-frame">Limit output on time frame</h4>
 <p>You can configure the File Output Generator to write out interactions within a specific frame of simulation time.
@@ -1813,7 +1819,7 @@ many outputs.</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 19 Mar 2025, 15:21 UTC
+      Website built on 15 Apr 2025, 11:37 UTC
     </p>
     
   </div>

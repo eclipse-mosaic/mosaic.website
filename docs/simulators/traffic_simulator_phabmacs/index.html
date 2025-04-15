@@ -52,7 +52,7 @@
   
     
   
-  <meta name="description" content="The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework for testing ADAS within a simulated environment. Vehicles are simulated with advanced models providing them with realistic driving dynamics within normal traffic situations.">
+  <meta name="description" content="The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework for testing ADAS within a generated 3D environment. Vehicles are simulated using advanced models providing them with realistic driving dynamics within individual traffic situations.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_phabmacs/">
@@ -305,7 +305,7 @@
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
   <meta property="og:url" content="https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_phabmacs/">
   <meta property="og:title" content="PHABMACS - PHysics Aware Behavior Modeling Advanced Car Simulator | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:description" content="The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework for testing ADAS within a simulated environment. Vehicles are simulated with advanced models providing them with realistic driving dynamics within normal traffic situations."><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
+  <meta property="og:description" content="The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework for testing ADAS within a generated 3D environment. Vehicles are simulated using advanced models providing them with realistic driving dynamics within individual traffic situations."><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
   <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
   
     
@@ -828,8 +828,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.0-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.0-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.1-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.1-SNAPSHOT
   </a>
 </div>
 
@@ -1164,6 +1164,18 @@
   <ul>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#overview">Overview</a></li>
+    <li><a href="#mosaic-scenario-integration">MOSAIC Scenario Integration</a>
+      <ul>
+        <li><a href="#basic-configuration">Basic Configuration</a></li>
+        <li><a href="#vehicles-and-routes">Vehicles and Routes</a></li>
+        <li><a href="#lidar-sensor-configuration">LiDAR sensor Configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#scenariose">ScenarioSE</a>
+      <ul>
+        <li><a href="#integration-of-scenariose-with-mosaic">Integration of ScenarioSE with MOSAIC</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -1215,8 +1227,74 @@
 
           <div class="article-style">
             <p>The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework for testing ADAS within
-a simulated environment. Vehicles are simulated with advanced models providing them with realistic driving dynamics
-within normal traffic situations.</p>
+a generated 3D environment. Vehicles are simulated using advanced models providing them with realistic driving dynamics
+within individual traffic situations.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Operating System</strong></td>
+<td>GNU/Linux, Microsoft Windows</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Written in</strong></td>
+<td>Java, Kotlin</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>License</strong></td>
+<td>
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/download/#overview">MOSAIC Extended</a></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Website</strong></td>
+<td>
+
+
+
+
+<a href="https://www.dcaiti.tu-berlin.de/research/simulation/phabmacs" target="_blank" rel="noopener">www.dcaiti.tu-berlin.de/research/simulation/phabmacs</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="installation">Installation</h2>
 <div class="alert alert-extended">
   <span class="extended-icon" style="background-image: url(/mosaic/img/alert-extended.svg)"></span>
@@ -1259,7 +1337,21 @@ For further information on licenses, feel free to contact us via <strong>
 <a href="mailto:mosaic@fokus.fraunhofer.de">mosaic@fokus.fraunhofer.de</a></strong>.</p>
   </div>
 </div>
+<ol>
+<li>Extract the <strong><code>phabmacs-federate-25.0-bundle.zip</code></strong> archive into the <code>bin/fed/phabmacs</code> directory of your MOSAIC Extended installation. Create the directory, if not existing.</li>
+<li>Navigate to <code>bin/fed/phabmacs</code> and execute the <code>activate_phabmacs.sh/bat</code> file. Enter your MOSAIC credentials.</li>
+</ol>
 <h2 id="overview">Overview</h2>
+<p>PHABMACS is designed to be a lightweight, developer-friendly, easy to modify tool to prototype cooperative driver assistance systems.
+Developers can use the simulated vehicles in PHABMACS first, before applying there code in real test vehicles.
+The environment in PHABMACS allows for creation of arbitrary scenarios. Conveniently, such scenarios can be automatically generated from
+Open Street Map (OSM) map material using the street grid, buildings and natural elements like trees, grass, and water.
+The 3D visualization is based on the 
+
+
+
+
+<a href="https://github.com/kool-engine/kool" target="_blank" rel="noopener">kool engine</a> and comes with a puristic, yet appealing rendering style.</p>
 
 
 
@@ -1294,6 +1386,193 @@ For further information on licenses, feel free to contact us via <strong>
 
 </figure>
 
+<h2 id="mosaic-scenario-integration">MOSAIC Scenario Integration</h2>
+<p>PHABMACS can be used in conjunction with MOSAIC the same way as other traffic simulators, such as SUMO.
+The road network is generated on-the-fly from a given OSM file, which must be the same OSM file from which the MOSAIC scenario
+database was initially created.</p>
+<h3 id="basic-configuration">Basic Configuration</h3>
+<p>First of all, the simulator must be activated in the <code>federates</code> section of the <code>scenario_config.json</code> of the scenario:</p>
+<pre><code class="language-json">{
+    &quot;simulation&quot;: {
+       ...
+    },
+    &quot;federates&quot;: {
+        &quot;sumo&quot;: false,
+        &quot;phabmacs&quot;: true,
+        &quot;mapping&quot;: true, 
+        &quot;application&quot;: true
+    }
+}
+</code></pre>
+<p>Secondly, an OSM file must be placed inside the <code>phabmacs</code> directory of the scenario and referred in the <code>phabmacs_config.json</code>.
+Furthermore, for testing the scenario, the <code>visualizer</code> should be enabled to enable the 3D visualization of PHABMACS.
+A basic configuration should look like this:</p>
+<pre><code class="language-json">{
+    &quot;map&quot;: &quot;ernst-reuter-platz_large.osm.gz&quot;,
+    &quot;stepSize&quot;: &quot;100ms&quot;,
+    &quot;visualizer&quot;: true,
+    &quot;cameraPosition&quot;: {
+        &quot;latitude&quot;: 52.5122196,
+        &quot;longitude&quot;: 13.3148019
+    }
+}
+</code></pre>
+<h3 id="vehicles-and-routes">Vehicles and Routes</h3>
+<p>Vehicle routes are stored in the scenario-database, and vehicles are spawned using the <code>mapping_config.json</code>. Please refer to our general
+explanation of 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/">MOSAIC Scenarios</a> on how this is accomplished.</p>
+<p>Additionally, the actual vehicle model needs to be configured in the <code>phabmacs_config.json</code>. Each model has a distinct 3D model
+for its visualization, and matching vehicle properties. In the <code>vehicleTypes</code> section of the <code>phabmacs_config.json</code>
+vehicle types (which have been defined in the mapping configuration) are assigned with vehicle models:</p>
+<pre><code class="language-json">{
+    ...
+    &quot;vehicleTypes&quot;: {
+        &quot;Car&quot;: {
+            &quot;vehicleProperties&quot;: &quot;s-class.properties&quot;
+        },
+        &quot;SmallCar&quot;: {
+            &quot;vehicleProperties&quot;: &quot;smart.properties&quot;
+        }
+    }
+}
+</code></pre>
+<p>The following types of vehicles currently exist: <code>b-class.properties</code>, <code>bus.properties</code>, <code>c-class.properties</code>,
+<code>e-class.properties</code>, <code>mover.properties</code>, <code>police.properties</code>.</p>
+<h3 id="lidar-sensor-configuration">LiDAR sensor Configuration</h3>
+<p>One use-case of PHABMACS is to create synthetic sensor data, e.g., by utilizing a LiDAR sensor model.
+This can be achieved by adding LiDAR sensors to arbitrary vehicles by configuration in <code>phabmacs_config.json</code>.</p>
+<p>First, we define which vehicle types should be equipped with LiDAR sensors. In the following example, all
+vehicles of type <code>vehicleWithLidar</code></p>
+<pre><code class="language-json">{
+    ...
+    &quot;vehicleTypes&quot;: {
+        &quot;Car&quot;: {
+            &quot;vehicleProperties&quot;: &quot;s-class.properties&quot;,
+            &quot;sensors&quot;: [ &quot;LIDAR&quot; ]
+        }
+    }
+}
+</code></pre>
+<p>The LiDAR sensor can be configured by filling the <code>defaultLidarConfiguration</code> section in the <code>phabmacs_config.json</code>. The following example
+creates a lidar sensor at the front of the car, with a 120 degree field of view to the front, with 5 scanning rows (4 degree vertical field of
+view with 1 degree resolution) and 121 scanning columns (120 degree horizontal field of view with 1 degree resolution). The maximum range of the
+sensor is at 200m and the scan is done every 50 millisecond (20 Hz sampling rate).</p>
+<pre><code class="language-json">{
+    ...
+    &quot;defaultLidarConfiguration&quot;: {
+        &quot;horizontalFieldOfView&quot;: 120,
+        &quot;verticalFieldOfView&quot;: 4.0,
+        &quot;horizontalResolution&quot;: 1.0,
+        &quot;verticalResolution&quot;: 1.0,
+        &quot;pitchOffset&quot;: 2.0,
+        &quot;range&quot;: 200.0,
+        &quot;samplingRate&quot;: 20.0,
+        &quot;position&quot;: {
+            &quot;x&quot;: 0.0,
+            &quot;y&quot;: 0.1,
+            &quot;z&quot;: -1.45
+        }
+    }
+}
+</code></pre>
+<p>To see the result of the LiDAR scan, you can enable the visualization of LiDAR point clouds by setting the field <code>showLidar</code> to true.</p>
+<h2 id="scenariose">ScenarioSE</h2>
+<p>PHABMACS was initially developed as a standalone tool and comes with an own scenario specification in form of a programming API called <strong>ScenarioSE</strong>.
+This allows to programmatically create scenarios by spawning vehicles, adding skills and features, or add certain events.
+Vehicles could also be triggered depending on the position of other vehicles to orchestrate complex traffic situations.
+It furthermore allows to integrate custom implementations of skills (vehicle control functions, such as vehicle following strategies),
+features (internal vehicle functions, such as lane changing), and/or custom sensor models.</p>
+<h3 id="integration-of-scenariose-with-mosaic">Integration of ScenarioSE with MOSAIC</h3>
+<p>To integrate these kind of scenarios, the ScenarioSE code must be compiled into a jar file. The generated jar file must be placed in
+the <code>phabmacs</code> directory of the MOSAIC scenario. The fully qualified class name must then be referenced in the <code>phabmacs_config.json</code> file:</p>
+<pre><code class="language-json">{
+    &quot;stepSize&quot;: &quot;100ms&quot;,
+    &quot;initialization&quot;: {
+        &quot;scenarioInitializer&quot;: &quot;com.example.MyPhabmacsScenario&quot;,
+        &quot;waitForInitMessages&quot;: true
+    },
+    &quot;visualizer&quot;: true
+}
+</code></pre>
+<p>An example for a ScenarioSE definition is given in the following. This scenario loads a map, creates one route and spawns 100 vehicles
+which follow each other till the end:</p>
+<pre><code class="language-java">package com.example;
+
+public class MyPhabmacsScenario implements ScenarioInitializer {
+    
+    @Override
+    public ScenarioSE createScenarioSE() {
+        ScenarioSE scenario = new ScenarioSE();
+
+        // generate map from OSM data
+        CoreMap map = CoreMap.loadOsmMap(scenario, &quot;ernst-reuter-platz_large.osm.gz&quot;);
+        scenario.setMapLayer(map);
+
+        // create route from list of OSM nodes
+        Route route = scenario.getMapLayer().buildRoute(
+                new AbsoluteLocation(52.511688, 13.310000),
+                new AbsoluteLocation(52.513334, 13.321019),
+                new AbsoluteLocation(52.514046, 13.317432),
+                new AbsoluteLocation(52.525800, 13.314159)
+        );
+
+        // spawn position will be at start of route on fourth lane
+        Location spawnPos = RouteLocation.startLocation(route, 3);
+
+        // configure camera position
+        SimVisualizer vis = PhabmacsModules.getSimVisualizer();
+        Vector3d lookAt = spawnPos.toAbsolute().getLocalPosition();
+        Vector3d camPos = new Vector3d(lookAt).add(new Vector3d(-20.0, 20.0, 0.0));
+        vis.setCameraConfig(camPos, lookAt);
+                
+        // configure spawner for vehicles
+        RouteSpawner spawner = new RouteSpawner(scenario, route, spawnPos, 1)
+                .setSpawnNVehicles(100)
+                .setVehicleFactory(new DefaultVehicleFactory(&quot;s-class.properties&quot;));
+
+        // add a customizer which defines the vehicle behavior
+        spawner.addVehicleCustomizer(vehicle -&gt; {
+            vehicle.getDriver().addSkill(new RouteFollowingSkill());            // ability to follow route
+            vehicle.getDriver().addSkill(new LaneChangeSkill());                // ability to change lanes
+            vehicle.getDriver().addSkill(new FrontVehicleFollowingSkill());     // ability to keep distance to leading vehicle
+            vehicle.getFeatures().registerFeature(RouteProviderFeature.class, new StaticRouteProviderFeature(route));
+            vehicle.getFeatures().registerFeature(SurroundingVehiclesFeature.class, new SurroundingVehiclesFeature());
+
+            vehicle.getSimVehicle().setColor(Color.MAT_PINK);
+        });
+
+        // remove vehicles when route has been completed
+        new EventDespawner(scenario, EndOfRouteEvent.class);
+
+        return scenario;
+    }
+    
+}
+</code></pre>
 
           </div>
 
@@ -1686,7 +1965,7 @@ For further information on licenses, feel free to contact us via <strong>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 19 Mar 2025, 15:21 UTC
+      Website built on 15 Apr 2025, 11:37 UTC
     </p>
     
   </div>
