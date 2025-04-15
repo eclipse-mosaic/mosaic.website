@@ -1,3 +1,4 @@
+com.csvreader
 org.eclipse.mosaic.app.examples.commuter
 org.eclipse.mosaic.app.examples.emergencybrake
 org.eclipse.mosaic.app.tutorial
@@ -15,6 +16,8 @@ org.eclipse.mosaic.fed.application.ambassador
 org.eclipse.mosaic.fed.application.ambassador.eventresources
 org.eclipse.mosaic.fed.application.ambassador.simulation
 org.eclipse.mosaic.fed.application.ambassador.simulation.communication
+org.eclipse.mosaic.fed.application.ambassador.simulation.electric.objects
+org.eclipse.mosaic.fed.application.ambassador.simulation.electric.providers
 org.eclipse.mosaic.fed.application.ambassador.simulation.navigation
 org.eclipse.mosaic.fed.application.ambassador.simulation.perception
 org.eclipse.mosaic.fed.application.ambassador.simulation.perception.errormodels
@@ -26,6 +29,7 @@ org.eclipse.mosaic.fed.application.ambassador.util
 org.eclipse.mosaic.fed.application.app
 org.eclipse.mosaic.fed.application.app.api
 org.eclipse.mosaic.fed.application.app.api.communication
+org.eclipse.mosaic.fed.application.app.api.navigation
 org.eclipse.mosaic.fed.application.app.api.os
 org.eclipse.mosaic.fed.application.app.api.os.modules
 org.eclipse.mosaic.fed.application.app.api.perception
@@ -76,6 +80,7 @@ org.eclipse.mosaic.fed.sumo.bridge.traci.reader
 org.eclipse.mosaic.fed.sumo.bridge.traci.writer
 org.eclipse.mosaic.fed.sumo.config
 org.eclipse.mosaic.fed.sumo.util
+org.eclipse.mosaic.interactions.agent
 org.eclipse.mosaic.interactions.application
 org.eclipse.mosaic.interactions.communication
 org.eclipse.mosaic.interactions.electricity
@@ -103,10 +108,12 @@ org.eclipse.mosaic.lib.model.gson
 org.eclipse.mosaic.lib.model.transmission
 org.eclipse.mosaic.lib.objects
 org.eclipse.mosaic.lib.objects.addressing
+org.eclipse.mosaic.lib.objects.agent
 org.eclipse.mosaic.lib.objects.communication
 org.eclipse.mosaic.lib.objects.electricity
 org.eclipse.mosaic.lib.objects.environment
 org.eclipse.mosaic.lib.objects.mapping
+org.eclipse.mosaic.lib.objects.pt
 org.eclipse.mosaic.lib.objects.road
 org.eclipse.mosaic.lib.objects.traffic
 org.eclipse.mosaic.lib.objects.trafficlight
@@ -124,6 +131,7 @@ org.eclipse.mosaic.lib.routing.graphhopper
 org.eclipse.mosaic.lib.routing.graphhopper.algorithm
 org.eclipse.mosaic.lib.routing.graphhopper.util
 org.eclipse.mosaic.lib.routing.norouting
+org.eclipse.mosaic.lib.routing.pt
 org.eclipse.mosaic.lib.routing.util
 org.eclipse.mosaic.lib.spatial
 org.eclipse.mosaic.lib.transform
