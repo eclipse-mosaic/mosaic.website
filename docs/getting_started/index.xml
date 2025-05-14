@@ -19,8 +19,8 @@
       <guid>https://www.eclipse.dev/mosaic/docs/getting_started/run_mosaic/</guid>
       <description>&lt;p&gt;To run a single simulation via Command Line Interface (CLI), call the Eclipse MOSAIC start script with the
 following command line arguments.&lt;/p&gt;
-&lt;h3 id=&#34;gnulinux&#34;&gt;GNU/Linux&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;./mosaic.sh -s &amp;lt;scenario-name&amp;gt;
+&lt;h3 id=&#34;gnulinuxmacos&#34;&gt;GNU/Linux/macOS&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash/zsh&#34;&gt;./mosaic.sh -s &amp;lt;scenario-name&amp;gt;
 ./mosaic.sh -c ./scenarios/&amp;lt;scenario_name&amp;gt;/scenario_config.json
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;windows&#34;&gt;Windows&lt;/h3&gt;

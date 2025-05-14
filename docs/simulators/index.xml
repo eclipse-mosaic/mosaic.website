@@ -981,7 +981,7 @@ individually.&lt;/p&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Operating System&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;GNU/Linux, &lt;em&gt;macOS&lt;/em&gt;, Microsoft Windows&lt;/td&gt;
+&lt;td&gt;GNU/Linux, macOS, Microsoft Windows&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1023,20 +1023,19 @@ individually.&lt;/p&gt;
 
 &lt;p&gt;Download the SUMO binary bundle or installer from the SUMO website. Linux users may build SUMO from the source code.
 Depending on the distribution, it is even possible to install SUMO as package from a software repository.
+MacOS users can be required to install XQuartz.
 Please refer to the SUMO Wiki for further information.&lt;/p&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
-&lt;p&gt;In order to run SUMO with Eclipse MOSAIC you need to make the SUMO binaries available system wide by adding the SUMO
-binary folder to your
-&lt;code&gt;PATH&lt;/code&gt; environment variable. Alternatively, the environment variable &lt;code&gt;SUMO_HOME&lt;/code&gt; can be used to
-define the installation directory of SUMO.&lt;/p&gt;
+&lt;p&gt;In order to run SUMO with Eclipse MOSAIC you need to make the SUMO binaries available system-wide by adding the SUMO
+binary folder to your &lt;code&gt;PATH&lt;/code&gt; environment variable. For many tools SUMO requires the environment variable &lt;code&gt;SUMO_HOME&lt;/code&gt;
+to be set to the installation directory of SUMO.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&#34;alert alert-tip&#34;&gt;
-  &lt;div&gt;
-&lt;p&gt;We recommend using the 64 bit version of SUMO if you want to simulate scenarios with large traffic networks.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+&lt;p&gt;On macOS you can find the SUMO install directory using:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pkgutil --pkgs
+pkgutil --pkg-info org.eclipse.sumo.framework
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 &lt;p&gt;The SUMO ambassador can be configured with a configuration file. The specific path is &lt;code&gt;&amp;lt;scenarioName&amp;gt;/sumo/sumo_config.json&lt;/code&gt;.
 If no such file exists, the following default configuration options are used:&lt;/p&gt;
@@ -1517,7 +1516,7 @@ within individual traffic situations.&lt;/p&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Operating System&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;GNU/Linux, Microsoft Windows&lt;/td&gt;
+&lt;td&gt;GNU/Linux, Microsoft Windows, &lt;em&gt;currently no support for Apple Silicon Macs&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;

@@ -283,6 +283,30 @@ have the option of:&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The network file contains this line for the &lt;code&gt;&amp;lt;location&amp;gt;&lt;/code&gt; element:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;    &amp;lt;location netOffset=&amp;quot;-369461.94,-5798955.14&amp;quot; convBoundary=&amp;quot;0.00,1201.70,46116.88,38132.49&amp;quot; origBoundary=&amp;quot;13.080829,52.333059,13.764084,52.671235&amp;quot; projParameter=&amp;quot;+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To find out the cartesian offset take a look at the &lt;code&gt;netOffset&lt;/code&gt; attribute. The first number corresponds to the X coordinate,
+while the second corresponds to the Y coordinate. So the &lt;code&gt;cartesianOffset&lt;/code&gt; attribute in the &lt;code&gt;scenario_config.json&lt;/code&gt; should look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;simulation&amp;quot;: {
+        &amp;quot;id&amp;quot;: &amp;quot;My_Simulation&amp;quot;,
+        &amp;quot;duration&amp;quot;: &amp;quot;4h&amp;quot;,
+        &amp;quot;projection&amp;quot;: {
+            &amp;quot;centerCoordinates&amp;quot;: {
+                &amp;quot;latitude&amp;quot;: 52.525192,
+                &amp;quot;longitude&amp;quot;: 13.422281
+            },
+            &amp;quot;cartesianOffset&amp;quot;: {
+                &amp;quot;x&amp;quot;: -369461.94,
+                &amp;quot;y&amp;quot;: -5798955.14
+            }
+        }
+    }
+}
+    
+&lt;/code&gt;&lt;/pre&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;a name=&#34;reference-network&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;network-addressing&#34;&gt;Network Addressing&lt;/h2&gt;

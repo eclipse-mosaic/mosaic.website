@@ -1167,6 +1167,17 @@ Yet, you can use scenario-convert for free to generate scenarios which are execu
       <nav id="TableOfContents">
   <ul>
     <li><a href="#usage-of-scenario-convert">Usage of scenario-convert</a></li>
+    <li><a href="#operation-modes">Operation Modes</a></li>
+    <li><a href="#general-arguments">General Arguments</a></li>
+    <li><a href="#use-case-overview">Use case overview</a>
+      <ul>
+        <li><a href="#-create-mosaic-scenario-from-osm-file"><strong>▶️ Create MOSAIC scenario from OSM file</strong></a></li>
+        <li><a href="#-create-mosaic-scenario-from-sumo-file"><strong>▶️ Create MOSAIC scenario from SUMO file</strong></a></li>
+        <li><a href="#-createimport-routes-for-existing-mosaic-scenario"><strong>▶️ Create/Import routes for existing MOSAIC scenario</strong></a></li>
+        <li><a href="#-import-height-information-to-existing-mosaic-scenario"><strong>▶️ Import height information to existing MOSAIC scenario</strong></a></li>
+        <li><a href="#-export-database-or-routes-to-geojson-files"><strong>▶️ Export database or routes to GeoJson files</strong></a></li>
+      </ul>
+    </li>
     <li><a href="#configuration-files-for-scenario-convert">Configuration-files for scenario-convert</a></li>
     <li><a href="#speed-files">Speed-files</a></li>
   </ul>
@@ -1238,7 +1249,8 @@ Yet, you can use scenario-convert for free to generate scenarios which are execu
 
 <ol>
 <li><strong>Download the <code>scenario-convert-25.0.zip/tar.gz</code> bundle from the mirror above.</strong></li>
-<li>Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as MOSAIC (<code>&lt;mosaic-root&gt;</code>).</li>
+<li>Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as
+MOSAIC (<code>&lt;mosaic-root&gt;</code>).</li>
 <li>Use the call <code>scenario-convert.bat/sh</code> on the command line to execute the tool.</li>
 </ol>
 <h2 id="usage-of-scenario-convert">Usage of scenario-convert</h2>
@@ -1272,95 +1284,517 @@ Yet, you can use scenario-convert for free to generate scenarios which are execu
 <a href="/mosaic/tutorials/create_new_scenario/">Create a new Scenario Tutorial</a> provides a detailed introduction to the scenario-convert tool.</p>
   </div>
 </div>
-<p>The following listing shows an overview for the usage of scenario-convert:</p>
-<pre><code>usage: scenario-convert [OPERATION] [OPTIONS]
+<p>Scenario-convert can be used for a lot of different operations. In the following we first explain its operation modes, then general
+arguments for this tool, and finally we list all of its use cases, provide examples and explain arguments used to achieve the results.</p>
+<h2 id="operation-modes">Operation Modes</h2>
+<p>Scenario-convert offers various operation modes, which are followed by various additional parameters to solve specific use-cases to prepare
+your MOSAIC scenario. The use-cases are described further below. The following operation modes exist:</p>
+<table>
+<thead>
+<tr>
+<th>Operation Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--db2sumo</code></td>
+<td>Exports the scenario database to a SUMO network file.</td>
+</tr>
+<tr>
+<td><code>--db2mosaic</code></td>
+<td>Creates directory structure for a MOSAIC scenario based on the database .</td>
+</tr>
+<tr>
+<td><code>--db2geojson</code></td>
+<td>Exports the scenario database into GeoJSON format.</td>
+</tr>
+<tr>
+<td><code>--osm2db</code></td>
+<td>Converts an OpenStreetMap file to a new scenario database.</td>
+</tr>
+<tr>
+<td><code>--osm2sumo</code></td>
+<td>Combination of <code>--osm2db</code> and <code>--db2sumo</code>.</td>
+</tr>
+<tr>
+<td><code>--osm2mosaic</code></td>
+<td>Combination of <code>--osm2db</code> and <code>--db2mosaic</code>.</td>
+</tr>
+<tr>
+<td><code>--srtm2db</code></td>
+<td>Imports an SRTM file and writes elevation data to nodes.</td>
+</tr>
+<tr>
+<td><code>--sumo2db</code></td>
+<td>Converts a SUMO Network to a new scenario database, or imports routes to an existing scenario.</td>
+</tr>
+<tr>
+<td><code>--sumo2mosaic</code></td>
+<td>Combination of <code>--sumo2db</code> and <code>--db2mosaic</code>. When provided with a <code>*.sumocfg</code> file, this mode converts an existing SUMO scenario to a MOSAIC scenario.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>--generate-routes</code></td>
+<td>Generates route(s) from one point to another. Can be used alone with existing databases, or be used in combination with other operation modes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="general-arguments">General Arguments</h2>
+<p>The following arguments are relevant for all operation modes and use cases:</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-h</code>, <code>--help</code></td>
+<td>Prints the help screen of the scenario-convert tool</td>
+</tr>
+<tr>
+<td><code>-d</code>, <code>--database &lt;PATH&gt; </code></td>
+<td>The path to the scenario database</td>
+</tr>
+<tr>
+<td><code>-i</code>, <code>--input &lt;PATH&gt;</code></td>
+<td>The path to the input file. The file type depends on the use case, see the sections below</td>
+</tr>
+<tr>
+<td><code>-f</code>, <code>--force</code></td>
+<td>Force overwrite of existing files instead of incrementing file names</td>
+</tr>
+<tr>
+<td><code>-c</code>, <code>--config-file &lt;PATH&gt;</code></td>
+<td><strong>Optional</strong>, refers to a configuration file which contains all parameters in JSON format (see 
 
-Examples:
-1. Import an osm file and write data into database
-   &gt; scenario-convert --osm2db -i &lt;OSMFILE&gt; [-d &lt;DATABASE&gt;]
-2. Export database content to SUMO-readable files
-   &gt; scenario-convert --db2sumo -d &lt;DATABASE&gt; [-s &lt;SUMOPREFIX&gt;]
-3. Import a SUMO routefile into a database
-   &gt; scenario-convert --sumo2db -d &lt;DATABASE&gt; -i &lt;ROUTEFILE&gt;.rou.xml
-4. Combine steps 1 and 2
-   &gt; scenario-convert --osm2sumo -d &lt;DATABASE&gt; -i &lt;OSMFILE&gt; [-s &lt;SUMOPREFIX&gt;]
-5. Export db content to GeoJson files (e.g., for visualization)
-   &gt; scenario-convert --db2geojson -d &lt;DATABASE&gt;
-6. Import an srtm file and write elevation data to nodes of an existing database
-   &gt; scenario-convert --srtm2db -i &lt;SRTMFILE&gt; -d &lt;DATABASE&gt;
-7. Create a complete MOSAIC scenario from an osm file
-   &gt; scenario-convert --osm2mosaic -i &lt;OSMFILE&gt;
-8. Create a scenario database from a SUMO net file
-   &gt; scenario-convert --sumo2db -i &lt;NETFILE&gt;.net.xml --import-zone 33n
-9. Calculate a route from node 123 to node 456
-   &gt; scenario-convert --generate-routes -d &lt;DATABASE&gt; --route-begin-node-id 123 --route-end-node-id 456
 
-The following arguments are available:
- -h,--help                                 Prints this help screen.
 
- -c,--config-file &lt;PATH&gt;                   Optional, refers to a configuration file which contains all parameters in
-                                           JSON format.
-    --osm2db                               Converts a OpenStreetMap file to a new scenario database.
-    --sumo2db                              Imports a SUMO Network/Routefile. Be aware, that creating a scenario based on
-                                           a Network file is not fully compatible with MOSAIC.
-    --srtm2db                              Imports an SRTM file and writes elevation data to nodes.
-    --db2sumo                              Exports the network to SUMO node and edge files.
-    --db2geojson                           Exports the database into GeoJSON format.
-    --db2mosaic                            Creates directory structure for a MOSAIC scenario based on the database
-                                           contents.
-    --osm2sumo                             Combination of osm2db and db2sumo.
-    --osm2mosaic                           Combination of osm2db and db2mosaic.
-    --update                               Updates the database to the current scheme.
 
- -d,--database &lt;PATH&gt;                      The path to the database.
-                                           For import: File to import to. If not given, a new file is created.
-                                           For export: File to load from.
-                                           For update operations: file to update.
- -i,--input &lt;PATH&gt;                         Defines an input file to use in an import. File type depends on the import
-                                           operation (OSM File/Database file/SUMO net file/SUMO rou file).
- -s,--sumo-prefix &lt;STRING&gt;                 Prefix for the generated sumo files  (uses database name when not defined).
- -f,--force                                Force overwrite of existing files instead of incrementing file names.
- -m,--mapping-file &lt;PATH&gt;                  Uses the given mapping configuration to export existing vehicleTypes and
-                                           vehicles data to *.rou.xml.
-    --import-lat &lt;DOUBLE&gt;                  Center latitude of imported region to project coordinates.
-    --import-lon &lt;DOUBLE&gt;                  Center longitude of imported region to project coordinates.
-    --import-zone &lt;STRING&gt;                 UTM zone of location for projecting coords in default format (e.g. 32u).
 
- -g,--generate-routes                      Generates route(s) from one point to another. The begin and end for the route
-                                           must be known (see below options). All generated routes will be added to the
-                                           database.
-    --clear-routes                         Clear route(s) from the database before adding new ones during route
-                                           generation (only with --generate-routes).
-    --route-begin-lat &lt;DOUBLE&gt;             Latitude of the starting point, needs --route-begin-lon as well.
-    --route-begin-lon &lt;DOUBLE&gt;             Longitude of the starting point, needs --route-begin-lat as well.
-    --route-begin-latlon &lt;DOUBLE,DOUBLE&gt;   [latitude],[longitude] of the starting point.
-    --route-begin-node-id &lt;STRING&gt;         OSM node id of the starting point (use instead of lat/lon).
-    --route-end-lat &lt;DOUBLE&gt;               Latitude of the starting point, needs --route-end-lon as well.
-    --route-end-lon &lt;DOUBLE&gt;               Longitude of the starting point, needs --route-end-lat as well.
-    --route-end-latlon &lt;DOUBLE,DOUBLE&gt;     [latitude],[longitude] of the ending point.
-    --route-end-node-id &lt;STRING&gt;           OSM node id of the ending point (use instead of lat/lon).
-    --route-matrix &lt;STRING,STRING,...&gt;     Calculates all possible routes starting and ending at the given nodes, given
-                                           as comma-separated list (e.g. 12345,87123,89123)
-    --max-number-of-routes &lt;INTEGER&gt;       Defines the maximum number of routes to be calculated, including the best route and alternatives (default=1 - only best route).
+  
+  
 
-    --import-buildings                     Activates import of building information (only with osm2xxx).
-    --skip-osm-filter                      Skips automatic filtering of the OSM file (only with osm2xxx).
-    --skip-turn-restrictions               Ignore all defined turn restrictions on OSM import.
-    --split-connections                    Connections are built for each adjacent node during OSM Import instead of
-                                           having geometry nodes. This results in much larger networks.
-    --skip-graph-cleanup                   Turns off the removal of unconnected parts from the main traffic network
-                                           graph . Since several components of MOSAIC require one main graph without
-                                           disconnected ways and nodes, this option should be used only if the cleanup
-                                           procedure is faulty.
-    --skip-netconvert                      Skips starting sumo netconvert for creating netfile (only with xxx2sumo).
-    --skip-traffic-lights-export           Skips exporting traffic light information for nodes (only with xxx2sumo).
-    --osm-speeds-file &lt;PATH&gt;               Define a property file which contains speed information which are used to set
-                                           the speed for OSM ways without a max speed tag (only with osm2xxx).
-    --osm-speeds-overwrite                 If set to true , the maxspeed tags of ways are ignored and replaced by either
-                                           default values , or by speed information defined via the --osm-speeds-file
-                                           option (only with osm2xxx).
+    
 
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/scenario_convert/#configuration-files-for-scenario-convert">section below</a>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="use-case-overview">Use case overview</h2>
+<p>In the following, we explain the usage of Scenario-convert in the context of typical use-cases when it comes to scenario creation:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>▶️ 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/scenario_convert/#-create-mosaic-scenario-from-osm-file">Create MOSAIC scenario from OSM file</a></td>
+</tr>
+<tr>
+<td>▶️ 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/scenario_convert/#-create-mosaic-scenario-from-sumo-file">Create MOSAIC scenario from SUMO file</a></td>
+</tr>
+<tr>
+<td>▶️ 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/scenario_convert/#-createimport-routes-for-existing-mosaic-scenario">Create/Import routes for existing MOSAIC scenario</a></td>
+</tr>
+<tr>
+<td>▶️ 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/scenario_convert/#-import-height-information-to-existing-mosaic-scenario">Import height information to existing MOSAIC scenario</a></td>
+</tr>
+<tr>
+<td>▶️ 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+<a href="/mosaic/docs/scenarios/scenario_convert/#-export-database-or-routes-to-geojson-files">Export database or routes to GeoJson</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="-create-mosaic-scenario-from-osm-file"><strong>▶️ Create MOSAIC scenario from OSM file</strong></h3>
+<p>There are two ways to create a MOSAIC scenario from an OSM file using scenario-convert.</p>
+<p><strong>1. Using a single call with <code>--osm2mosaic</code>:</strong></p>
+<p>The easiest method to create a MOSAIC scenario from OSM data is to use scenario-convert with the argument <code>--osm2mosaic</code>. One only needs to
+specify the path to the input OSM file. The OSM file will first be used to create a scenario database containing road network information.
+Afterward, the MOSAIC scenario folder structure and SUMO connection, edge, network, node, route, and config files are created.
+You can also use additional arguments alongside this, for example <code>--generate-routes</code>. Because of this argument, routes are generated
+randomly and added to the scenario database before the scenario is exported to SUMO files</p>
+<p>The call for the described example would look like this: <br></p>
+<pre><code class="language-shell">scenario-convert.bat --osm2mosaic -i '/path/to/map.osm' --generate-routes 
 </code></pre>
+<p><strong>2. Using two separate calls with the option <code>--osm2db</code> and <code>--db2mosaic</code> subsequently:</strong></p>
+<p>This works very similarly to the first approach, but gives you more control with handling the database-file. The first call creates the
+database from the OSM file. Currently, there is only the database file that contains all relevant road network information. It is possible
+to now alter the database, for example by generating routes or including elevation information. How to do both of these is described below.
+After all changes to the database are completed, you can now call scenario-convert a second time using the second argument and create a
+complete MOSAIC scenario structure and SUMO connection, edge, network, node, route, and config files from the database.</p>
+<p>Example calls for this approach would look like this: <br>
+<strong>First call:</strong></p>
+<pre><code class="language-shell">scenario-convert.bat --osm2db -i '/path/to/map.osm' -d '/path/to/database.db'
+</code></pre>
+<p>The <code>-d</code> argument here is optional. If not specified, the database will be created in the same folder that the OSM file is in. <br></p>
+<p><strong>Second call:</strong></p>
+<pre><code class="language-shell">scenario-convert.bat --db2mosaic -d '/path/to/database.db' 
+</code></pre>
+<p><strong>Additional arguments usable with <code>--osm2xxx</code> arguments</strong></p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--generate-routes</code></td>
+<td>Without additional configuration this generates routes between all border points/dead ends in the OSM map. All generated routes will be added to the database</td>
+</tr>
+<tr>
+<td><code>--import-buildings</code></td>
+<td>Activates import of building information into the database</td>
+</tr>
+<tr>
+<td><code>--osm-speeds-file &lt;Path&gt;</code></td>
+<td>Define a property file which contains speed information which are used to set the speed for OSM ways without a max speed tag</td>
+</tr>
+<tr>
+<td><code>--osm-speeds-overwrite</code></td>
+<td>If set to true , the maxspeed tags of ways are ignored and replaced by either default values , or by speed information defined via the <code>--osm-speeds-file</code> argument</td>
+</tr>
+<tr>
+<td><code>--skip-graph-cleanup</code></td>
+<td>Turns off the removal of unconnected parts from the main traffic network graph . Since several components of MOSAIC require one main graph without disconnected ways and nodes, this option should be used only if the cleanup procedure is faulty</td>
+</tr>
+<tr>
+<td><code>--skip-osm-filter</code></td>
+<td>Skips automatic filtering of the OSM file</td>
+</tr>
+<tr>
+<td><code>--skip-turn-restrictions</code></td>
+<td>Ignore all defined turn restrictions on OSM import</td>
+</tr>
+<tr>
+<td><code>--split-connections</code></td>
+<td>Connections are built for each adjacent node during OSM Import instead of having geometry nodes. This results in much larger networks</td>
+</tr>
+<tr>
+<td><code>-s; --sumo-prefix &lt;String&gt;</code></td>
+<td>Prefix for the SUMO files generated during the process (uses database name when not defined)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="-create-mosaic-scenario-from-sumo-file"><strong>▶️ Create MOSAIC scenario from SUMO file</strong></h3>
+<p>If you want to convert an already existing SUMO scenario to a usable MOSAIC scenario, you can do that in two distinct ways as well.</p>
+<p><strong>1. Using a single call with <code>--sumo2mosaic</code>:</strong></p>
+<p>The concept of this is the same as for creating a MOSAIC scenario from an OSM file. Simply specify the path to the sumocfg file of your
+existing SUMO scenario. Scenario-convert will then wrap the existing SUMO scenario in a MOSAIC scenario by moving SUMO files to the MOSAIC
+scenarios sumo folder, creating all other relevant MOSAIC files and importing the net and route file into the MOSAIC database.</p>
+<p>This examples call would look like this:</p>
+<pre><code class="language-shell">scenario-convert.bat --sumo2mosaic -i '/path/to/sumo.sumocfg' 
+</code></pre>
+<p><strong>2. Using two separate calls with the option <code>--sumo2db</code> and <code>--db2mosaic</code> subsequently:</strong></p>
+<p>This works similar to the first approach, but, as for the process from OSM, gives you more control with handling the database file. However,
+in this case the functionality of the <code>--sumo2db</code> argument is defined by further arguments in the call. For creating a new database from a
+SUMO network file pass the <code>-i</code> argument with a path to a SUMO network file. This way, the network file is read and its contents written
+into a new database file. The second call with <code>--db2mosaic</code> now creates a complete MOSAIC scenario structure, while keeping the existing
+SUMO files from the original scenario.</p>
+<p>Example calls for this approach would look like this: <br>
+<strong>First call:</strong></p>
+<pre><code class="language-shell">scenario-convert.bat --sumo2db -i '/path/to/sumo.net.xml' --import-zone 33n
+</code></pre>
+<p>The import zone is important for the projection of the coordinates. It is the UTM zone your scenario lies in.</p>
+<p><strong>Second call:</strong></p>
+<pre><code class="language-shell">scenario-convert.bat --db2mosaic -d '/path/to/database.db'
+</code></pre>
+<p><strong>Additional Arguments with <code>--sumo2xxx</code>:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--import-lat &lt;Double&gt;</code></td>
+<td>Center latitude of imported region. Used to project coordinates</td>
+</tr>
+<tr>
+<td><code>--import-lon &lt;Double&gt;</code></td>
+<td>Center longitude of imported region. Used to project coordinates</td>
+</tr>
+<tr>
+<td><code>--import-zone &lt;String&gt;</code></td>
+<td>UTM zone of location for projecting coords in default format (e.g. 32u)</td>
+</tr>
+<tr>
+<td><code>-s; --sumo-prefix &lt;String&gt;</code></td>
+<td>Prefix for the SUMO files generated during the process (uses database name when not defined)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-createimport-routes-for-existing-mosaic-scenario"><strong>▶️ Create/Import routes for existing MOSAIC scenario</strong></h3>
+<p>Often you have an existing database representing your road network but no routes for vehicles yet. Routes can be either created from
+scratch or imported from SUMO route files using scenario-convert.</p>
+<p><strong>1. Import a SUMO route file into a database:</strong></p>
+<p>Importing a route file is possible with just a single call of scenario-convert. This call reads the routes in the file, saves each routes id
+and edges, and creates objects in the database for them.</p>
+<pre><code class="language-shell">scenario-convert.bat --sumo2db -d '/path/to/database.db' -i '/path/to/routefile.rou.xml'
+</code></pre>
+<div class="alert alert-note">
+  <div>
+<p>Notice that the argument <code>--sumo2db</code> has different functionality depending on if the input <code>-i</code> is a <strong>route.rou.xml</strong> or a
+<strong>network.net.xml</strong> file. Both load the respective routes/network into the database if the <code>-d</code> argument is given as well, but it is not
+possible to create a database from a route file by omitting the <code>-d</code> argument, which is possible for network files.</p>
+  </div>
+</div>
+<p><strong>2. Creating new routes:</strong></p>
+<p>Creating new routes with scenario-convert can be done in two ways. Either by creating random routes through the network using only
+<code>--generate-routes</code> or by additionally specifying start and end point of the route you want to create. Random routes are always created
+based on road end points in your network, meaning they always range from one edge of the map to another or from dead end to dead end.
+You can also specify start and end point of a route, either in geo coordinates or through node IDs.</p>
+<p>The following examples showcase multiple approaches to generating routes using scenario-convert.</p>
+<p><strong>Generate X random end-to-end routes using <code>-g / --generate-routes</code>:</strong></p>
+<p>If you want to generate many routes fast this option is the best possibility to do that.</p>
+<pre><code class="language-shell">scenario-convert.bat --generate-routes -d '/path/to/database.db' --max-number-of-routes X
+</code></pre>
+<p>You can cap the number of routes generated by passing the argument <code>--max-number-of-routes X</code>, where X is a positive integer.
+Scenario-convert then generates a maximum of X routes. If you don&rsquo;t pass this argument, all possible routes for your road network are
+calculated. This is not recommended for large networks.</p>
+<p><strong>Calculate a single route from point A to point B:</strong></p>
+<p>In contrast to the example above, if a start and end point is given, scenario-convert only calculates a single route between these points
+if <code>--max-number-of-routes</code> is not given.</p>
+<pre><code class="language-shell">scenario-convert.bat --generate-routes -d '/path/to/database.db' --route-begin-latlon 52.526371,13.314075 --route-end-latlon 52.512879,13.320099
+</code></pre>
+<p>The points can be given in geo coordinates or as node IDs. If given in geo coordinates, make sure the coordinates are within the area of
+your scenario network.</p>
+<p><strong>Calculate X alternative routes from point A to point B:</strong></p>
+<p>If start and end point are given and <code>--max-number-of-routes X</code> is passed, where X is a positive integer, scenario-convert calculates
+multiple routes between the points, with a maximum of X alternatives. It is not guaranteed, that X routes are calculated.</p>
+<pre><code class="language-shell">scenario-convert.bat --generate-routes -d '/path/to/database.db' --route-begin-latlon 52.526371,13.314075 --route-end-latlon 52.512879,13.320099 --max-number-of-routes X
+</code></pre>
+<p><strong>Calculate all possible routes between a list of points:</strong></p>
+<p>If you want to calculate routes between multiple points you can pass a list of node IDs with the argument <code>--route-matrix</code>.
+This will generate all possible routes between all points in this list.</p>
+<pre><code class="language-shell">scenario-convert.bat --generate-routes -d '/path/to/database.db' --route-matrix '12345,98765,13579' 
+</code></pre>
+<p><strong>3. View all routes in a database:</strong></p>
+<p>If you have already created routes and want to view them without using external tools you can use the argument <code>--list-routes</code>.
+In combination with <code>-d</code> to set the path to the database you want to view, this outputs a summary of all routes in the database consisting
+of route ID, start node ID, end node ID, and route length in meter.</p>
+<p><strong>View routes in a database by using the follwing call:</strong></p>
+<pre><code class="language-shell">scenario-convert.bat --list-routes -d '/path/to/database.db'
+</code></pre>
+<p><strong>Additional arguments with <code>--generate-routes</code>:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--clear-routes</code></td>
+<td>Clear existing routes from the database before adding new ones</td>
+</tr>
+<tr>
+<td><code>--list-routes</code></td>
+<td>List all existing routes from the scenario database</td>
+</tr>
+<tr>
+<td><code>--route-begin-lat &lt;Double&gt;</code></td>
+<td>Latitude of route starting point, needs <code>--route-begin-lon</code> as well</td>
+</tr>
+<tr>
+<td><code>--route-begin-lon &lt;Double&gt;</code></td>
+<td>Longitude of route starting point, needs <code>--route-begin-lat</code> as well</td>
+</tr>
+<tr>
+<td><code>--route-begin-latlon &lt;Double,Double&gt;</code></td>
+<td>Latitude and longitude of route starting point</td>
+</tr>
+<tr>
+<td><code>--route-begin-node-id &lt;String&gt;</code></td>
+<td>OSM node id of the starting point (use instead of lat/lon)</td>
+</tr>
+<tr>
+<td><code>--route-end-lat &lt;Double&gt;</code></td>
+<td>Latitude of route end point, needs <code>--route-end-lon</code> as well</td>
+</tr>
+<tr>
+<td><code>--route-end-lon &lt;Double&gt;</code></td>
+<td>Longitude of route end point, needs <code>--route-end-lat</code> as well</td>
+</tr>
+<tr>
+<td><code>--route-end-latlon &lt;Double,Double&gt;</code></td>
+<td>Latitude and longitude of route end point</td>
+</tr>
+<tr>
+<td><code>--route-end-node-id &lt;String&gt;</code></td>
+<td>OSM node id of the end point (use instead of lat/lon)</td>
+</tr>
+<tr>
+<td><code>--route-matrix &lt;String,String&gt;</code></td>
+<td>Calculates all possible routes starting and ending at the given nodes, given as comma-separated list</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-import-height-information-to-existing-mosaic-scenario"><strong>▶️ Import height information to existing MOSAIC scenario</strong></h3>
+<p>Importing height information into the database can be done with the argument <code>--srtm2db</code>. It requires a SRTM file, whose elevation data
+is then written to the nodes of an existing database.</p>
+<p><strong>An example call would look like this:</strong></p>
+<pre><code class="language-shell">scenario-convert.bat --srtm2db -i '/path/to/srtm.geotiff' -d '/path/to/database.db'
+</code></pre>
+<h3 id="-export-database-or-routes-to-geojson-files"><strong>▶️ Export database or routes to GeoJson files</strong></h3>
+<p>Sometimes you might want to export the contents of your database into a GeoJSON format. For example for visualizations of your road network
+using QGIS.</p>
+<p><strong>Use this scenario convert call for this purpose:</strong></p>
+<pre><code class="language-shell">scenario-convert.bat --db2geojson -d '/path/to/database.db'
+</code></pre>
+<p>This will export the database content into a .geojson file with the same name as the database.</p>
 <h2 id="configuration-files-for-scenario-convert">Configuration-files for scenario-convert</h2>
 <p>Scenario-convert offers a way to safe your conversion-parameters in a <code>JSON</code> configuration file using
 the option <code>-c</code> or <code>--config-file</code>.<br>
@@ -1372,7 +1806,7 @@ The following listing shows how to save the options used in the example above:</
   &#34;generateRoutes&#34;: true,
   &#34;routeBeginLatLon&#34;: &#34;52.457616,13.318392&#34;,
   &#34;routeEndLatLon&#34;: &#34;52.454774,13.333554&#34;,
-  &#34;numberOfRoutes&#34;: 3
+  &#34;maxNumberOfRoutes&#34;: 3
 }
 </code></pre>
 <h2 id="speed-files">Speed-files</h2>
@@ -1818,7 +2252,7 @@ highway.track 15
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 15 Apr 2025, 11:46 UTC
+      Website built on 14 May 2025, 12:09 UTC
     </p>
     
   </div>

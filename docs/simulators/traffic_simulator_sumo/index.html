@@ -1235,7 +1235,7 @@ individually.</p>
 <tbody>
 <tr>
 <td><strong>Operating System</strong></td>
-<td>GNU/Linux, <em>macOS</em>, Microsoft Windows</td>
+<td>GNU/Linux, macOS, Microsoft Windows</td>
 <td></td>
 </tr>
 <tr>
@@ -1277,20 +1277,19 @@ individually.</p>
 
 <p>Download the SUMO binary bundle or installer from the SUMO website. Linux users may build SUMO from the source code.
 Depending on the distribution, it is even possible to install SUMO as package from a software repository.
+MacOS users can be required to install XQuartz.
 Please refer to the SUMO Wiki for further information.</p>
 <div class="alert alert-note">
   <div>
-<p>In order to run SUMO with Eclipse MOSAIC you need to make the SUMO binaries available system wide by adding the SUMO
-binary folder to your
-<code>PATH</code> environment variable. Alternatively, the environment variable <code>SUMO_HOME</code> can be used to
-define the installation directory of SUMO.</p>
+<p>In order to run SUMO with Eclipse MOSAIC you need to make the SUMO binaries available system-wide by adding the SUMO
+binary folder to your <code>PATH</code> environment variable. For many tools SUMO requires the environment variable <code>SUMO_HOME</code>
+to be set to the installation directory of SUMO.</p>
   </div>
 </div>
-<div class="alert alert-tip">
-  <div>
-<p>We recommend using the 64 bit version of SUMO if you want to simulate scenarios with large traffic networks.</p>
-  </div>
-</div>
+<p>On macOS you can find the SUMO install directory using:</p>
+<pre><code class="language-bash">pkgutil --pkgs
+pkgutil --pkg-info org.eclipse.sumo.framework
+</code></pre>
 <h2 id="configuration">Configuration</h2>
 <p>The SUMO ambassador can be configured with a configuration file. The specific path is <code>&lt;scenarioName&gt;/sumo/sumo_config.json</code>.
 If no such file exists, the following default configuration options are used:</p>
@@ -1891,7 +1890,7 @@ in the additional examples bundle on the <a href="https://www.dcaiti.tu-berlin.d
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 15 Apr 2025, 11:46 UTC
+      Website built on 14 May 2025, 12:09 UTC
     </p>
     
   </div>
