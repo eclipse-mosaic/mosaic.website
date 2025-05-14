@@ -47,7 +47,7 @@ information can be found in our **[documentation](/docs/getting_started)**.
 
 Once you've installed everything, you should be able to run your first simulation. For this, switch to your terminal application and type:
 
-On Unix/Linux:
+On Unix/Linux/macOS:
 ```bash
 ./mosaic.sh -s Barnim -v
 ```

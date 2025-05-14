@@ -60,11 +60,11 @@ starts.
 
 {{% alert warning %}}
 By default, the WebSocket Visualizer does not work on Microsoft Edge.
-UWP (UniversalWindows Platform) apps onWindows 10 do not have direct network access
+UWP (Universal Windows Platform) apps on Windows 10 do not have direct network access
 but are subject to a network isolation for security reasons, preventing localhost loopback
-by default. WhileMicrosoft Edge itself does allow localhost access, it treats localhost as an
+by default. While Microsoft Edge itself does allow localhost access, it treats localhost as an
 Internet site, which leads to restrictions e.g. for IPC over IP. To prevent this, an exception
-for Edgemust be added to the network isolation via the following command in an elevated
+for Edge must be added to the network isolation via the following command in an elevated
 command prompt:
 
 ```Windows

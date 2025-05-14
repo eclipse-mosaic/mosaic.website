@@ -56,11 +56,11 @@ Good to know:
 
 Given that you execute the code from source, some important file locations change:
 
-| Bundled                   | From Source                                             |
-|:--------------------------|:--------------------------------------------------------|
-| `<mosaic-root>/scenarios` | `<mosaic-root>/bundle/src/assembly/resources/scenarios` |
-| `<mosaic-root>/etc`       | `<mosaic-root>/rti/mosaic-starter/etc`                  |
-| `<mosaic-root>/logs`      | `<mosaic-root>/rti/mosaic-starter/logs`                 |
+| Bundled                   | From Source                             |
+|:--------------------------|:----------------------------------------|
+| `<mosaic-root>/scenarios` | `<mosaic-root>/scenarios/bundle`        |
+| `<mosaic-root>/etc`       | `<mosaic-root>/rti/mosaic-starter/etc`  |
+| `<mosaic-root>/logs`      | `<mosaic-root>/rti/mosaic-starter/logs` |
 
 ### Combine Mosaic (Windows IntelliJ IDE) with ns3 (WSL)
 

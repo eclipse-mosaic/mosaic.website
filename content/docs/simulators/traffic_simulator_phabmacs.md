@@ -16,7 +16,7 @@ within individual traffic situations.
 
 |                      |                                                                                                                      | |
 |----------------------|----------------------------------------------------------------------------------------------------------------------|-|
-| **Operating System** | GNU/Linux, Microsoft Windows                                                                                         | |
+| **Operating System** | GNU/Linux, Microsoft Windows, *currently no support for Apple Silicon Macs*                                          | |
 | **Written in**       | Java, Kotlin                                                                                                         | |
 | **License**          | [MOSAIC Extended](/download#overview)                                                                                | |
 | **Website**          | [www.dcaiti.tu-berlin.de/research/simulation/phabmacs](https://www.dcaiti.tu-berlin.de/research/simulation/phabmacs) | |

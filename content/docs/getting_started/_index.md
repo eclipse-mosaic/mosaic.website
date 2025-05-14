@@ -32,7 +32,7 @@ menu:
    ├─ CONTRIBUTING.md 
    ├─ LICENSE 
    ├─ mosaic.bat ...................... Start script for Windows systems.
-   └─ mosaic.sh ....................... Start script for GNU/Linux systems.
+   └─ mosaic.sh ....................... Start script for GNU/Linux/Mac systems.
 ```
 
 ### Additional Software
@@ -61,7 +61,7 @@ table {
 
 {{% alert note %}}
 **All provided scenarios require SUMO to be installed.** However, if a different traffic or vehicle simulator
-is coupled, SUMO is not necessarily required.
+is coupled, SUMO is not necessarily required. Follow [this guide](/docs/simulators/traffic_simulator_sumo) for SUMO installation instructions.
 {{% /alert %}}
 
 {{% alert note %}}
@@ -72,7 +72,7 @@ can access and download this distribution following [this link](https://ci.eclip
 
 ### Update Eclipse MOSAIC
 
-In order to update Eclipse MOSAIC to a new version, please perform the following steps manually:
+To update Eclipse MOSAIC to a new version, please perform the following steps manually:
 
 * Backup your personal simulation scenarios from MOSAIC's scenarios directory.
 * Remove your old MOSAIC installation completely.

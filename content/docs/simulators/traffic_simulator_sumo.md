@@ -13,14 +13,14 @@ menu:
 simulation tool. It is designed to handle large road networks faster than real-time and simulates each vehicle
  individually.
 
-|                          |                                                      | |
-|--------------------------|------------------------------------------------------|-|
-| **Operating System**     | GNU/Linux, _macOS_, Microsoft Windows                | |
-| **Written in**           | C++                                                  | |
-| **License**              | EPL-2.0                                              | |
+|                          |                                                    | |
+|--------------------------|----------------------------------------------------|-|
+| **Operating System**     | GNU/Linux, macOS, Microsoft Windows                | |
+| **Written in**           | C++                                                | |
+| **License**              | EPL-2.0                                            | |
 | **Website**              | [https://www.eclipse.dev/sumo/](https://www.eclipse.dev/sumo/) | |
 | **Supported version(s)** | Recommended version:<br>Full support:<br>Limited support: | {{< version of="sumo" >}}<br>{{< version of="sumo_full_support" >}}<br>{{< version of="sumo_limited_support">}} |
-|                          |                                                      | |
+|                          |                                                    | |
 
 ## Installation
 
@@ -28,19 +28,20 @@ simulation tool. It is designed to handle large road networks faster than real-t
 
 Download the SUMO binary bundle or installer from the SUMO website. Linux users may build SUMO from the source code.
 Depending on the distribution, it is even possible to install SUMO as package from a software repository.
+MacOS users can be required to install XQuartz.
 Please refer to the SUMO Wiki for further information.
 
 {{% alert note %}}
-In order to run SUMO with Eclipse MOSAIC you need to make the SUMO binaries available system wide by adding the SUMO
-binary folder to your
-`PATH` environment variable. Alternatively, the environment variable `SUMO_HOME` can be used to
-define the installation directory of SUMO.
+In order to run SUMO with Eclipse MOSAIC you need to make the SUMO binaries available system-wide by adding the SUMO
+binary folder to your `PATH` environment variable. For many tools SUMO requires the environment variable `SUMO_HOME`
+to be set to the installation directory of SUMO.
 {{% /alert %}}
 
-{{% alert tip %}}
-We recommend using the 64 bit version of SUMO if you want to simulate scenarios with large traffic networks.
-{{% /alert %}}
-
+On macOS you can find the SUMO install directory using:
+```bash
+pkgutil --pkgs
+pkgutil --pkg-info org.eclipse.sumo.framework
+```
 ## Configuration
 
 The SUMO ambassador can be configured with a configuration file. The specific path is `<scenarioName>/sumo/sumo_config.json`.

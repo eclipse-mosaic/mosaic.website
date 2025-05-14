@@ -5,5 +5,5 @@
   "generateRoutes": true,
   "routeBeginLatLon": "52.457616,13.318392",
   "routeEndLatLon": "52.454774,13.333554",
-  "numberOfRoutes": 3
+  "maxNumberOfRoutes": 3
 }

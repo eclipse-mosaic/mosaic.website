@@ -17,9 +17,9 @@ menu:
 To run a single simulation via Command Line Interface (CLI), call the Eclipse MOSAIC start script with the
 following command line arguments. 
 
-### GNU/Linux
+### GNU/Linux/macOS
 
-```bash
+```bash/zsh
 ./mosaic.sh -s <scenario-name>
 ./mosaic.sh -c ./scenarios/<scenario_name>/scenario_config.json
 ```

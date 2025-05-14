@@ -8,19 +8,29 @@ title = "Conference Proceedings"
 #subtitle = ""
 +++
 
-[//]: # (TODO: LUCID paper, AI-NET Paper, Berlin Bus Paper)
-K.Schrab, M. Schweppenhäuser, R. Protzmann, K. Massow, I.Radusch:\
-**Modeling and Analyzing Ride-Hailing Services with Eclipse MOSAIC.** \
+[//]: # (TODO: Berlin Bus Paper)
+K. Schrab, F. Hilgerdenaar, R. Protzmann, I. Radusch:\
+**["Improving Object Detection Through Multi-Perspective LiDAR Fusion."](https://publica.fraunhofer.de/entities/publication/9bea1253-6f04-4405-9c5d-3c0de200d0af)**\
+In _Proceedings of the 11th International Conference on Vehicle Technology and Intelligent Transport Systems - VEHITS 2025_\
+Porto, Portugal, 2-4 April 2025, ISBN 978-989-758-745-0, ISSN 2184-495X, SciTePress, pages 448-457. DOI: [`10.5220/0013283600003941`](https://doi.org/10.5220/0013283600003941)
+
+M. Strunz, R. Protzmann, I. Radusch:\
+**"Cross-Dataset Generalization: Bridging the Gap Between Real and Synthetic LiDAR Data."** \
+In _Simulation Tools and Techniques. SIMUtools 2024. Lecture Notes of the Institute for Computer Sciences, Social Informatics and Telecommunications Engineering, vol 603._ \
+Bratislava, Slovakia, 9-10 December 2024. Springer, Cham. DOI: [`10.1007/978-3-031-87345-4_14`](https://doi.org/10.1007/978-3-031-87345-4_14)
+
+K. Schrab, M. Schweppenhäuser, R. Protzmann, K. Massow, I.Radusch:\
+**["Modeling and Analyzing Ride-Hailing Services with Eclipse MOSAIC."](https://publica.fraunhofer.de/entities/publication/c863b0fe-3f3c-45c8-80c6-cd51fc9dbe69)** \
 In _Advances in Transdisciplinary Engineering 27 - ICITT_ \
 Florence, Italy, 16-18 September 2024, ISBN 978-1-64368-560-1, ISSN 2352751X, DOI: [`10.3233/ATDE241209`](https://doi.org/10.3233/ATDE241209)
 
 M. Schweppenhäuser, K. Schrab, R. Protzmann, I. Radusch:\
-**Traffic State Estimation on Urban Roads Using Perception-Enriched Floating Car Data.** \
+**["Traffic State Estimation on Urban Roads Using Perception-Enriched Floating Car Data."](https://publica.fraunhofer.de/entities/publication/ec0b6e9d-c1c4-4b33-abfd-5e510d6ab1e1)** \
 In _Proceedings of the 10th International Conference on Vehicle Technology and Intelligent Transport Systems - VEHITS_ \
 Angers, France May 2-4 2024, ISBN 978-989-758-703-0, ISSN 2184-495X, DOI: [`10.5220/0012620500003702`](https://doi.org/10.5220/0012620500003702)
 
 M. Schweppenhäuser, K. Schrab, R. Protzmann, I. Radusch:\
-**Spatio-Temporal Speed Metrics for Traffic State Estimation on Complex Urban Roads.** \
+**["Spatio-Temporal Speed Metrics for Traffic State Estimation on Complex Urban Roads."](https://publica.fraunhofer.de/entities/publication/4ae9a03a-71e6-4324-92c6-f6d383c5345e)** \
 In _Simulation Tools and Techniques._ (editors JL. Guisado-Lizar, A. Riscos-Núñez, MJ. Morón-Fernández, G. Wainer) \
 _SIMUtools 2023. Lecture Notes of the Institute for Computer Sciences, Social Informatics and Telecommunications Engineering, vol 519._ Springer, Cham. \
 Seville, Spain, December 14-15  2023, DOI: [`10.1007/978-3-031-57523-5_12`](https://doi.org/10.1007/978-3-031-57523-5_12).

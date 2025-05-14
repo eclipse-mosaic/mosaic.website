@@ -9,7 +9,7 @@ title = "Journal Articles"
 +++
 
 M. Schweppenhäuser, k. Schrab, R. Protzmann, I. Radusch:\
-**[Evaluating spatiotemporal speed metrics for traffic state estimation on complex urban roads](https://journals.sagepub.com/doi/full/10.1177/00375497241308890)**\
+**["Evaluating spatiotemporal speed metrics for traffic state estimation on complex urban roads."](https://journals.sagepub.com/doi/full/10.1177/00375497241308890)**\
 SIMULATION, January 2025, DOI: [`10.1177/00375497241308890`](https://doi.org/10.1177/00375497241308890)
 
 K. Schrab, M. Neubauer, R. Protzmann, I. Radusch, S. Manganiaris, P. Lytrivis, A. J. Amditis:\
