@@ -14,9 +14,6 @@ menu:
 
 This section provides a description how to set up the **OMNeT++ IDE** for the Eclipse MOSAIC OMNeT++ Federate Development.
 
-If you wish to use another IDE than OMNeT++ IDE (based on Eclipse), you can use [ns-3 Federate Development Setup](/docs/extending_mosaic/ns3_setup#developing-eclipse-mosaic-ns-3-federate-with-visual-studio-code)
-as inspiration - it describes the setup of Visual Studio Code.
-
 {{% alert warning %}}
 At this point it is awaited, that the [OMNeT++ Federate](/docs/simulators/network_simulator_omnetpp) is successfully installed.
 {{% /alert %}}

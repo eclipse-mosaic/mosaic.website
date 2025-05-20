@@ -100,7 +100,7 @@ script, called `ns3_installer.sh` that can be found in the associated ns-3 feder
 
 {{% alert note %}}
 Using the installer script will reinstall (rebuild) ns-3 and the federate because it is designed for a user environment and not for federate development.
-Read [here](/docs/extending_mosaic/ns3_setup) for futher information on how to set up a development environment for the ns-3 federate
+Read [here](/docs/extending_mosaic/ns3_federate) for futher information on how to set up a development environment for the ns-3 federate
 {{% /alert %}}
 
 ### Use NS-3 federate on Windows with WSL
@@ -128,7 +128,7 @@ need to manually install ns-3 and can even run ns-3 on Windows hosts.
 2. To get everything to work, please make sure to execute the following steps depending on your operating system:
     * Windows - In the settings, share the drive where Eclipse MOSAIC is installed on. You may need to restart docker in the reset tab.
     * Linux - Make sure your user account belongs to the unix-group `docker`. You may need to restart your machine.
-3. Switch to the location of the Dockerfile in `<mosaic>/bin/fed/ns3`
+3. Switch to the location of the Dockerfile in `<mosaic>/bin/fed/ns3` (Note: If you work with the git repo instead of the zipped bundle, you have to replace `${pom.version}` with something meaningful, this is automatically done during the bundle process)
 4. Execute the following command on command line: `docker build -t ns3-federate .`\
     This could take a while to finish.
 5. Enter the name of the docker image `etc/runtime.json` in the `ns3`-section into the property `dockerImage`. Eclipse MOSAIC will then

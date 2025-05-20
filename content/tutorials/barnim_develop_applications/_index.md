@@ -30,10 +30,10 @@ e.g. topologically-scoped unicast, geographically-scoped broadcast, etc.).
 
 As mentioned in [Barnim: Simulation Basics](/tutorials/barnim_simulation_basics#overview-of-applications), the Barnim
 tutorial is structured in four applications.
-1. `WeatherServer` - Broadcasts information about bad road conditions via cellular communication.
-2. `WeatherWarningApp` - Detects bad road conditions, broadcasts information via ad-hoc communication, circumnavigates areas with bad road conditions.
-3. `WeatherWarningAppCell`- Uses cellular communication and receives messages from `WeatherServer`. Circumnavigates areas with bad road conditions.
-4. `SlowDownApp` - Models driver behavior by slowing the vehicle down as soon as it enters an affected road segment.
+1. [`SlowDownApp`](#slowdownapp) - Models driver behavior by slowing the vehicle down as soon as it enters an affected road segment.
+2. [`WeatherWarningApp`](#weatherwarningapp) - Detects bad road conditions, broadcasts information via ad-hoc communication, circumnavigates areas with bad road conditions.
+3. [`WeatherWarningAppCell`](#weatherwarningappcell) - Uses cellular communication and receives messages from `WeatherServerApp`. Circumnavigates areas with bad road conditions.
+4. [`WeatherServerApp`](#weatherserverapp) - Broadcasts information about bad road conditions via cellular communication.
 
 ## General application structure
 
@@ -45,7 +45,7 @@ public class ExampleApp extends AbstractApplication<VehicleOperatingSystem> impl
     @Override 
     public void onStartup() { 
     } 
-  
+    
     @Override 
     public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {  
     }
@@ -55,110 +55,68 @@ public class ExampleApp extends AbstractApplication<VehicleOperatingSystem> impl
     }   
       
      @Override 
-    public void onShutdown() {
-    }   
+     public void onShutdown() {
+     }   
 }  
 ```
 
 `onVehicleUpdated` needs to be defined and overwritten in order to successfully implement the interface `VehicleApplication`.
 `processEvent` handles all events that get called to the application specific event manager, like this: 
 ```java  
-getOperatingSystem().getEventManager().addEvent(new Event(getOperatingSystem().getSimulationTime(), this));  
+getOs().getEventManager().addEvent(new Event(getOs().getSimulationTime(), this));  
 ```
 Some examples of events are shown below, but a more detailed description can be found in the 
 [documentation](/docs/develop_applications/event_scheduling).
 
-## WeatherServer Application
 
-The [`WeatherServer`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherServerApp.java) is a simulation unit without geographical location which has knowledge about the hazardous area and it is responsible to 
-transmit DEN-Messages periodically to vehicles equipped with  `WeatherWarningAppCell`-application via cellular communication. 
-Firstly, the hazardous area (Road-ID and GeoPoint coordinates), the type of the warning (Sensor type), message interval 
-and the resulted speed will be defined to be used later: 
+## SlowDownApp
+
+The [`SlowDownApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/SlowDownApp.java) induces a speed reduction as soon as the on-board sensors detect hazardous conditions.
+To detect the change in the on-board sensors, the state of the sensors have to be queried whenever the
+vehicle has moved. This is achieved by implementing the `onVehicleUpdated()` method which is called
+whenever the traffic simulator executed one simulation step.
+
+In this specific implementation, the speed of the vehicle is reduced to *25 km/h* within the entire hazardous area.
+After leaving the hazardous area, the vehicles returns to their original speed again:
 
 ```java
-private final static long INTERVAL = 2 * TIME.SECOND;
-
-private final static GeoPoint HAZARD_LOCATION = GeoPoint.latlon(52.633047, 13.565314);
-
-private final static String HAZARD_ROAD = "-3366_2026362940_1313885502";
-
-private final static SensorType SENSOR_TYPE = SensorType.Ice;
 
 private final static float SPEED = 25 / 3.6f;
-```
 
-During the initialization procedure of communicating applications, the communication module (CellModule) needs to be 
-activated. This is achieved in the `onStartup()`-method. The following code snippet shows the activating the 
-CellModule as communication mode:
+private boolean inHazardousArea = false;
 
-```java
-public void onStartup() {
-	getLog().infoSimTime(this, "Initialize WeatherServer application");
-	getOperatingSystem().getCellModule().enable();
-    getLog().infoSimTime(this, "Setup weather server {} at time {}", getOs().getId(), getOs().getSimulationTime());
-	getLog().infoSimTime(this, "Activated Cell Module");
-	sample();
-}
-```
-
-A DENM will be transmitted in **2s** intervals (as configured above) to the vehicles equipped with cellular 
-communication within reach as an event;
-
-```java
-private void sample() {
-	final Denm denm = constructDenm();
-
-	getOperatingSystem().getCellModule().sendV2xMessage(denm);
-
-    getLog().infoSimTime(this, "Sent DENM");
-
-    getOperatingSystem().getEventManager().addEvent(new Event(getOperatingSystem().getSimulationTime() + INTERVAL, this));
-}
-```
-
-The `Event` created in this method is passed with a `this` argument, which represents an `EventProcessor` that gets notified 
-as soon as the proposed event time is reached. As this class implements the `EventProcessor` interface, the method 
-`processEvent()` will be called by the application simulator once the simulation time is reached:
-
-```java
 @Override
-public void processEvent(Event event) throws Exception {
-    sample();
+public void onStartup() {
+    getOs().getBasicSensorModule().enable();
+}
+
+@Override
+public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {
+    
+    SensorType[] types = SensorType.values();
+    int strength = 0;
+    
+    for (SensorType currentType : types) {
+        strength = getOs().getBasicSensorModule().getStrengthOf(currentType);
+    
+        if (strength > 0) {
+            break;
+        }
+    }
+    
+    if (strength > 0 && !inHazardousArea) {
+        getOs().changeSpeedWithInterval(SPEED, 5000);
+        inHazardousArea = true;
+    }
+    
+    if (strength == 0 && inHazardousArea) {
+        getOs().resetSpeed();
+        inHazardousArea = false;
+    }
 }
 ```
 
-Finally, in the method `contructDenm`, the necessary data will be added to a message container `DenmContent` and we create 
-a circular area for the rerouting (3000 m) of the DEN-Message as Broadcast. All vehicles within this area which
-have the cellular module activated, will receive this message. 
-
-```java
-private Denm constructDenm() {
-	final GeoCircle geoCircle = new GeoCircle(HAZARD_LOCATION, 3000.0D);
-	final MessageRouting routing = getOperatingSystem().getCellModule().createMessageRouting()
-            .broadcast()
-            .geographical(geoCircle)
-            .build();
-
-	final int strength = getOperatingSystem().getStateOfEnvironmentSensor(SENSOR_TYPE);
-
-	return new Denm(routing,
-			new DenmContent(
-					getOperatingSystem().getSimulationTime(),
-					null,
-					HAZARD_ROAD,
-					SENSOR_TYPE,
-					strength,
-					SPEED,
-					0.0f,
-					HAZARD_LOCATION,
-					null,
-					null
-			)
-	);
-}
-```
-
-## WeatherWarningApp 
+## WeatherWarningApp
 
 The [`WeatherWarningApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherWarningApp.java) application illustrates the vehicles and their behaviour in particular with regard to the 
 detecting hazardous area, the receiving and sending messages. We will also cover how alternative routes 
@@ -169,20 +127,20 @@ network will be activated in the `onStartup()` method as following:
 
 ```java
 public void onStartup() {
-	getLog().infoSimTime(this, "Initialize application");
-	if (useCellNetwork()) {
-		getOperatingSystem().getCellModule().enable();
-		getLog().infoSimTime(this, "Activated Cell Module");
-	} else {
-		getOperatingSystem().getAdHocModule().enable(new AdHocModuleConfiguration()
-			.addRadio()
-				.channel(AdHocChannel.CCH)
-				.power(50)
-				.create());
-		getLog().infoSimTime(this, "Activated AdHoc Module");
-	}
-
-    getOperatingSystem().requestVehicleParametersUpdate()
+    getLog().infoSimTime(this, "Initialize application");
+    if (useCellNetwork()) {
+        getOs().getCellModule().enable();
+        getLog().infoSimTime(this, "Activated Cell Module");
+    } else {
+        getOs().getAdHocModule().enable(new AdHocModuleConfiguration()
+            .addRadio()
+                .channel(AdHocChannel.CCH)
+                .power(50)
+                .create());
+        getLog().infoSimTime(this, "Activated AdHoc Module");
+    }
+    
+    getOs().requestVehicleParametersUpdate()
             .changeColor(Color.RED)
             .apply();
 }
@@ -190,40 +148,42 @@ public void onStartup() {
 
 In case the sensor detects an environmental hazard the vehicle sends out a DEN-message to warn
 other vehicles. In the `reactOnEnvironmentData()` method, the sending is handled with 
-regard to used communication network. If `WeatherWarningAppCell` is mapped, cellular communication is used, 
-in case of `WeatherWarningApp` ITS-G5 communication is used as described in the [Tiergarten: Communication Tutorial](/tutorials/tiergarten_communication). 
+regard to used communication network. For the `WeatherWarningApp`,  ITS-G5 communication is used 
+to inform all vehicles in reach. In case of the `WeatherWarningAppCell`, the environment event is
+sent as a DEN-message directly to the server entity which runs the `EmergencyServerApp`, addressed 
+by the name of the unit (i.e., `server_0`). 
 
 ```java
 private void reactOnEnvironmentData(SensorType type, int strength) {
 
-    GeoPoint vehiclePosition = getOperatingSystem().getPosition();
-
-    String roadId = getOperatingSystem().getVehicleInfo().getRoadPosition().getConnection().getId();
-
+    GeoPoint vehiclePosition = getOs().getPosition();
+    
+    String roadId = getOs().getVehicleInfo().getRoadPosition().getConnection().getId();
+    
     // reach all vehicles in a 3000m radius
     GeoCircle dest = new GeoCircle(vehiclePosition, 3000);
-
+    
     MessageRouting mr;
     if (useCellNetwork()) {
-        mr = getOperatingSystem().getCellModule().createMessageRouting()
-                .broadcast()
-                .geographical(dest)
+        mr = getOs().getCellModule().createMessageRouting()
+                .destination("server_0")
+                .topological()
                 .build();
     } else {
-        mr = getOperatingSystem().getAdHocModule().createMessageRouting()
+        mr = getOs().getAdHocModule().createMessageRouting()
                 .broadcast()
                 .geographical(dest)
                 .build();
     }
-
+    
     Denm denm = new Denm(mr, new DENMContent(
-        getOperatingSystem().getSimulationTime(), vehiclePosition, roadId, type, strength, SPEED, 0.0f, vehiclePosition, null, null)
+        getOs().getSimulationTime(), vehiclePosition, roadId, type, strength, SPEED, 0.0f, vehiclePosition, null, null)
     );
-
+    
     if (useCellNetwork()) {
-        getOperatingSystem().getCellModule().sendV2XMessage(denm);
+        getOs().getCellModule().sendV2XMessage(denm);
     } else {
-        getOperatingSystem().getAdHocModule().sendV2XMessage(denm);
+        getOs().getAdHocModule().sendV2XMessage(denm);
     }
 }
 ```
@@ -240,7 +200,7 @@ public void receiveV2xMessage(ReceivedV2xMessage receivedV2xMessage) {
     if (!(msg instanceof Denm)) {
         return;
     }
-
+    
     final Denm denm = (Denm)msg;
     if (routeChanged) {
         getLog().infoSimTime(this, "Route already changed");
@@ -261,13 +221,13 @@ private void circumnavigateAffectedRoad(DENM denm, final String affectedRoadId) 
 
     ReRouteSpecificConnectionsCostFunction myCostFunction = new ReRouteSpecificConnectionsCostFunction();
     myCostFunction.setConnectionSpeedMS(affectedRoadId, denm.getCausedSpeed());
-
-    NavigationModule navigationModule = getOperatingSystem().getNavigationModule();
-
+    
+    NavigationModule navigationModule = getOs().getNavigationModule();
+    
     RoutingParameters routingParameters = new RoutingParameters().costFunction(myCostFunction);
-
+    
     RoutingResponse response = navigationModule.calculateRoutes(new RoutingPosition(navigationModule.getTargetPosition()), routingParameters);
-
+    
     CandidateRoute newRoute = response.getBestRoute();
     if (newRoute != null) {
         getLog().infoSimTime(this, "Sending Change Route Command at position: {}", denm.getSenderPosition());
@@ -278,41 +238,107 @@ private void circumnavigateAffectedRoad(DENM denm, final String affectedRoadId) 
 
 ## WeatherWarningAppCell
 
-The only difference of the [`WeatherWarningAppCell`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherWarningAppCell.java) to detailed described WeatherWarningApp is that the 
-`WeatherWarningAppCell`-application enabled the use of the cellular network. 
+The [`WeatherWarningAppCell`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherWarningAppCell.java) extends the previously presented `WeatherWarningApp` by using communication
+via a cellular network instead of ad-hoc based communication. In that case, DENM are not 
+sent to vehicles directly, but to the **WeatherServer** (addressed by name `server_0`), which then will 
+re-broadcast received DENM to all cell-connected vehicles in the near of the hazardous area.   
 
-## SlowDownApp
+## WeatherServerApp
 
-The [`SlowDownApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/SlowDownApp.java) induces a speed reduction as soon as the on-board sensors detect hazardous conditions.
-To detect the change in the on-board sensors, the state of the sensors have to be queried whenever the
-vehicle has moved. This is achieved by implementing the `onVehicleUpdated()` method which is called
-whenever the traffic simulator executed one simulation step. 
-
-In this specific implementation, the speed of the vehicle is reduced to *25 km/h* within the entire hazardous area. 
-After leaving the hazardous area, the vehicles returns to their original speed again:
+The [`WeatherServerApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/WeatherServerApp.java) is mapped to a server simulation unit without geographical location which receives knowledge about the hazardous area via DEN-messages
+and it is responsible to re-transmit those DEN-Messages periodically to vehicles equipped with `WeatherWarningAppCell`-application via 
+cellular communication. Firstly, the interval for re-transmitting the last received DEN-message will be defined:
 
 ```java
-public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {
+ /**
+ * Send warning at this interval, in seconds.
+ */
+private final static long INTERVAL = 2 * TIME.SECOND;
+
+
+/**
+ * Save the last received DEN message for relaying.
+ */
+private Denm lastReceivedDenm = null;
+```
+
+During the initialization procedure of communicating applications, the communication module (CellModule) needs to be
+activated. This is achieved in the `onStartup()`-method. The following code snippet shows the activating the
+CellModule as communication mode:
+
+```java
+public void onStartup() {
+    getLog().infoSimTime(this, "Initialize WeatherServer application");
+    getOperatingSystem().getCellModule().enable();
+    sample();
+}
+```
+
+In order to re-transmit the last received DENM, we need to capture all received V2X messages and store the last received DENM.
+This is achieved by implementing the `onMessageReceived` method. 
+
+```java
+@Override
+public void onMessageReceived(ReceivedV2xMessage receivedV2xMessage) {
+    final V2xMessage msg = receivedV2xMessage.getMessage();
     
-    SensorType[] types = SensorType.values();
-    int strength = 0;
-
-    for (SensorType currentType : types) {
-        strength = getOs().getStateOfEnvironmentSensor(currentType);
-
-        if (strength > 0) {
-            break;
-        }
-    }
-
-    if (strength > 0 && !hazardousArea) {
-        getOs().changeSpeedWithInterval(SPEED, 5000);
-        hazardousArea = true;
-    }
-
-    if (strength == 0 && hazardousArea) {
-        getOs().resetSpeed();
-        hazardousArea = false;
+    // Only DEN Messages are handled
+    if (msg instanceof Denm) {
+        lastReceivedDenm = (Denm) msg;
     }
 }
 ```
+
+The last received DENM will then be re-transmitted in **2s** intervals (as configured above) to the vehicles equipped with cellular
+communication within reach as an event;
+
+```java
+private void sample() {
+    if (lastReceivedDenm != null) {        
+        final Denm denm = constructDenm();
+        getOs().getCellModule().sendV2xMessage(denm);
+    }
+    getOs().getEventManager().addEvent(getOs().getSimulationTime() + INTERVAL, this);
+}
+```
+
+The `Event` created in this method is passed with a `this` argument, which represents an `EventProcessor` that gets notified
+as soon as the proposed event time is reached. As this class implements the `EventProcessor` interface, the method
+`processEvent()` will be called by the application simulator once the simulation time is reached:
+
+```java
+@Override
+public void processEvent(Event event) throws Exception {
+    sample();
+}
+```
+
+Finally, in the method `contructDenm`, a new DENM object will be created for transmitting, by copying
+the `DenmContent` of the last received DENM. Furthermore, we create a circular area for the rerouting (3000 m) 
+of the DEN-Message as Broadcast. All vehicles within this area which have the cellular module activated, will 
+receive this message.
+
+```java
+private Denm constructDenm() {
+    final MessageRouting routing = getOs().getCellModule().createMessageRouting()
+            .broadcast()
+            .geographical(new GeoCircle(lastReceivedDenm.getEventLocation(), 3000.0))
+            .build();
+    return new Denm(routing,
+            new DenmContent(
+                    lastReceivedDenm.getTime(),
+                    lastReceivedDenm.getSenderPosition(),
+                    lastReceivedDenm.getEventRoadId(),
+                    lastReceivedDenm.getWarningType(),
+                    lastReceivedDenm.getEventStrength(),
+                    lastReceivedDenm.getCausedSpeed(),
+                    lastReceivedDenm.getSenderDeceleration(),
+                    lastReceivedDenm.getEventLocation(),
+                    lastReceivedDenm.getEventArea(),
+                    lastReceivedDenm.getExtendedContainer()
+            ),
+            200
+    );
+}
+```
+
