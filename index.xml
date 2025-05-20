@@ -5552,7 +5552,7 @@ the following options are possible:&lt;/p&gt;
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/omnetpp_details/&#34;&gt;Extending MOSAIC OMNeT++ Federate&lt;/a&gt; for details on federate build process.&lt;/td&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/omnet_federate/&#34;&gt;Extending MOSAIC OMNeT++ Federate&lt;/a&gt; for details on federate build process.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5768,7 +5768,7 @@ chmod +x omnet_installer.sh`
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/omnetpp_details/&#34;&gt;here&lt;/a&gt; for more details on setting up a development environment for the OMNeT++ federate.&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/omnet_federate/&#34;&gt;here&lt;/a&gt; for more details on setting up a development environment for the OMNeT++ federate.&lt;/p&gt;
 &lt;h3 id=&#34;installation-in-docker-environment&#34;&gt;Installation in Docker environment&lt;/h3&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
@@ -7262,7 +7262,7 @@ Read
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/ns3_setup/&#34;&gt;here&lt;/a&gt; for futher information on how to set up a development environment for the ns-3 federate&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/ns3_federate/&#34;&gt;here&lt;/a&gt; for futher information on how to set up a development environment for the ns-3 federate&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;use-ns-3-federate-on-windows-with-wsl&#34;&gt;Use NS-3 federate on Windows with WSL&lt;/h3&gt;
@@ -7290,7 +7290,7 @@ need to manually install ns-3 and can even run ns-3 on Windows hosts.&lt;/p&gt;
 &lt;li&gt;Linux - Make sure your user account belongs to the unix-group &lt;code&gt;docker&lt;/code&gt;. You may need to restart your machine.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Switch to the location of the Dockerfile in &lt;code&gt;&amp;lt;mosaic&amp;gt;/bin/fed/ns3&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Switch to the location of the Dockerfile in &lt;code&gt;&amp;lt;mosaic&amp;gt;/bin/fed/ns3&lt;/code&gt; (Note: If you work with the git repo instead of the zipped bundle, you have to replace &lt;code&gt;${pom.version}&lt;/code&gt; with something meaningful, this is automatically done during the bundle process)&lt;/li&gt;
 &lt;li&gt;Execute the following command on command line: &lt;code&gt;docker build -t ns3-federate .&lt;/code&gt;&lt;br&gt;
 This could take a while to finish.&lt;/li&gt;
 &lt;li&gt;Enter the name of the docker image &lt;code&gt;etc/runtime.json&lt;/code&gt; in the &lt;code&gt;ns3&lt;/code&gt;-section into the property &lt;code&gt;dockerImage&lt;/code&gt;. Eclipse MOSAIC will then
@@ -8689,37 +8689,10 @@ can be found under
     
     <item>
       <title>OMNeT&#43;&#43; Federate Development</title>
-      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/omnetpp_details/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/omnet_federate/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/omnetpp_details/</guid>
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/omnet_federate/</guid>
       <description>&lt;p&gt;This section provides a description how to set up the &lt;strong&gt;OMNeT++ IDE&lt;/strong&gt; for the Eclipse MOSAIC OMNeT++ Federate Development.&lt;/p&gt;
-&lt;p&gt;If you wish to use another IDE than OMNeT++ IDE (based on Eclipse), you can use 
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/extending_mosaic/ns3_setup/#developing-eclipse-mosaic-ns-3-federate-with-visual-studio-code&#34;&gt;ns-3 Federate Development Setup&lt;/a&gt;
-as inspiration - it describes the setup of Visual Studio Code.&lt;/p&gt;
 &lt;div class=&#34;alert alert-warning&#34;&gt;
   &lt;div&gt;
 &lt;p&gt;At this point it is awaited, that the 
@@ -9149,10 +9122,15 @@ instruction will tell you how to do that:&lt;/p&gt;
     
     <item>
       <title>ns-3 Federate Development Setup</title>
-      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/ns3_setup/</link>
+      <link>https://www.eclipse.dev/mosaic/docs/extending_mosaic/ns3_federate/</link>
       <pubDate>Fri, 23 Jul 2021 20:00:00 +0200</pubDate>
-      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/ns3_setup/</guid>
-      <description>&lt;p&gt;The following instructions steps lead you to a common &lt;strong&gt;development setup for the Eclipse MOSAIC ns-3 Federate&lt;/strong&gt;.&lt;/p&gt;
+      <guid>https://www.eclipse.dev/mosaic/docs/extending_mosaic/ns3_federate/</guid>
+      <description>&lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;Temporary Notice: This page and the corresponding contents are only valid starting with upcoming release 25.1, or for the developer version from GitHub.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The following instructions steps lead you to a common &lt;strong&gt;development setup for the Eclipse MOSAIC ns-3 Federate&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
 &lt;p&gt;&lt;strong&gt;For the Eclipse MOSAIC ns-3 Federate development you should be familiar with:&lt;/strong&gt;&lt;/p&gt;
@@ -9169,200 +9147,124 @@ instruction will tell you how to do that:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;h2 id=&#34;dependency-installation&#34;&gt;Dependency installation&lt;/h2&gt;
-&lt;h3 id=&#34;google-protocol-buffers&#34;&gt;Google Protocol Buffers&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Make sure you have the following dependency installed before you continue:&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites-and-dependencies&#34;&gt;Prerequisites and Dependencies&lt;/h2&gt;
+&lt;p&gt;Please have a look at the 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/simulators/network_simulator_ns3/&#34;&gt;ns-3 section&lt;/a&gt; for system requirements and dependencies. You should install all dependencies to run &lt;code&gt;ns3_installer.sh&lt;/code&gt; before continuing here, developing ns-3 or the ns-3-federate.&lt;/p&gt;
+&lt;p&gt;The current version is tested on Ubuntu 22.04 (we used WSL).
+On Ubuntu 24.04 we ran into problems when compiling ns-3.36.1.
+An upgrade to newer version is in the works.&lt;/p&gt;
+&lt;h2 id=&#34;federate-development-with-the-bundle-and-ns3_installersh&#34;&gt;Federate Development with the Bundle (and &lt;code&gt;ns3_installer.sh&lt;/code&gt;)&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Google Protocol Buffers (protobuf)&lt;/li&gt;
+&lt;li&gt;Compile or download the bundle &lt;code&gt;eclipse-mosaic-25.1-SNAPSHOT.zip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Extract the bundle and go to &lt;code&gt;&amp;lt;bundle&amp;gt;/bin/fed/ns3&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Run the script &lt;code&gt;./ns3_installer.sh --keep-src&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Run a simulation to test that you did the setup correctly  (e.g., the &lt;code&gt;Tiergarten&lt;/code&gt; scenario can be activated with &lt;code&gt;ns-3&lt;/code&gt;).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;premake-5&#34;&gt;Premake 5&lt;/h3&gt;
-&lt;p&gt;There are multiple ways how you can install Premake 5 (
-
-
-
-
-&lt;a href=&#34;https://premake.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://premake.github.io/&lt;/a&gt;).&lt;br&gt;
-For our purpose it doesn&amp;rsquo;t matter which way you choose:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;For federate development&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;install package of your Linux distribution &lt;strong&gt;or&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;download binary &lt;strong&gt;or&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;build from source&lt;/li&gt;
+&lt;li&gt;Do your changes to files in &lt;code&gt;federate/src&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Recompile and deploy the federate.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd federate
+make -j1
+mv ./bin/Debug/ns3-federate ..
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;For ns-3 development&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Change the source files along to your needs&lt;/li&gt;
+&lt;li&gt;Recompile ns-3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ns-allinone-3.36.1/ns-3.36.1
+./ns3 build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;federate-development-with-the-ide&#34;&gt;Federate Development with the IDE&lt;/h2&gt;
+&lt;p&gt;This part mainly does most of the steps from &lt;code&gt;ns3_installer.sh&lt;/code&gt; but manual and thereby more flexible. This setup even works across operating systems: You can start MOSAIC from the IntelliJ IDE in Windows, whereas the federate and ns3 are installed in some Ubuntu inside WSL.&lt;/p&gt;
 &lt;h3 id=&#34;ns-3&#34;&gt;ns-3&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Download ns-3: &lt;a href=&#34;https://www.nsnam.org/releases/ns-allinone-3.36.1.tar.bz2&#34;&gt;https://www.nsnam.org/releases/ns-allinone-3.36.1.tar.bz2&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Run &lt;code&gt;./build.py&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;download--install-eclipse-mosaic-ns-3-federate&#34;&gt;Download &amp;amp; Install Eclipse MOSAIC ns-3 Federate&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Clone the federate&amp;rsquo;s repository: &lt;code&gt;git clone https://github.com/mosaic-addons/ns3-federate&lt;/code&gt; &lt;br&gt;
-The federate&amp;rsquo;s repository directory is referred to as &lt;code&gt;[federate]&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Install the Premake 5 Autoconf Plugin to &lt;code&gt;[federate]/.modules/autoconf&lt;/code&gt;:
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;cd [federate]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;wget -O premake-autoconf.zip https://github.com/Blizzard/premake-autoconf/archive/master.zip&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;unzip premake-autoconf.zip -d .modules/autoconf&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Setup &lt;code&gt;premake5.lua&lt;/code&gt;&lt;/strong&gt; – Premake5 is configured by the file &lt;code&gt;[federate]/premake5.lua&lt;/code&gt; of the federate project.&lt;br&gt;
-Unfortunately, the build definitions have been historically grown and are interlocked with the installer script.&lt;br&gt;
-In order to start development at the federate, you need to change a few parts in &lt;code&gt;premake5.lua&lt;/code&gt;:
+&lt;p&gt;Download, extract, and compile ns-3.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://www.nsnam.org/releases/ns-allinone-3.36.1.tar.bz2
+tar xjf ns-allinone-3.36.1.tar.bz2
+cd ns-allinone-3.36.1/ns-3.36.1
+./ns3 configure
+./ns3 build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;ns-3-federate-and-premake&#34;&gt;ns-3-federate and premake&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;The installer script copies &lt;code&gt;ClientServerChannel.*&lt;/code&gt;. This is not necessary -&amp;gt; uncomment 2 lines:
-&lt;pre&gt;&lt;code class=&#34;language-lua&#34;&gt;   files { &amp;quot;src/**.h&amp;quot;
-         , &amp;quot;src/**.cc&amp;quot;
---         , PROTO_CC_PATH .. &amp;quot;/ClientServerChannel.h&amp;quot;
---         , PROTO_CC_PATH .. &amp;quot;/ClientServerChannel.cc&amp;quot;
-         , PROTO_CC_PATH .. &amp;quot;/ClientServerChannelMessages.pb.h&amp;quot;
-         , PROTO_CC_PATH .. &amp;quot;/ClientServerChannelMessages.pb.cc&amp;quot;
-         }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;add path to ns-3 include directory:
-&lt;pre&gt;&lt;code class=&#34;language-lua&#34;&gt;includedirs { &amp;quot;/usr/include&amp;quot;
-            , &amp;quot;/usr/include/libxml2&amp;quot;
-            , &amp;quot;src&amp;quot;
-            , &amp;quot;/absolute/path/ns-allinone-3.36.1/ns-3.36.1/build&amp;quot;
-            , PROTO_CC_PATH
-            }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;add path to ns-3 lib directory:
-&lt;pre&gt;&lt;code class=&#34;language-lua&#34;&gt;libdirs { &amp;quot;/usr/lib&amp;quot;
-        , &amp;quot;/absolute/path/ns-allinone-3.36.1/ns-3.36.1/build/lib&amp;quot;
-        }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;There are alternative and more eloquent configuration ways. Keep up to date! There might be some changes introduced.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Clone the federate repository. Clone it into the same folder where your &lt;code&gt;ns-allinone&lt;/code&gt; is located. This relative location important for the linking paths.&lt;/li&gt;
+&lt;li&gt;Download the premake5 binary (in this case for Linux) and put it into the federate folder&lt;/li&gt;
+&lt;li&gt;Run premake and thereby generate the makefiles&lt;/li&gt;
+&lt;li&gt;Compile the federate (Building in parallel might cause errors, so the use of one thread with parameter -j1 is recommended.)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Makefile Generation&lt;/strong&gt; – Having configured premake, you can run it to generate the Makefiles:
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;cd [federate]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;premake5 gmake --generate-protobuf&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Build Federate&lt;/strong&gt; – Having generated the federate&amp;rsquo;s Makefiles, the federate can be built.
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/mosaic-addons/ns3-federate
+wget https://github.com/premake/premake-core/releases/download/v5.0.0-beta1/premake-5.0.0-beta1-linux.tar.gz
+tar xvf premake-5.0.0-beta1-linux.tar.gz
+cp premake5 ./ns3-federate
+cd ns3-federate
+chmod +x premake5 # sometimes necessary
+./premake5 gmake --generate-protobuf
+make -j1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Option 1: Simple build with &lt;code&gt;make -j1&lt;/code&gt;&lt;br&gt;
-&lt;em&gt;Building in parallel might cause errors, so the use of one thread (parameter &lt;code&gt;-j1&lt;/code&gt;) is recommended.&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Option 2: Build and Generate &lt;code&gt;compile_commands.json&lt;/code&gt; – &lt;em&gt;Clang&lt;/em&gt; defines a
-
-
-
-
-
-&lt;a href=&#34;https://clang.llvm.org/docs/JSONCompilationDatabase.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;database format for compilation information&lt;/a&gt;,
-containing necessary information to build the project which enables different tools to parse the source code in the same
-way (flags/debug/release/dependency version&amp;hellip;). This is needed by VS Code&amp;rsquo;s plugin &lt;em&gt;clangd&lt;/em&gt;.&lt;br&gt;
-(If you use an IDE which does not need this database, you can omit this &lt;em&gt;option 2&lt;/em&gt;.)&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install a software capable of generation of &lt;code&gt;compile_commands.json&lt;/code&gt;.
-For instance 
-
-
-
-
-&lt;a href=&#34;https://github.com/nickdiego/compiledb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;compiledb&lt;/a&gt;, whose installation is shown below.&lt;/li&gt;
-&lt;li&gt;Call that software&lt;/li&gt;
-&lt;li&gt;Build federate&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;pip install compiledb  # or some other installation method
-cd [federate]
-compiledb make -j1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;After run of the last command, &lt;code&gt;compile_commands.json&lt;/code&gt; is generated in the current directory and can be read by VS Code&amp;rsquo;s plugin &lt;em&gt;clangd&lt;/em&gt;.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;When your ns-3-federate and &lt;code&gt;ns3&lt;/code&gt; folder are not in the same location you have to adapt the paths in &lt;code&gt;premake.lua&lt;/code&gt; before generating the makefiles (use absolute paths and not &lt;code&gt;~&lt;/code&gt; for your home dir), and adapt the paths in &lt;code&gt;run_manually.sh&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Test Installation&lt;/strong&gt; – Run with MOSAIC with ns-3:
-&lt;ol&gt;
-&lt;li&gt;Adjust the ns-3-section of MOSAIC&amp;rsquo;s &lt;code&gt;runtime.json&lt;/code&gt;:
+&lt;h3 id=&#34;run-the-simulation&#34;&gt;Run the simulation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Prepare the scenario: In the &lt;code&gt;scenario_config.json&lt;/code&gt; enable ns3 (and probably disable SNS)&lt;/li&gt;
+&lt;li&gt;Copy configuration files: Put the &lt;code&gt;&amp;lt;scenario&amp;gt;/ns3/ns3_federate_config.xml&lt;/code&gt; into the &lt;code&gt;ns3-federate&lt;/code&gt; folder&lt;/li&gt;
+&lt;li&gt;In MOSAIC&amp;rsquo;s &lt;code&gt;etc/runtime.json&lt;/code&gt; adjust the &lt;code&gt;ns3&lt;/code&gt; section:&lt;/li&gt;
+&lt;/ul&gt;
 &lt;pre&gt;&lt;code&gt;...
 &amp;quot;deploy&amp;quot;: false,
 &amp;quot;start&amp;quot;: false,
 ...
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;Run federate in IDE&lt;/li&gt;
-&lt;li&gt;Run MOSAIC with an scenario having ns-3 enabled.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;developing-eclipse-mosaic-ns-3-federate-with-visual-studio-code&#34;&gt;Developing Eclipse MOSAIC ns-3 Federate with Visual Studio Code&lt;/h2&gt;
-&lt;p&gt;This section describes the use of 
-
-
-
-
-&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Visual Studio Code&lt;/em&gt;&lt;/a&gt; (VS Code).
-You should be familiar with VS Code&amp;rsquo;s basic usage.&lt;/p&gt;
-&lt;p&gt;Alternatively you can use any other development environment like:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;VIM&lt;/li&gt;
-&lt;li&gt;Eclipse&lt;/li&gt;
-&lt;li&gt;NetBeans&lt;/li&gt;
-&lt;li&gt;Code::Blocks&lt;/li&gt;
-&lt;li&gt;JetBrains CLion&lt;/li&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;li&gt;Run the federate with the script &lt;code&gt;bash run_manually.sh&lt;/code&gt;, this will now listen for the startup of your MOSAIC simulation&lt;/li&gt;
+&lt;li&gt;Run your MOSAIC simulation from the IDE&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;plugins&#34;&gt;Plugins&lt;/h3&gt;
-&lt;p&gt;This setup assumes the following VS Code plugins are installed:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;clangd&lt;/li&gt;
-&lt;li&gt;CodeLLDB&lt;/li&gt;
+&lt;li&gt;When starting both MOSAIC and ns-3-federate separately, the MOSAIC log (CommunicationDetails.log) will remain empty. Instead you have the log output on your console.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;tasks-launch-examples&#34;&gt;Tasks, Launch: Examples&lt;/h3&gt;
-&lt;p&gt;For basic debugging and building you can use these configuration files. They define&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a build task,&lt;/li&gt;
-&lt;li&gt;a debug launch configuration.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;.vscode/launch.json&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    &amp;quot;version&amp;quot;: &amp;quot;0.2.0&amp;quot;,
-    &amp;quot;configurations&amp;quot;: [
-
-        {
-            &amp;quot;type&amp;quot;: &amp;quot;lldb&amp;quot;,
-            &amp;quot;request&amp;quot;: &amp;quot;launch&amp;quot;,
-            &amp;quot;name&amp;quot;: &amp;quot;Debug&amp;quot;,
-            &amp;quot;program&amp;quot;: &amp;quot;${workspaceFolder}/bin/Debug/ns3-federate&amp;quot;,
-            &amp;quot;args&amp;quot;: [&amp;quot;--port=5011&amp;quot;, &amp;quot;--configFile=ns3_federate_config.xml&amp;quot;],
-            &amp;quot;cwd&amp;quot;: &amp;quot;${workspaceFolder}&amp;quot;,
-            &amp;quot;env&amp;quot;: {&amp;quot;LD_LIBRARY_PATH&amp;quot;:&amp;quot;/absolute/path/ns-allinone-3.36.1/ns-3.36.1/build/lib&amp;quot;}
-        }
-    ]
-}
+&lt;h3 id=&#34;developing&#34;&gt;Developing&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;For federate development&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ns3-federate
+# make your changes in src/
+make -j1
+bash run_manually.sh
+# start MOSAIC from the IDE
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;.vscode/tasks.json&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    &amp;quot;version&amp;quot;: &amp;quot;2.0.0&amp;quot;,
-    &amp;quot;tasks&amp;quot;: [
-        {
-            &amp;quot;label&amp;quot;: &amp;quot;make&amp;quot;,
-            &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
-            &amp;quot;command&amp;quot;: &amp;quot;make -j1&amp;quot;,
-            &amp;quot;group&amp;quot;: {
-                &amp;quot;kind&amp;quot;: &amp;quot;build&amp;quot;,
-                &amp;quot;isDefault&amp;quot;: true
-            },
-            &amp;quot;presentation&amp;quot;: {
-                &amp;quot;reveal&amp;quot;: &amp;quot;always&amp;quot;,
-                &amp;quot;panel&amp;quot;: &amp;quot;new&amp;quot;
-            },
-            &amp;quot;problemMatcher&amp;quot;: []
-        }
-    ]
-}
+&lt;p&gt;&lt;strong&gt;For ns-3 development&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ns-allinone-3.36.1/ns-3.36.1
+# make your changes
+./ns3 build
+cd &amp;lt;ns3-federate&amp;gt;
+bash run_manually.sh
+# start MOSAIC from the IDE
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

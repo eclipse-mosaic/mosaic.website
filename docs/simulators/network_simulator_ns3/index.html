@@ -1111,15 +1111,15 @@
         </li>
         
         <li >
-          <a href="/mosaic/docs/extending_mosaic/omnetpp_details/">OMNeT&#43;&#43; Federate</a>
+          <a href="/mosaic/docs/extending_mosaic/omnet_federate/">OMNeT&#43;&#43; Federate</a>
+        </li>
+        
+        <li >
+          <a href="/mosaic/docs/extending_mosaic/ns3_federate/">ns-3 Federate</a>
         </li>
         
         <li >
           <a href="/mosaic/docs/extending_mosaic/event_scheduler/">Event Scheduler</a>
-        </li>
-        
-        <li >
-          <a href="/mosaic/docs/extending_mosaic/ns3_setup/">ns-3 Federate</a>
         </li>
         
         <li >
@@ -1394,7 +1394,7 @@ Read
     
   
 
-<a href="/mosaic/docs/extending_mosaic/ns3_setup/">here</a> for futher information on how to set up a development environment for the ns-3 federate</p>
+<a href="/mosaic/docs/extending_mosaic/ns3_federate/">here</a> for futher information on how to set up a development environment for the ns-3 federate</p>
   </div>
 </div>
 <h3 id="use-ns-3-federate-on-windows-with-wsl">Use NS-3 federate on Windows with WSL</h3>
@@ -1422,7 +1422,7 @@ need to manually install ns-3 and can even run ns-3 on Windows hosts.</p>
 <li>Linux - Make sure your user account belongs to the unix-group <code>docker</code>. You may need to restart your machine.</li>
 </ul>
 </li>
-<li>Switch to the location of the Dockerfile in <code>&lt;mosaic&gt;/bin/fed/ns3</code></li>
+<li>Switch to the location of the Dockerfile in <code>&lt;mosaic&gt;/bin/fed/ns3</code> (Note: If you work with the git repo instead of the zipped bundle, you have to replace <code>${pom.version}</code> with something meaningful, this is automatically done during the bundle process)</li>
 <li>Execute the following command on command line: <code>docker build -t ns3-federate .</code><br>
 This could take a while to finish.</li>
 <li>Enter the name of the docker image <code>etc/runtime.json</code> in the <code>ns3</code>-section into the property <code>dockerImage</code>. Eclipse MOSAIC will then
@@ -1859,7 +1859,7 @@ includes additional parameters, like sending power and antenna gain.</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 14 May 2025, 12:09 UTC
+      Website built on 20 May 2025, 09:39 UTC
     </p>
     
   </div>
