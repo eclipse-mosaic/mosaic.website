@@ -305,10 +305,6 @@ it is counted upwards beginning from 0, in the order of spawning.
 
 {{< figure src="images/integrate_existing_sumo_scenarios-simulation.png" title="Overview of the Sievekingplatz scenario during simulation including type parameters" numbered="true" >}}
 
-{{% alert note %}}
-If you use the `WebSocket Visualizer` then bikes will be shown with the icon of a car.
-{{% /alert %}}
-
 ### Logs  
 We'll have a quick look at some logs of the applications to see, that everything functions properly.
 

@@ -44,7 +44,7 @@ After completing this tutorial you will be able to:
 Also, the vehicles equipped with the cell app send their DENM to a **WeatherServer** which then will relay the last received warning message on their behalf. So the WeatherServer creates a GeoCircle around the hazardous position, and sends out the warning over the cellular network. So all vehicles within a 3km radius of the hazardous location will receive the warning from the weather server.
 You can observe, that this removes the need for a certain density of vehicles equipped with cellular communication to reach all vehicles in the GeoCircle.
 1. Upon receiving a DENM, vehicles with a weather warning app will recalculate their route. Transmitted over the DENM is the information about the slowdown induced by the icy road, which factors into route recalculation. The new route is shown in Figure 1 in green.
-1. While the simulation is running, you should see with the [Websocket Visualizer](/docs/visualization), vehicles as moving markers indicating when they are sending **V2X** messages (red vehicles) and receiving **V2X** messages (green vehicles).
+1. While the simulation is running, you should see with the [2D Visualizer](/docs/visualization), vehicles as moving markers indicating when they are sending **V2X** messages (red vehicles) and receiving **V2X** messages (green vehicles).
 
 More information about the [Simple Network Simulator](/docs/simulators/network_simulator_sns) and the [Network Simulator Cell](/docs/simulators/network_simulator_cell) can be found in the documentation.
 

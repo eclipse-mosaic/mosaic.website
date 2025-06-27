@@ -63,6 +63,19 @@ $desc-width: 460px;
           background-color: darken($mosaic-green, 6%);
         }
       }
+      &.other-domains {
+         .domain-inner {
+           background-color: $mosaic-yellow;
+           background-image: linear-gradient(135deg, $mosaic-yellow 0%, darken($mosaic-yellow, 8%) 100%);
+         }
+         .simulators .simulator-wrap:hover .simulator {
+           background-color: darken($mosaic-yellow, 20%);
+           color: #fff;
+         }
+         .arrow {
+           background-color: darken($mosaic-yellow, 8%);
+         }
+       }
       &.evaluation-tools {
         .domain-inner {
           background-color: $mosaic-orange;

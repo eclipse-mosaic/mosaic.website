@@ -59,7 +59,7 @@ mosaic.bat -s Barnim -v
 ```
 
 This will execute the [Barnim](/tutorials/barnim_simulation_basics) scenario. During the simulation, vehicles drive along the
-road and exchange V2X messages between each other. With the `-v` parameter, a web visualization opens in your default browser. The whole
+road and exchange V2X messages between each other. With the `-v` parameter, a 2D visualization opens in your default browser. The whole
 procedure should look like this:
 
 {{< figure src="../../docs/getting_started/images/mosaic-barnim.gif" title="Barnim scenario executed with Eclipse MOSAIC" numbered="true" >}}

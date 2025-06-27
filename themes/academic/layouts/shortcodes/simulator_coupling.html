@@ -124,6 +124,38 @@
           </div>
           <div class="arrow"></div>
         </div>
+        <div class="domain other-domains col">
+          <div class="domain-inner row">
+            <div class="title col-12">
+              <h2>Other Domains</h2>
+            </div>
+            <div class="simulators col-12 align-self-end">
+              <div class="row">
+                <div class="simulator-wrap col-12">
+                  <div class="simulator extended">Parking</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "parking") }}
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">Environment</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "environment") }}
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator">Perception</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "perception") }}
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator extended">Traffic Signs (VMS)</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "traffic_signs") }}
+                </div>
+                <div class="simulator-wrap col-12">
+                  <div class="simulator extended">Battery / Charging</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "battery_charging") }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="arrow"></div>
+        </div>
         <div class="domain evaluation-tools col">
           <div class="domain-inner row">
             <div class="title col-12">
@@ -132,12 +164,12 @@
             <div class="simulators col-12 align-self-end">
               <div class="row slim-gutters">
                 <div class="simulator-wrap col-6">
-                  <div class="simulator">2D Visualization</div>
-                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "2d_visualization") }}
+                  <div class="simulator">2D Visualizer</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "2d_visualizer") }}
                 </div>
                 <div class="simulator-wrap col-6">
-                  <div class="simulator extended">3D Visualization</div>
-                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "3d_visualization") }}
+                  <div class="simulator extended">3D Visualizer</div>
+                  {{ partial "simulator_coupling_desc" (dict "context" . "key" "3d_visualizer") }}
                 </div>
               </div>
               <div class="row">
@@ -169,7 +201,6 @@
         </div>
       </div>
     </div>
-
     <div class="eclipse-mosaic col-12">
       <div class="inner">
         <div class="row">
@@ -199,5 +230,5 @@
   </div>
 </div>
 <div class="simulator-coupling-fallback d-block d-xl-none mb-3">
-  <img src="{{ printf "/img/simulator-coupling.png" | relURL }}">
+  <img src="{{ printf "/img/simulator-coupling.svg" | relURL }}">
 </div>

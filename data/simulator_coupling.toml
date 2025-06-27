@@ -84,7 +84,7 @@
             for testing ADAS within a simulated environment. Vehicles are simulated with advanced simulation models
             providing them with realistic driving dynamics within normal traffic situations.\n\n Tested ADAS can utilize
             simulated sensor data as well as control simulated vehicles by using virtual actuators."""
-  url = "/docs/simulators/traffic_simulator_phabmacs/"
+  url = "/docs/simulators/vehicle_simulator_phabmacs/"
   position = "left"
 [carla]
   title = "Vehicle Simulator CARLA"
@@ -94,20 +94,56 @@
             platform supports flexible specification of sensor suites, environmental conditions, full control of all static
             and dynamic actors, maps generation and much more.\n\n _The coupling interface to integrate the CARLA simulator
             is currently under internal development and will be published soon_."""
-  #url = "/docs/simulators/traffic_simulator_phabmacs/"
+  #url = "/docs/simulators/vehicle_simulator_carla/"
   position = "left"
 
+# Other Domains
+[parking]
+is_extended = true
+title = "Parking Ambassador"
+text = """The Parking Ambassador is a tool in MOSAIC Extended that allows the simplified placement of non moving vehicles on the map."""
+#url = "/docs/simulators/traffic_simulator_sumo/"
+position = "left"
+[environment]
+title = "Environment Simulator"
+text = """The Environment Simulator enables the creation of environment based events on the map. For example, these events can be icy
+          conditions on roads in this area, or any other kind of obstacle. Vehicles that pass through this area and are equipped with the right
+          sensors can react upon these events and alter their behavior."""
+url = "/docs/simulators/environment_simulator/"
+position = "left"
+[perception]
+title = "Perception Module"
+text = """The Perception Module allows to emulate basic detection of other traffic entities using a field of view filter.
+          To warrant fast simulation MOSAIC utilizes a spatial index, which allows for quick pre-selection of relevant entities."""
+url = "/docs/develop_applications/perception/"
+position = "left"
+[traffic_signs]
+is_extended = true
+title = "Variable Message Signs Simulator"
+text = """The VMS Simulator allows to define variable message signs on top of the existing traffic simulation.
+          An additional application for vehicles allows them to react upon VMS, which can be dynamically controlled."""
+url = "/docs/simulators/vms_simulator/"
+position = "left"
+[battery_charging]
+is_extended = true
+title = "MOSAIC Battery Simulator / Charging Station Simulator"
+text = """The Battery Simulator handles the process of discharging, charging, and recuperation. The Charging Station Simulator extends the
+          modeling characteristics of electric vehicles for holistic scenarios, as it validates charging requests from vehicles to control
+          re-charging."""
+url = "/docs/simulators/emobility_simulator_battery/"
+position = "left"
+
 # Evaluation Tools
-[3d_visualization]
+[3d_visualizer]
   is_extended = true
-  title = "3D Visualization"
+  title = "3D Visualizer"
   text = """The Eclipse MOSAIC 3D Visualization Tool is based on the PHABMACS vehicle simulator and uses the same 3D
             engine and models to visualize vehicle movements and various events which occur during the simulation like
             sent and received V2X messages."""
   url = "/docs/visualization/3d-vis/"
   position = "top-left"
-[2d_visualization]
-  title = "2D Visualization"
+[2d_visualizer]
+  title = "2D Visualizer"
   text = """To get a simple and instant impression of vehicle movements of a simulation Eclipse MOSAIC provides a
             2D visualization presented in your favourite browser."""
   url = "/docs/visualization/"
@@ -156,18 +192,18 @@
   title = "Federation Management"
   text = """The Federation Management is responsible for the administration of participating federates. This includes
             deploying, starting, stopping, and undeploying federates in a distributed system."""
-  url = "/docs/extending_mosaic/#federation-management"
+  url = "/docs/extending_mosaic/core_concepts/#federation-management"
   position = "top-right"
 [time_management]
   title = "Time Management"
   text = """The time management is necessary for coordinating the simulation and synchronizing participating federates.
             It assures that each federate processes its events in correct order."""
-  url = "/docs/extending_mosaic/#time-management"
+  url = "/docs/extending_mosaic/core_concepts/#time-management"
   position = "top"
 [interaction_management]
   title = "Interaction Management"
   text = """The exchange of data among federates is offered by the Interaction Management using interactions. Eclipse
             MOSAIC and its federates are decoupled through a publish-subscribe paradigm provided by the Interaction
             Management. A published interaction is forwarded to each subscriber directly after it has been published."""
-  url = "/docs/extending_mosaic/#interaction-management"
+  url = "/docs/extending_mosaic/core_concepts/#interaction-management"
   position = "top-left"

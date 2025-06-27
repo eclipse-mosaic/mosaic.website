@@ -1,6 +1,6 @@
 ---
-title: 3D Visualization
-linktitle: 3D Visualization
+title: 3D Visualizer
+linktitle: 3D Visualizer
 toc: false
 type: docs
 date: "2019-05-05T00:00:00+01:00"
@@ -11,7 +11,7 @@ menu:
     parent: visualization
 ---
 
-{{% alert extended %}}
+{{% alert extended %}}  
 The 3D visualization is part of **[MOSAIC Extended](/download#overview)**.  
 For further information on licenses, feel free to contact us via **[mosaic@fokus.fraunhofer.de](mailto:mosaic@fokus.fraunhofer.de)**.
 {{% /alert %}}

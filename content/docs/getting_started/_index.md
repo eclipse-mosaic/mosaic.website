@@ -28,7 +28,7 @@ menu:
    ├─ lib ............................. Directory with all Java compiled libraries required for MOSAIC.
    ├─ logs ............................ Directory with log files.
    ├─ scenarios ....................... Directory containing all simulation scenarios.
-   ├─ tools ........................... Additional tools, like the HTML Visualizer.
+   ├─ tools ........................... Additional tools, like the 2D Visualizer.
    ├─ CONTRIBUTING.md 
    ├─ LICENSE 
    ├─ mosaic.bat ...................... Start script for Windows systems.

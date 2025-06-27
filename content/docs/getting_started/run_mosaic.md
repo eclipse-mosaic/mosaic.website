@@ -34,7 +34,7 @@ mosaic.bat -c .\scenarios\<scenario_name>\scenario_config.json
 ### Example
 
 The following call starts the example scenario "Barnim" in Eclipse MOSAIC on a Windows machine and opens a
-[Visualization in your browser](/docs/visualization):
+[2D Visualizer in your browser](/docs/visualization):
 
 ```dos
 mosaic.bat -s Barnim -v
@@ -55,16 +55,16 @@ table th:nth-of-type(2) {
 }
 </style>
 
-| Option | Description |
-|:------ |:--------------------------------------------- |
-| `-c`<br>`--configuration` | The primary configuration file which is scenario dependent and located in the according scenario folder. This file transitively includes other necessary configuration files. Usually you will use the file `<mosaic-root>/scenarios/<scenario_name>/scenario_config.json`. |
+| Option | Description                                                                                                                                                                                                                                                                                 |
+|:------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `-c`<br>`--configuration` | The primary configuration file which is scenario dependent and located in the according scenario folder. This file transitively includes other necessary configuration files. Usually you will use the file `<mosaic-root>/scenarios/<scenario_name>/scenario_config.json`.                 |
 | `-s`<br>`--scenario` | If the main configuration file of your scenario is located in the default scenario directory of MOSAIC (i.e. in `<mosaic-root>/scenarios/<scenario_name>/scenario_config.json`), this option can be used instead of the `-c` option by passing only the scenario name `-s <scenario_name>`. |
-| `-w`<br>`--watchdog-interval` | The interval of the internal alive check (in seconds) which is used by MOSAIC to detect execution stalls. This parameter is not mandatory and it is also possible to turn off the watchdog (`-w 0`) for debug sessions. |
-| `-o`<br>`--log-level` | Override all specified logging-levels. This option is useful for debugging simulations. For example logging every possible event would be done with `-o TRACE`. |
-| `-b`<br>`--realtime-brake` | With this parameter, the simulation will be slowed down to a desired Real Time Factor, if possible. When simulations already run slower than real time, this factor will have no effect. For example, use `-b 1` to execute the simulation in real time. |
-| `-r`<br>`--random-seed` | The global random seed to set for the simulation run. This is usually defined in the `scenario_config.json`, but can be overridden using this option. |  
-| `-v`<br>`--start-visualizer` | Opens a page in your default browser which visualizes all vehicle movements of the simulation on a map. This option only works, if your scenario is configured with the [Websocket Visualizer](/docs/visualization). |
-| `-h`<br>`--help` | Prints a help screen. |
+| `-w`<br>`--watchdog-interval` | The interval of the internal alive check (in seconds) which is used by MOSAIC to detect execution stalls. This parameter is not mandatory and it is also possible to turn off the watchdog (`-w 0`) for debug sessions.                                                                     |
+| `-o`<br>`--log-level` | Override all specified logging-levels. This option is useful for debugging simulations. For example logging every possible event would be done with `-o TRACE`.                                                                                                                             |
+| `-b`<br>`--realtime-brake` | With this parameter, the simulation will be slowed down to a desired Real Time Factor, if possible. When simulations already run slower than real time, this factor will have no effect. For example, use `-b 1` to execute the simulation in real time.                                    |
+| `-r`<br>`--random-seed` | The global random seed to set for the simulation run. This is usually defined in the `scenario_config.json`, but can be overridden using this option.                                                                                                                                       |  
+| `-v`<br>`--start-visualizer` | Opens a page in your default browser which visualizes all vehicle movements of the simulation on a map. This option only works, if your scenario is configured with the [connector to the 2D Visualizer](/docs/visualization).                                                              |
+| `-h`<br>`--help` | Prints a help screen.                                                                                                                                                                                                                                                                       |
 
 While Eclipse MOSAIC is running, it prints some information on the command line:
 ```shell

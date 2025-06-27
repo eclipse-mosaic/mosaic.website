@@ -1,6 +1,6 @@
 ---
 title: PHABMACS - PHysics Aware Behavior Modeling Advanced Car Simulator
-linktitle: Traffic - PHABMACS
+linktitle: Vehicle - PHABMACS
 toc: true
 type: docs
 draft: false
@@ -35,12 +35,15 @@ For further information on licenses, feel free to contact us via **[mosaic@fokus
 ## Overview
 
 PHABMACS is designed to be a lightweight, developer-friendly, easy to modify tool to prototype cooperative driver assistance systems. 
-Developers can use the simulated vehicles in PHABMACS first, before applying there code in real test vehicles.
-The environment in PHABMACS allows for creation of arbitrary scenarios. Conveniently, such scenarios can be automatically generated from 
+Developers can use the simulated vehicles in PHABMACS first, before applying their code in real test vehicles.
+The environment in PHABMACS allows for creation of arbitrary scenarios. 
+Conveniently, such scenarios can be automatically generated from 
 Open Street Map (OSM) map material using the street grid, buildings and natural elements like trees, grass, and water.
 The 3D visualization is based on the [kool engine](https://github.com/kool-engine/kool) and comes with a puristic, yet appealing rendering style.
 
-{{< figure src="../images/phabmacs_overview_old.png" title="Procedural generated environment model in PHABMACS" width="85%" >}}
+{{< figure src="../images/phabmacs_overview.png" title="Procedural generated environment model in PHABMACS." width="85%" >}}
+
+{{< figure src="../images/phabmacs_overview_vehicle.png" title="Detailed assets for vehicles in PHABMACS." width="85%" >}}
 
 ## MOSAIC Scenario Integration
 
@@ -84,12 +87,14 @@ A basic configuration should look like this:
 
 ### Vehicles and Routes
 
-Vehicle routes are stored in the scenario-database, and vehicles are spawned using the `mapping_config.json`. Please refer to our general
-explanation of [MOSAIC Scenarios](/docs/scenarios) on how this is accomplished.
+Vehicle routes are stored in the scenario-database, and vehicles are spawned using the `mapping_config.json`. 
+Please refer to our general explanation of [MOSAIC Scenarios](/docs/scenarios) on how this is accomplished.
 
-Additionally, the actual vehicle model needs to be configured in the `phabmacs_config.json`. Each model has a distinct 3D model
-for its visualization, and matching vehicle properties. In the `vehicleTypes` section of the `phabmacs_config.json` 
-vehicle types (which have been defined in the mapping configuration) are assigned with vehicle models:
+Additionally, the actual vehicle model needs to be configured in the phabmacs_config.json , where the vehicleProperties tag references a `vehicle.properties` file. 
+This file outlines the key parameters such as geometry, dynamics, engine values, and more. 
+It also specifies a 3D model for visualization using a `model.gz` file as asset, which are generated from Collada DAE files.
+ 
+In the `vehicleTypes` section of the `phabmacs_config.json` vehicle types (which have been defined in the mapping configuration) are assigned with one of the available vehicle properties file:
 
 ```json
 {
@@ -105,17 +110,57 @@ vehicle types (which have been defined in the mapping configuration) are assigne
 }
 ```
 
-The following types of vehicles currently exist: `b-class.properties`, `bus.properties`, `c-class.properties`, 
-`e-class.properties`, `mover.properties`, `police.properties`.
+PHABMACS currently supports model configurations including genuine parametrization and 3D models for the following types of vehicles:
 
+| Vehicle Model         | Properties File      |
+|-----------------------|----------------------|
+| Smart fortwo          | `smart.properties`   |
+| Mercedes-Benz C-Class | `c-class.properties` |
+| Mercedes-Benz E-Class | `e-class.properties` |
+| Mercedes-Benz B-Class | `b-class.properties` |
+| Mercedes-Benz S-Class | `s-class.properties` |
+| Police Car            | `police.properties`  |
+| Schaeffler Mover      | `mover.properties`   |
+| City Bus              | `bus.properties`     |
 
-### LiDAR sensor Configuration
+{{< figure src="../images/phabmacs_vehicles.png" title="Available vehicle models in PHABMACS." width="85%" >}}
+
+### Vehicle Skills
+
+The driving behavior of vehicles can be defined by declaring skills and features for each vehicle.
+- A **skill** provides a vehicle with certain functionality, such as route following or strategic lane changing.
+- A **feature** provides access to certain data a skill needs, for example, a list of surrounding entities (required by the lane change skill).
+
+Each vehicle is always equipped with the route following and lane changing feature, and can optionally be equipped with the `ACC` skill, which keeps a safety distance towards the leading vehicle. 
+This can be activated along with the vehicle types:
+
+```json
+{
+    ...
+    "vehicleTypes": {
+        "Car": {
+            "vehicleProperties": "s-class.properties",
+            "skills": ["ACC"],
+            "features": [],
+            "sensors": []
+        }
+    }
+}
+```
+
+{{% alert note %}}
+Vehicles can be equipped with custom implementations for skills, features, and sensors. 
+For that, a jar file with compiled code for these parts have to be placed inside the `bin/fed/phabmacs` directory, 
+and the full qualified class name has to be used when adding skills or features to a vehicle type.
+{{% /alert %}}
+
+### LiDAR Sensor Configuration
 
 One use-case of PHABMACS is to create synthetic sensor data, e.g., by utilizing a LiDAR sensor model. 
 This can be achieved by adding LiDAR sensors to arbitrary vehicles by configuration in `phabmacs_config.json`.
 
-First, we define which vehicle types should be equipped with LiDAR sensors. In the following example, all 
-vehicles of type `vehicleWithLidar`
+First, we define which vehicle types should be equipped with LiDAR sensors. 
+In the following example, all vehicles of type `Car` are equipped with a default lidar sensor.
 
 ```json
 {
@@ -129,10 +174,10 @@ vehicles of type `vehicleWithLidar`
 }
 ```
 
-The LiDAR sensor can be configured by filling the `defaultLidarConfiguration` section in the `phabmacs_config.json`. The following example
-creates a lidar sensor at the front of the car, with a 120 degree field of view to the front, with 5 scanning rows (4 degree vertical field of 
-view with 1 degree resolution) and 121 scanning columns (120 degree horizontal field of view with 1 degree resolution). The maximum range of the 
-sensor is at 200m and the scan is done every 50 millisecond (20 Hz sampling rate).
+The LiDAR sensor can be configured by filling the `defaultLidarConfiguration` section in the `phabmacs_config.json`. 
+The following example creates a lidar sensor at the front of the car, with a 120 degree field of view to the front, with 5 scanning rows (4 degree vertical field of 
+view with 1 degree resolution) and 121 scanning columns (120 degree horizontal field of view with 1 degree resolution). 
+The maximum range of the sensor is at 200m and the scan is done every 50 millisecond (20 Hz sampling rate).
 
 ```json
 {
@@ -156,6 +201,8 @@ sensor is at 200m and the scan is done every 50 millisecond (20 Hz sampling rate
 
 To see the result of the LiDAR scan, you can enable the visualization of LiDAR point clouds by setting the field `showLidar` to true.
 
+{{< figure src="../images/phabmacs_lidar.png" title="Simulate LiDAR scanning of the environment and vehicles with PHABMACS." width="85%" >}}
+
 ## ScenarioSE
 
 PHABMACS was initially developed as a standalone tool and comes with an own scenario specification in form of a programming API called **ScenarioSE**. 
@@ -166,8 +213,8 @@ features (internal vehicle functions, such as lane changing), and/or custom sens
 
 ### Integration of ScenarioSE with MOSAIC
 
-To integrate these kind of scenarios, the ScenarioSE code must be compiled into a jar file. The generated jar file must be placed in 
-the `phabmacs` directory of the MOSAIC scenario. The fully qualified class name must then be referenced in the `phabmacs_config.json` file:
+To integrate these kind of scenarios, the ScenarioSE code must be compiled into a jar file. 
+The generated jar file must be placed in the `phabmacs` directory of the MOSAIC scenario. The fully qualified class name must then be referenced in the `phabmacs_config.json` file:
 
 ```json
 {
@@ -180,8 +227,8 @@ the `phabmacs` directory of the MOSAIC scenario. The fully qualified class name 
 }
 ```
 
-An example for a ScenarioSE definition is given in the following. This scenario loads a map, creates one route and spawns 100 vehicles
-which follow each other till the end:
+An example for a ScenarioSE definition is given in the following. 
+This scenario loads a map, creates one route and spawns 100 vehicles which follow each other till the end:
 
 ```java
 package com.example;
@@ -238,5 +285,4 @@ public class MyPhabmacsScenario implements ScenarioInitializer {
 }
 ```
 
-
-
+{{< figure src="../images/phabmacs_overview_2.png" title="Simulation scenario generated with the ScenarioSE definition above." width="85%" >}}

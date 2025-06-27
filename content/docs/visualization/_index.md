@@ -1,6 +1,6 @@
 ---
-title: WebSocket Visualizer
-linktitle: WebSocket Visualizer
+title: 2D Visualizer
+linktitle: 2D Visualizer
 toc: false
 type: docs
 date: "2019-05-05T00:00:00+01:00"
@@ -12,10 +12,10 @@ menu:
 ---
 
 To get a simple and instant impression of a simulation or to get an idea of how fast it runs or where a
-simulation is located, the WebSocket Visualizer was created. It runs in the browser and shows an OpenLayers Map 
+simulation is located, the 2D Visualizer was created. It runs in the browser and shows an OpenLayers Map 
 with markers, indicating the positions of all vehicles, as well as overall the simulation progresses.
 
-{{< figure src="images/mosaicwebsocketvisualizer.png" title="Red vehicles are sending messages and green vehicles are receiving messages at that specific point of time in the simulation." numbered="true" >}}
+{{< figure src="images/mosaic2dvisualizer.png" title="Red vehicles are sending messages and green vehicles are receiving messages at that specific point of time in the simulation." numbered="true" >}}
 
 To start the visualization, simply open the `tools/web/visualizer.html` in your browser. As soon as
 the page has finished loading all of its content, it starts trying to connect to the WebSocket created by
@@ -59,7 +59,7 @@ Eclipse MOSAIC will automatically open the `tools/web/visualizer.html` in your d
 starts.
 
 {{% alert warning %}}
-By default, the WebSocket Visualizer does not work on Microsoft Edge.
+By default, the 2D Visualizer does not work on Microsoft Edge.
 UWP (Universal Windows Platform) apps on Windows 10 do not have direct network access
 but are subject to a network isolation for security reasons, preventing localhost loopback
 by default. While Microsoft Edge itself does allow localhost access, it treats localhost as an
