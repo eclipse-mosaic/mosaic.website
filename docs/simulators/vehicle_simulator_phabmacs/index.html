@@ -55,7 +55,7 @@
   <meta name="description" content="The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework for testing ADAS within a generated 3D environment. Vehicles are simulated using advanced models providing them with realistic driving dynamics within individual traffic situations.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_phabmacs/">
+  <link rel="alternate" hreflang="en-us" href="https://www.eclipse.dev/mosaic/docs/simulators/vehicle_simulator_phabmacs/">
 
   
 
@@ -287,7 +287,7 @@
   <link rel="icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/mosaic/images/icon_hu6bdfb97c7e23190c70e41ca0e15a9fce_30436_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_phabmacs/">
+  <link rel="canonical" href="https://www.eclipse.dev/mosaic/docs/simulators/vehicle_simulator_phabmacs/">
 
   
   
@@ -303,7 +303,7 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
-  <meta property="og:url" content="https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_phabmacs/">
+  <meta property="og:url" content="https://www.eclipse.dev/mosaic/docs/simulators/vehicle_simulator_phabmacs/">
   <meta property="og:title" content="PHABMACS - PHysics Aware Behavior Modeling Advanced Car Simulator | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility">
   <meta property="og:description" content="The Physics Aware Behavior Modelling Advanced Car Simulator (PHABMACS) provides a sophisticated framework for testing ADAS within a generated 3D environment. Vehicles are simulated using advanced models providing them with realistic driving dynamics within individual traffic situations."><meta property="og:image" content="https://www.eclipse.dev/mosaic/images/logo.svg">
   <meta property="twitter:image" content="https://www.eclipse.dev/mosaic/images/logo.svg"><meta property="og:locale" content="en-us">
@@ -332,7 +332,7 @@
 
 </head>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-simulators page-traffic_simulator_phabmacs ">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" page-mosaic page-docs page-simulators page-vehicle_simulator_phabmacs ">
 
   <aside class="search-results" id="search">
   <div class="container">
@@ -876,7 +876,7 @@
       <ul class="nav docs-sidenav">
         
         <li >
-          <a href="/mosaic/docs/visualization/">WebSocket Visualizer</a>
+          <a href="/mosaic/docs/visualization/">2D Visualizer</a>
         </li>
         
         <li >
@@ -888,7 +888,7 @@
         </li>
         
         <li >
-          <a href="/mosaic/docs/visualization/3d-vis/">3D Visualization</a>
+          <a href="/mosaic/docs/visualization/3d-vis/">3D Visualizer</a>
         </li>
         
       </ul>
@@ -921,7 +921,7 @@
         </li>
         
         <li class="active">
-          <a href="/mosaic/docs/simulators/traffic_simulator_phabmacs/">Traffic - PHABMACS</a>
+          <a href="/mosaic/docs/simulators/vehicle_simulator_phabmacs/">Vehicle - PHABMACS</a>
         </li>
         
         <li >
@@ -1168,7 +1168,8 @@
       <ul>
         <li><a href="#basic-configuration">Basic Configuration</a></li>
         <li><a href="#vehicles-and-routes">Vehicles and Routes</a></li>
-        <li><a href="#lidar-sensor-configuration">LiDAR sensor Configuration</a></li>
+        <li><a href="#vehicle-skills">Vehicle Skills</a></li>
+        <li><a href="#lidar-sensor-configuration">LiDAR Sensor Configuration</a></li>
       </ul>
     </li>
     <li><a href="#scenariose">ScenarioSE</a>
@@ -1343,8 +1344,9 @@ For further information on licenses, feel free to contact us via <strong>
 </ol>
 <h2 id="overview">Overview</h2>
 <p>PHABMACS is designed to be a lightweight, developer-friendly, easy to modify tool to prototype cooperative driver assistance systems.
-Developers can use the simulated vehicles in PHABMACS first, before applying there code in real test vehicles.
-The environment in PHABMACS allows for creation of arbitrary scenarios. Conveniently, such scenarios can be automatically generated from
+Developers can use the simulated vehicles in PHABMACS first, before applying their code in real test vehicles.
+The environment in PHABMACS allows for creation of arbitrary scenarios.
+Conveniently, such scenarios can be automatically generated from
 Open Street Map (OSM) map material using the street grid, buildings and natural elements like trees, grass, and water.
 The 3D visualization is based on the 
 
@@ -1370,17 +1372,51 @@ The 3D visualization is based on the
 <figure id="figure-procedural-generated-environment-model-in-phabmacs">
 
 
-  <a data-fancybox="" href="../images/phabmacs_overview_old.png" data-caption="Procedural generated environment model in PHABMACS">
+  <a data-fancybox="" href="../images/phabmacs_overview.png" data-caption="Procedural generated environment model in PHABMACS.">
 
 
-  <img src="../images/phabmacs_overview_old.png" alt="" width="85%" >
+  <img src="../images/phabmacs_overview.png" alt="" width="85%" >
 </a>
 
 
   
   
   <figcaption>
-    Procedural generated environment model in PHABMACS
+    Procedural generated environment model in PHABMACS.
+  </figcaption>
+
+
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-detailed-assets-for-vehicles-in-phabmacs">
+
+
+  <a data-fancybox="" href="../images/phabmacs_overview_vehicle.png" data-caption="Detailed assets for vehicles in PHABMACS.">
+
+
+  <img src="../images/phabmacs_overview_vehicle.png" alt="" width="85%" >
+</a>
+
+
+  
+  
+  <figcaption>
+    Detailed assets for vehicles in PHABMACS.
   </figcaption>
 
 
@@ -1418,8 +1454,8 @@ A basic configuration should look like this:</p>
 }
 </code></pre>
 <h3 id="vehicles-and-routes">Vehicles and Routes</h3>
-<p>Vehicle routes are stored in the scenario-database, and vehicles are spawned using the <code>mapping_config.json</code>. Please refer to our general
-explanation of 
+<p>Vehicle routes are stored in the scenario-database, and vehicles are spawned using the <code>mapping_config.json</code>.
+Please refer to our general explanation of 
 
 
 
@@ -1445,9 +1481,10 @@ explanation of
   
 
 <a href="/mosaic/docs/scenarios/">MOSAIC Scenarios</a> on how this is accomplished.</p>
-<p>Additionally, the actual vehicle model needs to be configured in the <code>phabmacs_config.json</code>. Each model has a distinct 3D model
-for its visualization, and matching vehicle properties. In the <code>vehicleTypes</code> section of the <code>phabmacs_config.json</code>
-vehicle types (which have been defined in the mapping configuration) are assigned with vehicle models:</p>
+<p>Additionally, the actual vehicle model needs to be configured in the phabmacs_config.json , where the vehicleProperties tag references a <code>vehicle.properties</code> file.
+This file outlines the key parameters such as geometry, dynamics, engine values, and more.
+It also specifies a 3D model for visualization using a <code>model.gz</code> file as asset, which are generated from Collada DAE files.</p>
+<p>In the <code>vehicleTypes</code> section of the <code>phabmacs_config.json</code> vehicle types (which have been defined in the mapping configuration) are assigned with one of the available vehicle properties file:</p>
 <pre><code class="language-json">{
     ...
     &quot;vehicleTypes&quot;: {
@@ -1460,13 +1497,115 @@ vehicle types (which have been defined in the mapping configuration) are assigne
     }
 }
 </code></pre>
-<p>The following types of vehicles currently exist: <code>b-class.properties</code>, <code>bus.properties</code>, <code>c-class.properties</code>,
-<code>e-class.properties</code>, <code>mover.properties</code>, <code>police.properties</code>.</p>
-<h3 id="lidar-sensor-configuration">LiDAR sensor Configuration</h3>
+<p>PHABMACS currently supports model configurations including genuine parametrization and 3D models for the following types of vehicles:</p>
+<table>
+<thead>
+<tr>
+<th>Vehicle Model</th>
+<th>Properties File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smart fortwo</td>
+<td><code>smart.properties</code></td>
+</tr>
+<tr>
+<td>Mercedes-Benz C-Class</td>
+<td><code>c-class.properties</code></td>
+</tr>
+<tr>
+<td>Mercedes-Benz E-Class</td>
+<td><code>e-class.properties</code></td>
+</tr>
+<tr>
+<td>Mercedes-Benz B-Class</td>
+<td><code>b-class.properties</code></td>
+</tr>
+<tr>
+<td>Mercedes-Benz S-Class</td>
+<td><code>s-class.properties</code></td>
+</tr>
+<tr>
+<td>Police Car</td>
+<td><code>police.properties</code></td>
+</tr>
+<tr>
+<td>Schaeffler Mover</td>
+<td><code>mover.properties</code></td>
+</tr>
+<tr>
+<td>City Bus</td>
+<td><code>bus.properties</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-available-vehicle-models-in-phabmacs">
+
+
+  <a data-fancybox="" href="../images/phabmacs_vehicles.png" data-caption="Available vehicle models in PHABMACS.">
+
+
+  <img src="../images/phabmacs_vehicles.png" alt="" width="85%" >
+</a>
+
+
+  
+  
+  <figcaption>
+    Available vehicle models in PHABMACS.
+  </figcaption>
+
+
+</figure>
+
+<h3 id="vehicle-skills">Vehicle Skills</h3>
+<p>The driving behavior of vehicles can be defined by declaring skills and features for each vehicle.</p>
+<ul>
+<li>A <strong>skill</strong> provides a vehicle with certain functionality, such as route following or strategic lane changing.</li>
+<li>A <strong>feature</strong> provides access to certain data a skill needs, for example, a list of surrounding entities (required by the lane change skill).</li>
+</ul>
+<p>Each vehicle is always equipped with the route following and lane changing feature, and can optionally be equipped with the <code>ACC</code> skill, which keeps a safety distance towards the leading vehicle.
+This can be activated along with the vehicle types:</p>
+<pre><code class="language-json">{
+    ...
+    &quot;vehicleTypes&quot;: {
+        &quot;Car&quot;: {
+            &quot;vehicleProperties&quot;: &quot;s-class.properties&quot;,
+            &quot;skills&quot;: [&quot;ACC&quot;],
+            &quot;features&quot;: [],
+            &quot;sensors&quot;: []
+        }
+    }
+}
+</code></pre>
+<div class="alert alert-note">
+  <div>
+<p>Vehicles can be equipped with custom implementations for skills, features, and sensors.
+For that, a jar file with compiled code for these parts have to be placed inside the <code>bin/fed/phabmacs</code> directory,
+and the full qualified class name has to be used when adding skills or features to a vehicle type.</p>
+  </div>
+</div>
+<h3 id="lidar-sensor-configuration">LiDAR Sensor Configuration</h3>
 <p>One use-case of PHABMACS is to create synthetic sensor data, e.g., by utilizing a LiDAR sensor model.
 This can be achieved by adding LiDAR sensors to arbitrary vehicles by configuration in <code>phabmacs_config.json</code>.</p>
-<p>First, we define which vehicle types should be equipped with LiDAR sensors. In the following example, all
-vehicles of type <code>vehicleWithLidar</code></p>
+<p>First, we define which vehicle types should be equipped with LiDAR sensors.
+In the following example, all vehicles of type <code>Car</code> are equipped with a default lidar sensor.</p>
 <pre><code class="language-json">{
     ...
     &quot;vehicleTypes&quot;: {
@@ -1477,10 +1616,10 @@ vehicles of type <code>vehicleWithLidar</code></p>
     }
 }
 </code></pre>
-<p>The LiDAR sensor can be configured by filling the <code>defaultLidarConfiguration</code> section in the <code>phabmacs_config.json</code>. The following example
-creates a lidar sensor at the front of the car, with a 120 degree field of view to the front, with 5 scanning rows (4 degree vertical field of
-view with 1 degree resolution) and 121 scanning columns (120 degree horizontal field of view with 1 degree resolution). The maximum range of the
-sensor is at 200m and the scan is done every 50 millisecond (20 Hz sampling rate).</p>
+<p>The LiDAR sensor can be configured by filling the <code>defaultLidarConfiguration</code> section in the <code>phabmacs_config.json</code>.
+The following example creates a lidar sensor at the front of the car, with a 120 degree field of view to the front, with 5 scanning rows (4 degree vertical field of
+view with 1 degree resolution) and 121 scanning columns (120 degree horizontal field of view with 1 degree resolution).
+The maximum range of the sensor is at 200m and the scan is done every 50 millisecond (20 Hz sampling rate).</p>
 <pre><code class="language-json">{
     ...
     &quot;defaultLidarConfiguration&quot;: {
@@ -1500,6 +1639,40 @@ sensor is at 200m and the scan is done every 50 millisecond (20 Hz sampling rate
 }
 </code></pre>
 <p>To see the result of the LiDAR scan, you can enable the visualization of LiDAR point clouds by setting the field <code>showLidar</code> to true.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-simulate-lidar-scanning-of-the-environment-and-vehicles-with-phabmacs">
+
+
+  <a data-fancybox="" href="../images/phabmacs_lidar.png" data-caption="Simulate LiDAR scanning of the environment and vehicles with PHABMACS.">
+
+
+  <img src="../images/phabmacs_lidar.png" alt="" width="85%" >
+</a>
+
+
+  
+  
+  <figcaption>
+    Simulate LiDAR scanning of the environment and vehicles with PHABMACS.
+  </figcaption>
+
+
+</figure>
+
 <h2 id="scenariose">ScenarioSE</h2>
 <p>PHABMACS was initially developed as a standalone tool and comes with an own scenario specification in form of a programming API called <strong>ScenarioSE</strong>.
 This allows to programmatically create scenarios by spawning vehicles, adding skills and features, or add certain events.
@@ -1507,8 +1680,8 @@ Vehicles could also be triggered depending on the position of other vehicles to 
 It furthermore allows to integrate custom implementations of skills (vehicle control functions, such as vehicle following strategies),
 features (internal vehicle functions, such as lane changing), and/or custom sensor models.</p>
 <h3 id="integration-of-scenariose-with-mosaic">Integration of ScenarioSE with MOSAIC</h3>
-<p>To integrate these kind of scenarios, the ScenarioSE code must be compiled into a jar file. The generated jar file must be placed in
-the <code>phabmacs</code> directory of the MOSAIC scenario. The fully qualified class name must then be referenced in the <code>phabmacs_config.json</code> file:</p>
+<p>To integrate these kind of scenarios, the ScenarioSE code must be compiled into a jar file.
+The generated jar file must be placed in the <code>phabmacs</code> directory of the MOSAIC scenario. The fully qualified class name must then be referenced in the <code>phabmacs_config.json</code> file:</p>
 <pre><code class="language-json">{
     &quot;stepSize&quot;: &quot;100ms&quot;,
     &quot;initialization&quot;: {
@@ -1518,8 +1691,8 @@ the <code>phabmacs</code> directory of the MOSAIC scenario. The fully qualified 
     &quot;visualizer&quot;: true
 }
 </code></pre>
-<p>An example for a ScenarioSE definition is given in the following. This scenario loads a map, creates one route and spawns 100 vehicles
-which follow each other till the end:</p>
+<p>An example for a ScenarioSE definition is given in the following.
+This scenario loads a map, creates one route and spawns 100 vehicles which follow each other till the end:</p>
 <pre><code class="language-java">package com.example;
 
 public class MyPhabmacsScenario implements ScenarioInitializer {
@@ -1573,6 +1746,40 @@ public class MyPhabmacsScenario implements ScenarioInitializer {
     
 }
 </code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-simulation-scenario-generated-with-the-scenariose-definition-above">
+
+
+  <a data-fancybox="" href="../images/phabmacs_overview_2.png" data-caption="Simulation scenario generated with the ScenarioSE definition above.">
+
+
+  <img src="../images/phabmacs_overview_2.png" alt="" width="85%" >
+</a>
+
+
+  
+  
+  <figcaption>
+    Simulation scenario generated with the ScenarioSE definition above.
+  </figcaption>
+
+
+</figure>
+
 
           </div>
 
@@ -1965,7 +2172,7 @@ public class MyPhabmacsScenario implements ScenarioInitializer {
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 20 May 2025, 09:39 UTC
+      Website built on 27 Jun 2025, 12:46 UTC
     </p>
     
   </div>

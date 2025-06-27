@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>WebSocket Visualizer | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
+    <title>2D Visualizer | Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
     <link>https://www.eclipse.dev/mosaic/docs/visualization/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/docs/visualization/index.xml" rel="self" type="application/rss+xml" />
-    <description>WebSocket Visualizer</description>
+    <description>2D Visualizer</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 05 May 2019 00:00:00 +0100</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
-      <title>WebSocket Visualizer</title>
+      <title>2D Visualizer</title>
       <link>https://www.eclipse.dev/mosaic/docs/visualization/</link>
     </image>
     
@@ -399,7 +399,7 @@ Unequipped;459.18;84;
     </item>
     
     <item>
-      <title>3D Visualization</title>
+      <title>3D Visualizer</title>
       <link>https://www.eclipse.dev/mosaic/docs/visualization/3d-vis/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
       <guid>https://www.eclipse.dev/mosaic/docs/visualization/3d-vis/</guid>

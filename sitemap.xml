@@ -23,6 +23,11 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.dev/mosaic/docs/visualization/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.dev/mosaic/docs/mosaic_configuration/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
@@ -39,11 +44,6 @@
   
   <url>
     <loc>https://www.eclipse.dev/mosaic/docs/scenarios/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.dev/mosaic/docs/visualization/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
@@ -104,7 +104,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.dev/mosaic/docs/simulators/traffic_simulator_phabmacs/</loc>
+    <loc>https://www.eclipse.dev/mosaic/docs/simulators/vehicle_simulator_phabmacs/</loc>
   </url>
   
   <url>

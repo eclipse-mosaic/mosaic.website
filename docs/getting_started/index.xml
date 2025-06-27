@@ -54,7 +54,7 @@ mosaic.bat -c .\scenarios\&amp;lt;scenario_name&amp;gt;\scenario_config.json
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/visualization/&#34;&gt;Visualization in your browser&lt;/a&gt;:&lt;/p&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/visualization/&#34;&gt;2D Visualizer in your browser&lt;/a&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-dos&#34;&gt;mosaic.bat -s Barnim -v
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -160,7 +160,7 @@ table th:nth-of-type(2) {
     
   
 
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/visualization/&#34;&gt;Websocket Visualizer&lt;/a&gt;.&lt;/td&gt;
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/visualization/&#34;&gt;connector to the 2D Visualizer&lt;/a&gt;.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;-h&lt;/code&gt;&lt;br&gt;&lt;code&gt;--help&lt;/code&gt;&lt;/td&gt;
