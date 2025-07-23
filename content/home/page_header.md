@@ -25,10 +25,11 @@ alignment = "left" # left or center (default)
   url = "/download/"
   include_latest_release = true
   icon = "fa fa-download"
+  background_color = "#000000"
 
 [[button]]
   title = "License"
-  url = "/about/#license"
+  url = "/download/#license"
   subtitle = "EPL 2.0"
   icon = "fa fa-coffee"
 
@@ -44,21 +45,26 @@ alignment = "left" # left or center (default)
 
 [[feature]]
   name = "Co-Simulation Framework"
-  description = "Eclipse MOSAIC couples best in class simulators together to create complex simulation scenarios quickly and easily. Standardized interfaces allow to couple new simulators without effort to extend the modeling capabilities. "
+  description = "Use best in class simulators or couple others using standardized interfaces allowing for quick and easy scenario creation and expansive modeling capabilities!"
+#"Eclipse MOSAIC couples best in class simulators together to create complex simulation scenarios quickly and easily. Standardized interfaces allow to couple new simulators without effort to extend the modeling capabilities. " 
   link_title = "Learn More"
-  link_url = "/about#co_simulation"
+  link_url = "/docs/extending_mosaic/core_concepts/"
   link_feature = true
   
 [[feature]]
   name = "Multi-Domain / Multi-Scale Models"
-  description = "The flexibility of Eclipse MOSAIC allows to combine simulation models of multiple domains (e.g. application, traffic, communication) on multiple scales (e.g. microscopic-traffic vs. detailed vehicle simulation) which all can be combined."  
+  description = "Simulate and combine models of multiple domains, such as traffic and communication, on multiple scales like microscopic-traffic or detailed vehicle simulation !"  
+
+#"The flexibility of Eclipse MOSAIC allows to combine simulation models of multiple domains (e.g. application, traffic, communication) on multiple scales (e.g. microscopic-traffic vs. detailed vehicle simulation)."
   link_title = "Learn More"
-  link_url = "/about#model_collection"
+  link_url = "#model_collection"
   link_feature = true
   
 [[feature]]
   name = "Open for Extensions"
-  description = "Eclipse MOSAIC is Open Source under the Eclipse Public License 2.0! This makes it very easy to extend the simulation framework by your own models. You can find the source code of the coupling engine, various simulators and models, and example scenarios on our GitHub page."
+  description = "Eclipse MOSAIC is Open Source under the Eclipse Public License 2.0! Find the source code of the coupling engine, simulators and models, and scenarios on our GitHub page."
+
+#"Eclipse MOSAIC is Open Source under the Eclipse Public License 2.0! You can find the source code of the coupling engine, various simulators and models, and example scenarios on our GitHub page. This makes it very easy to extend the simulation framework by your own models."
   link_title = "Contribute"
   link_url = "/contribution/"
   link_feature = true

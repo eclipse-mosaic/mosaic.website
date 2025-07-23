@@ -5,11 +5,10 @@
 widget = "pages"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 20  # Order that this section will appear.
+weight = 23  # Order that this section will appear.
 
-#title = "Current News"
-subtitle = ""
-
+title = "Current News"
+subtitle = "Catch up with the latest news on the development of Eclipse MOSAIC and other updates."
 [content]
   # Page type to display. E.g. post, talk, or publication.
   page_type = "post"
@@ -38,7 +37,7 @@ subtitle = ""
   #   3 = Card
   #   4 = Citation (publication only)
   view = 2
-  
+
 [design.background]
   # Apply a background color, gradient, or image.
   #   Uncomment (by removing `#`) an option to apply it.
@@ -46,7 +45,7 @@ subtitle = ""
   #   Any HTML color name or Hex value is valid.
   
   # Background color.
-  # color = "navy"
+   color = "#f8f4fb"
   
   # Background gradient.
   # gradient_start = "DeepSkyBlue"

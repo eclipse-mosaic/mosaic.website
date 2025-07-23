@@ -9,9 +9,6 @@ subtitle = "Eclipse MOSAIC is published under the [Eclipse Public License 2.0](h
 
 +++
 
-
-
-
 If you use Eclipse MOSAIC for your own research, include the following reference in any published work:
 
 > K. Schrab, M. Neubauer, R. Protzmann, I. Radusch, S. Manganiaris, P. Lytrivis, A. J. Amditis:\

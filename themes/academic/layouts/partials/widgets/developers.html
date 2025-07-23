@@ -1,0 +1,19 @@
+{{ range .page.Params.image_text_block }}
+<div class="image-text-block row mb-4">
+  <!-- Images left beside text -->
+  <div class="image col-3 d-none d-md-block">
+    <div class="row justify-content-center">
+      {{ range .image }}
+      <a href="{{ .url }}" class="view-list-item mb-3">
+        {{ $width := .width | default "100%" }}
+        <img class="mx-auto" src="{{ .file | relURL }}" alt="{{ .alt }}" width="{{ $width }}">
+      </a>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="text col-12 col-md-9">
+    {{ .content | markdownify | safeHTML }}
+  </div>
+</div>
+{{ end }}

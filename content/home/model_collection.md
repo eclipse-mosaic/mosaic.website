@@ -4,8 +4,9 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 20  # Order that this section will appear in.
 
-title = "MOSAIC as Collection of Models"
-subtitle = "Different models allow for many fields of<br>application for the simulation suite."
+#title = "Multi-Domain / Multi-Scale Models"
+subtitle = "Eclipse MOSAIC allows you to combine simulation models from multiple domains — such as applications, traffic, and communication — at various scales, including microscopic traffic and detailed vehicle simulations."
+#"Different models allow the usage of the simulation suite in various fields."
 
 [[card]]
     padding_top = "1.8rem"
