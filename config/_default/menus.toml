@@ -3,11 +3,11 @@
 #     desired widget in your `content/home/` folder.
 #   The weight parameter defines the order that the links will appear in.
 
-[[main]]
-  identifier = "about"
-  name = "About"
-  url = "/about/"
-  weight = 10
+#[[main]]
+#  identifier = "about"
+#  name = "About"
+#  url = "/about/"
+#  weight = 10
 #[[main]]
 #  name = "About (Deprecated)"
 #  url = "/about_deprecated"
@@ -16,33 +16,33 @@
 [[main]]
   name = "News"
   url = "/news/"
-  weight = 20
+  weight = 10
 [[main]]
   name = "Documentation"
   url = "/docs/"
-  weight = 30
+  weight = 20
 [[main]]
   name = "Tutorials"
   url = "/tutorials/"
-  weight = 40
+  weight = 30
 [[main]]
   name = "Workshops"
   url = "/workshops/"
-  weight = 50
+  weight = 40
 [[main]]
   identifier = "Download"
   name = "Download"
   url = "/download/"
-  weight = 60
+  weight = 50
 [[main]]
   identifier = "Commercial"
   name = "Commercial"
   url = "/commercial/"
-  weight = 70
+  weight = 60
 [[main]]
   name = "Community"
   url = "/community/"
-  weight = 80
+  weight = 70
 
 
 [[footer]]
