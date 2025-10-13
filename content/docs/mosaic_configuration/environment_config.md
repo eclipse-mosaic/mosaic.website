@@ -47,24 +47,10 @@ Object to define a single event configuration.
 
 |   |Type|Description|Required|Boundaries|Default|
 |---|---|---|---|---|---|
-|type|[`eventType`](#reference-eventtype)|Object to define the type of an event.| &#10003; Yes|None|None|
-|location|[`eventLocation`](#reference-eventlocation)|Object to define the event location configuration, which is either a GeoArea (e.g. rectangle, circle, or polygon) or a specific street segment.| &#10003; Yes|None|None|
-|time|[`eventTime`](#reference-eventtime)|Object to define the temporal properties of an event.| &#10003; Yes|None|None|
-
-
-
----------------------------------------
-<a name="reference-eventtype"></a>
-## eventType
-
-Object to define the type of an event.
-
-**Properties**
-
-|   |Type|Description|Required|Boundaries|Default|
-|---|---|---|---|---|---|
-|sensorType|`string`|Represents the type of sensor value this event is emitting (e.g. Ice, Snow, or an arbitrary Obstacle). The value can be set to any valid string.| &#10003; Yes|None|None|
-|value|`integer`|Used for assigning a value to the event. It can be used as the strength of an event, the amount of free parking spots in a parking lot, etc.|No|None|`1`|
+|location|[`eventLocation`](#reference-eventlocation)|Object to define the event location configuration, which is either a GeoArea (e.g. rectangle, circle, or polygon) or a specific street segment.|No|None|None|
+|time|[`eventTime`](#reference-eventtime)|Object to define the temporal properties of an event.|No|None|None|
+|type|`string`|Represents the type of event value this event is emitting (e.g., TRACTION_HAZARD, VISIBILITY_HAZARD, WIND, TEMPERATURE, or an arbitrary EVENT). The value can be set to any valid string.| &#10003; Yes|None|None|
+|value|`string`<br>`number`<br>`object`|Used for assigning a value to the event. It can be used as the strength of an event, the road surface quality, or the name of a specific event cause, etc.| &#10003; Yes|None|None|
 
 
 

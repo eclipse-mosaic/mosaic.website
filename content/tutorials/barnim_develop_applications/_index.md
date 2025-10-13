@@ -68,13 +68,13 @@ getOs().getEventManager().addEvent(new Event(getOs().getSimulationTime(), this))
 Some examples of events are shown below, but a more detailed description can be found in the 
 [documentation](/docs/develop_applications/event_scheduling).
 
-
 ## SlowDownApp
 
-The [`SlowDownApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/SlowDownApp.java) induces a speed reduction as soon as the on-board sensors detect hazardous conditions.
+The [`SlowDownApp`](https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/SlowDownApp.java) induces a speed reduction as soon as the on-board sensors detect hazardous traction conditions.
 To detect the change in the on-board sensors, the state of the sensors have to be queried whenever the
 vehicle has moved. This is achieved by implementing the `onVehicleUpdated()` method which is called
-whenever the traffic simulator executed one simulation step.
+whenever the traffic simulator executed one simulation step. 
+The actual area in which these conditions appear, is configured in the `environment_config.json` of the scenario.
 
 In this specific implementation, the speed of the vehicle is reduced to *25 km/h* within the entire hazardous area.
 After leaving the hazardous area, the vehicles returns to their original speed again:
@@ -92,26 +92,23 @@ public void onStartup() {
 
 @Override
 public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {
-    
-    SensorType[] types = SensorType.values();
-    int strength = 0;
-    
-    for (SensorType currentType : types) {
-        strength = getOs().getBasicSensorModule().getStrengthOf(currentType);
-    
-        if (strength > 0) {
-            break;
-        }
+
+    /*
+     * The current strength of the traction hazard sensor is examined here.
+     * If a traction hazard event is detected, we initiate a slowdown of the vehicle.
+     */
+    TractionHazard tractionHazard = getOs().getBasicSensorModule().getSensorValue(Sensor.TRACTION_HAZARD).orElse(null);
+
+    if (tractionHazard != null && !hazardousArea) {
+        // Reduce speed when entering potentially hazardous area
+        getOs().changeSpeedWithInterval(SPEED, 5 * TIME.SECOND);
+        hazardousArea = true;
     }
-    
-    if (strength > 0 && !inHazardousArea) {
-        getOs().changeSpeedWithInterval(SPEED, 5000);
-        inHazardousArea = true;
-    }
-    
-    if (strength == 0 && inHazardousArea) {
+
+    if (tractionHazard == null && hazardousArea) {
+        // Reset speed when leaving potentially hazardous area
         getOs().resetSpeed();
-        inHazardousArea = false;
+        hazardousArea = false;
     }
 }
 ```
@@ -146,7 +143,7 @@ public void onStartup() {
 }
 ```
 
-In case the sensor detects an environmental hazard the vehicle sends out a DEN-message to warn
+In case the sensor detects an traction hazard (e.g., caused by an icy or wet road), the vehicle sends out a DEN-message to warn
 other vehicles. In the `reactOnEnvironmentData()` method, the sending is handled with 
 regard to used communication network. For the `WeatherWarningApp`,  ITS-G5 communication is used 
 to inform all vehicles in reach. In case of the `WeatherWarningAppCell`, the environment event is
@@ -329,8 +326,7 @@ private Denm constructDenm() {
                     lastReceivedDenm.getTime(),
                     lastReceivedDenm.getSenderPosition(),
                     lastReceivedDenm.getEventRoadId(),
-                    lastReceivedDenm.getWarningType(),
-                    lastReceivedDenm.getEventStrength(),
+                    lastReceivedDenm.getEventCause(),
                     lastReceivedDenm.getCausedSpeed(),
                     lastReceivedDenm.getSenderDeceleration(),
                     lastReceivedDenm.getEventLocation(),

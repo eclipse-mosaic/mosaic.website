@@ -123,6 +123,20 @@ bash run_manually.sh
 # start MOSAIC from the IDE
 ```
 
+**For federate debugging**
+```bash
+sudo apt install gdb
+
+cd ns3-federate
+make -j1
+gdb ./bin/Debug/ns3-federate
+set env LD_LIBRARY_PATH /path/to/ns-3.36.1/build/lib
+break mosaic-node-manager.cc:319
+run --port=5011 --cmdPort=0 --configFile=ns3_federate_config.xml
+# start MOSAIC from the IDE
+# do your GDB debugging
+```
+
 **For ns-3 development**
 ```bash
 cd ns-allinone-{{< version of="ns3" >}}/ns-{{< version of="ns3" >}}

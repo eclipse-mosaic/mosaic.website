@@ -33,6 +33,7 @@ Schema describing the JSON file structure for the SUMO configuration.
 
 |   |Type|Description|Required|Boundaries|Default|
 |---|---|---|---|---|---|
+|visualizer|`boolean`|Starts the GUI interface of SUMO, if set to true (default: false).|No|None|`false`|
 |updateInterval|`string`<br>`number`|The Interval after which positions are published. If defined as a number, then the default unit is ms. Alternatively this can be defined as a string to include the unit of measurement (e.g. '1 s'). Define the size of one simulation step in sumo.|No|None|`1000`|
 |sumoConfigurationFile|`string`|Name of the main SUMO scenario configuration (*.sumocfg). If this member equals null, the SUMO ambassador will try to find a '.sumocfg' file.|No|None|None|
 |exitOnInsertionError|`boolean`|If too many vehicles try to enter the simulation, SUMO might skip some vehicles and tries to enter them later again. This behavior can lead to wrong simulation results. This parameter defines, if the ambassador should try to continue the simulation in such cases. Quit SUMO, if an error occurs while inserting a new vehicle (e.g. due to high vehicle densities) (recommended: true).|No|None|`true`|

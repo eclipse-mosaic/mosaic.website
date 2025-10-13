@@ -9,6 +9,7 @@ menu:
   docs:
     parent: simulators
 ---
+
 **Eclipse SUMO** is a highly portable, microscopic and continuous road traffic
 simulation tool. It is designed to handle large road networks faster than real-time and simulates each vehicle
  individually.
@@ -20,7 +21,6 @@ simulation tool. It is designed to handle large road networks faster than real-t
 | **License**              | EPL-2.0                                            | |
 | **Website**              | [https://www.eclipse.dev/sumo/](https://www.eclipse.dev/sumo/) | |
 | **Supported version(s)** | Recommended version:<br>Full support:<br>Limited support: | {{< version of="sumo" >}}<br>{{< version of="sumo_full_support" >}}<br>{{< version of="sumo_limited_support">}} |
-|                          |                                                    | |
 
 ## Installation
 
@@ -49,12 +49,13 @@ If no such file exists, the following default configuration options are used:
 
 ```json
 { 
-    "updateInterval": 1000, 
+    "updateInterval": "1s",
     "sumoConfigurationFile": "<scenarioName>.sumo.cfg", 
     "exitOnInsertionError": true, 
     "additionalSumoParameters": "--time-to-teleport 0  --seed 100000", 
     "subscriptions": [ "roadposition", "signals", "emissions" ],
-    "subscribeToAllVehicles": true
+    "subscribeToAllVehicles": true,
+    "visualizer": false
 }
 ```
 
@@ -69,7 +70,7 @@ Next to `sumo_config.json`, the following configuration files are required for e
    └─ sumo
       ├─ <scenarioName>.net.xml .............. SUMO Network file
       ├─ <scenarioName>.sumocfg .............. SUMO configuration file
-      └─ sumo_config.json .................... Ambassador configuraition file]
+      └─ sumo_config.json .................... Ambassador configuration file
 ```
 
 The SUMO configuration consists of sumo specific config files and the sumo-ambassador configuration
@@ -109,21 +110,24 @@ Further information about SUMO and its configuration can be found in the officia
 ## Using the SUMO GUI with Eclipse MOSAIC
 
 It is also possible to use the graphical interface of SUMO in order to visualize and interact with the simulation.
-To
-achieve this, Eclipse MOSAIC can be configured to start the GUI process of SUMO as the federate rather than the
-command
-line interface.
+To achieve this, Eclipse MOSAIC can be configured to start the GUI process of SUMO as the federate rather than the
+command line interface.
 
-In order to use the SUMO GUI the file `<mosaic>/etc/runtime.json` needs to be edited.
-Here, the entry
-`org.eclipse.mosaic.fed.sumo.ambassador.SumoAmbassador` must be
-replaced with
-`org.eclipse.mosaic.fed.sumo.ambassador.SumoGuiAmbassador`.
+With the current version, the GUI is enabled by setting the field `visualizer` to `true` in the `sumo/sumo_config.json` file of the scenario:
+
+```json
+{
+    "updateInterval": "1s",
+    "visualizer": true
+}
+```
+
+Until version 25.0 of Eclipse MOSAIC, the SUMO GUI could be activated by replacing the entry `SumoAmbassador` with `SumoGuiAmbassador`
+inside the `<mosaic>/etc/runtime.json` file.
 
 {{% alert note %}}
 Keep in mind to launch Eclipse MOSAIC with the argument `-w 0` in order to disable the watchdog timer.
-Otherwise, it
-would shut down Eclipse MOSAIC if the simulation is paused in the SUMO GUI.
+Otherwise, it would shut down Eclipse MOSAIC if the simulation is paused in the SUMO GUI.
 {{% /alert %}}
 
 ## Using LibSumo with Eclipse MOSAIC
@@ -207,3 +211,74 @@ commands are delivered to TraCI without any prior checks.
 You can find the example application SumoTraciInteractionApp
 in the additional examples bundle on the {{< target-blank "DCAITI website" "https://www.dcaiti.tu-berlin.de/research/simulation/download/" >}}.
 {{% /alert %}}
+
+### Use SUMO Python Client alongside MOSAIC
+MOSAIC and SUMO are coupled using TraCI, in which SUMO acts as the server and MOSAIC as the client.
+The SUMO simulation (=TraCI server) allows the connection of multiple clients, which interact with the simulation.
+This allows to interact with the SUMO simulation alongside MOSAIC, e.g., with custom Python scripts.
+Clients have to be executed in a fixed order for each simulation step.
+As MOSAIC first starts the simulation and afterwards connects its client to said simulation, we set MOSAIC's order to `1` per default (configurable via `CSumo#simulationClientOrder`).
+Your additional clients (i.e., your Python scripts) will have to set an order number larger than `1`, e.g., by calling `taci.setOrder(2)`.
+
+> Note: Though clients can interact with each other in a way that they can both retrieve and set values of the simulation and its units,
+> it is not possible for i.e., Python clients to retrieve or interact with MOSAIC's API (e.g., V2X capabilities).
+
+**Example**
+
+In order to have multiple clients interacting with the same simulation, a couple of configuration steps are required.
+Following we provide a minimal example for the Barnim scenario.
+First, we'll have to change MOSAIC's way of randomly assigning ports to SUMO by adjusting the port inside the `runtime.json`.
+
+```xml
+...
+    {
+        "id": "sumo",
+        "classname": "org.eclipse.mosaic.fed.sumo.ambassador.SumoAmbassador",
+        "configuration": "sumo_config.json",
+        "priority": 50,
+        "host": "local",
+        "port": <ANY-FREE-PORT>,
+        "deploy": true,
+        "start": true,
+        "subscriptions": [
+```
+
+Next, a slight adjustment within the `.sumocfg` is necessary.
+We have to tell SUMO the amount of clients it should be waiting for.
+For this example we'll just add one additional client (the first one being MOSAIC's client).
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <input>
+        <net-file value="Barnim.net.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="10000"/>
+    </time>
+    <!-- Add the number of clients you want to connect to your simulation -->
+    <traci_server>
+        <num-clients value="2"/>
+    </traci_server>
+</configuration>
+```
+
+Finally, we can implement a tiny client using TraCI's python API, which first adds a route at second 1 and then adds a vehicle driving along that route at second 10.
+```python
+import traci
+
+traci.init(8765) # add the port you specified in the runtime.json here
+traci.setOrder(2) # MOSAIC's client sets order to 1
+
+while traci.simulation.getTime() < 1000:
+    if traci.simulation.getTime() == 1:
+        traci.route.add("my_python_route", ["9659058_75670639_268746441", "9659058_268746441_75666594", "9659083_75666594_75670644"])
+    if traci.simulation.getTime() == 10:
+        traci.vehicle.add("traci_vehicle", "my_python_route")
+    traci.simulation.step() # ! every client needs to call step
+```
+
+From here on out, you should be able to figure out things on your own.
+
+

@@ -158,7 +158,7 @@ For the example in listing 'Example Configuration' it is expected that the mappi
 Each value that should be changed in a run is defined by a `parameter` element identified by a `name` (see listing above). The base value is the `file` which should be changed (relative to the scenario folder). Currently it is needed to define what `fileFormat` is expected from that file, which has impact on the syntax of the item definition which denotes what part of this file should be changed (this will be explained in a bit). The final value is the `type` which denotes how the value change behaves. The child elements depend on this definition and will also be explained in a bit.
 
 `fileFormat` can be one of `xml` or `json`. The item syntax is as followed:
-- `xml`: contains an XPath1 expression
+- `xml`: contains an XPath expression (but without the root element)
 - `json`: contains an array-style definition of the target value. The value in the listing above would change line 13 in the listing below. (In the first entry of vehicles the attribute weight of the types first entry).
 
 ```json

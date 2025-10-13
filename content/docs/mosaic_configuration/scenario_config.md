@@ -105,33 +105,7 @@ A cartesian offset which is added to the UTM transformation. In most cases, this
 |y|`number`|The value to add to the Y coordinate after UTM transformation| &#10003; Yes|None|None|
 
 
-**Example** 
 
-The network file contains this line for the `<location>` element:
-```xml
-    <location netOffset="-369461.94,-5798955.14" convBoundary="0.00,1201.70,46116.88,38132.49" origBoundary="13.080829,52.333059,13.764084,52.671235" projParameter="+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"/>
-```
-To find out the cartesian offset take a look at the `netOffset` attribute. The first number corresponds to the X coordinate,
-while the second corresponds to the Y coordinate. So the `cartesianOffset` attribute in the `scenario_config.json` should look like this:
-```json
-{
-    "simulation": {
-        "id": "My_Simulation",
-        "duration": "4h",
-        "projection": {
-            "centerCoordinates": {
-                "latitude": 52.525192,
-                "longitude": 13.422281
-            },
-            "cartesianOffset": {
-                "x": -369461.94,
-                "y": -5798955.14
-            }
-        }
-    }
-}
-    
-```
 ---------------------------------------
 <a name="reference-network"></a>
 ## Network Addressing
