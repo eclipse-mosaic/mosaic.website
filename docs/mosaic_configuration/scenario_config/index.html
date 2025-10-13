@@ -790,8 +790,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.1-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.2-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.2-SNAPSHOT
   </a>
 </div>
 
@@ -1450,30 +1450,6 @@ have the option of:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Example</strong></p>
-<p>The network file contains this line for the <code>&lt;location&gt;</code> element:</p>
-<pre><code class="language-xml">    &lt;location netOffset=&quot;-369461.94,-5798955.14&quot; convBoundary=&quot;0.00,1201.70,46116.88,38132.49&quot; origBoundary=&quot;13.080829,52.333059,13.764084,52.671235&quot; projParameter=&quot;+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;/&gt;
-</code></pre>
-<p>To find out the cartesian offset take a look at the <code>netOffset</code> attribute. The first number corresponds to the X coordinate,
-while the second corresponds to the Y coordinate. So the <code>cartesianOffset</code> attribute in the <code>scenario_config.json</code> should look like this:</p>
-<pre><code class="language-json">{
-    &quot;simulation&quot;: {
-        &quot;id&quot;: &quot;My_Simulation&quot;,
-        &quot;duration&quot;: &quot;4h&quot;,
-        &quot;projection&quot;: {
-            &quot;centerCoordinates&quot;: {
-                &quot;latitude&quot;: 52.525192,
-                &quot;longitude&quot;: 13.422281
-            },
-            &quot;cartesianOffset&quot;: {
-                &quot;x&quot;: -369461.94,
-                &quot;y&quot;: -5798955.14
-            }
-        }
-    }
-}
-    
-</code></pre>
 <hr>
 <p><a name="reference-network"></a></p>
 <h2 id="network-addressing">Network Addressing</h2>
@@ -1944,7 +1920,7 @@ while the second corresponds to the Y coordinate. So the <code>cartesianOffset</
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 12 Aug 2025, 11:44 UTC
+      Website built on 13 Oct 2025, 09:23 UTC
     </p>
     
   </div>

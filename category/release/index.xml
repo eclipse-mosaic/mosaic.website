@@ -5,12 +5,135 @@
     <link>https://www.eclipse.dev/mosaic/category/release/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/category/release/index.xml" rel="self" type="application/rss+xml" />
     <description>Release</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 14 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 10 Oct 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Release</title>
       <link>https://www.eclipse.dev/mosaic/category/release/</link>
     </image>
+    
+    <item>
+      <title>2025 Autumn Release of Eclipse MOSAIC</title>
+      <link>https://www.eclipse.dev/mosaic/post/release-25-1/</link>
+      <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/release-25-1/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;The autumn release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 25.1 to the open source community.
+The new version finally introduces detailed full-stack simulation of cellular communication in ns-3, starting with the LTE C-V2X stack.
+Furthermore, it is now possible to integrate persons from SUMO into MOSAIC simulations and equip them with cellular communication devices.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;MOSAIC 25.1 requires at least &lt;strong&gt;Java 17 Runtime Environment&lt;/strong&gt; to be executed. For more details, see 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/getting_started/&#34;&gt;Getting Started&lt;/a&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;🚀 You can find the new version in our 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
+
+
+
+
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
+&lt;p&gt;2025-10-13&lt;/p&gt;
+&lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;* [C+] Introduced simulation of cellular communication using ns-3 federate (LTE stack).
+* [C+] Upgraded OMNeT++ federate to OMNeT++ 6.1
+* [C+] Exchange cellular messages among persons by using agent applications and mosaic-cell simulator. 
+* [A+] Added possibility to map agent applications to SUMO persons via mapping configuration.
+* [A+] Major overhaul of environment event API.
+* [M+] Perception models are now available as separate library.
+* [M-] Startup procedure and logging of docker-based federates is now more robust. 
+* [S+] Completely new command line interface for scenario-convert tool (see `--help` or website).
+* [T+] Now supports SUMO 1.24.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;⭐ A huge thanks to all users who contributed to this release:
+
+
+
+
+
+&lt;a href=&#34;https://github.com/hoelger&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; hoelger&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;, and
+
+
+
+
+
+&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[M]&lt;/code&gt; &lt;em&gt;Eclipse MOSAIC&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[X]&lt;/code&gt; &lt;em&gt;MOSAIC Extended&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[A]&lt;/code&gt; &lt;em&gt;Application simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[C]&lt;/code&gt; &lt;em&gt;Communication simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[E]&lt;/code&gt; &lt;em&gt;Environment simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[N]&lt;/code&gt; &lt;em&gt;Navigation component&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[S]&lt;/code&gt; &lt;em&gt;Scenario-convert&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[T]&lt;/code&gt; &lt;em&gt;Traffic simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[+/-]&lt;/code&gt; &lt;em&gt;new Feature/Bugfix&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
     
     <item>
       <title>2025 Spring Release of Eclipse MOSAIC</title>

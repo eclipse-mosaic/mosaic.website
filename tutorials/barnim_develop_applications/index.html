@@ -971,10 +971,11 @@ tutorial is structured in four applications.</p>
 
 
 
-<a href="https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/SlowDownApp.java" target="_blank" rel="noopener"><code>SlowDownApp</code></a> induces a speed reduction as soon as the on-board sensors detect hazardous conditions.
+<a href="https://github.com/eclipse-mosaic/mosaic/blob/main/app/tutorials/weather-warning/src/main/java/org/eclipse/mosaic/app/tutorial/SlowDownApp.java" target="_blank" rel="noopener"><code>SlowDownApp</code></a> induces a speed reduction as soon as the on-board sensors detect hazardous traction conditions.
 To detect the change in the on-board sensors, the state of the sensors have to be queried whenever the
 vehicle has moved. This is achieved by implementing the <code>onVehicleUpdated()</code> method which is called
-whenever the traffic simulator executed one simulation step.</p>
+whenever the traffic simulator executed one simulation step.
+The actual area in which these conditions appear, is configured in the <code>environment_config.json</code> of the scenario.</p>
 <p>In this specific implementation, the speed of the vehicle is reduced to <em>25 km/h</em> within the entire hazardous area.
 After leaving the hazardous area, the vehicles returns to their original speed again:</p>
 <pre><code class="language-java">
@@ -989,26 +990,23 @@ public void onStartup() {
 
 @Override
 public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {
-    
-    SensorType[] types = SensorType.values();
-    int strength = 0;
-    
-    for (SensorType currentType : types) {
-        strength = getOs().getBasicSensorModule().getStrengthOf(currentType);
-    
-        if (strength &gt; 0) {
-            break;
-        }
+
+    /*
+     * The current strength of the traction hazard sensor is examined here.
+     * If a traction hazard event is detected, we initiate a slowdown of the vehicle.
+     */
+    TractionHazard tractionHazard = getOs().getBasicSensorModule().getSensorValue(Sensor.TRACTION_HAZARD).orElse(null);
+
+    if (tractionHazard != null &amp;&amp; !hazardousArea) {
+        // Reduce speed when entering potentially hazardous area
+        getOs().changeSpeedWithInterval(SPEED, 5 * TIME.SECOND);
+        hazardousArea = true;
     }
-    
-    if (strength &gt; 0 &amp;&amp; !inHazardousArea) {
-        getOs().changeSpeedWithInterval(SPEED, 5000);
-        inHazardousArea = true;
-    }
-    
-    if (strength == 0 &amp;&amp; inHazardousArea) {
+
+    if (tractionHazard == null &amp;&amp; hazardousArea) {
+        // Reset speed when leaving potentially hazardous area
         getOs().resetSpeed();
-        inHazardousArea = false;
+        hazardousArea = false;
     }
 }
 </code></pre>
@@ -1042,7 +1040,7 @@ network will be activated in the <code>onStartup()</code> method as following:</
             .apply();
 }
 </code></pre>
-<p>In case the sensor detects an environmental hazard the vehicle sends out a DEN-message to warn
+<p>In case the sensor detects an traction hazard (e.g., caused by an icy or wet road), the vehicle sends out a DEN-message to warn
 other vehicles. In the <code>reactOnEnvironmentData()</code> method, the sending is handled with
 regard to used communication network. For the <code>WeatherWarningApp</code>,  ITS-G5 communication is used
 to inform all vehicles in reach. In case of the <code>WeatherWarningAppCell</code>, the environment event is
@@ -1205,8 +1203,7 @@ receive this message.</p>
                     lastReceivedDenm.getTime(),
                     lastReceivedDenm.getSenderPosition(),
                     lastReceivedDenm.getEventRoadId(),
-                    lastReceivedDenm.getWarningType(),
-                    lastReceivedDenm.getEventStrength(),
+                    lastReceivedDenm.getEventCause(),
                     lastReceivedDenm.getCausedSpeed(),
                     lastReceivedDenm.getSenderDeceleration(),
                     lastReceivedDenm.getEventLocation(),
@@ -1733,7 +1730,7 @@ receive this message.</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 12 Aug 2025, 11:44 UTC
+      Website built on 13 Oct 2025, 09:23 UTC
     </p>
     
       <span class="position-absolute mr-3 mr-md-0" aria-hidden="true" style="right: 0;">

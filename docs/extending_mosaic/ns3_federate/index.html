@@ -788,8 +788,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.1-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.2-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.2-SNAPSHOT
   </a>
 </div>
 
@@ -1236,7 +1236,7 @@ On Ubuntu 24.04 we ran into problems when compiling ns-3.36.1.
 An upgrade to newer version is in the works.</p>
 <h2 id="federate-development-with-the-bundle-and-ns3_installersh">Federate Development with the Bundle (and <code>ns3_installer.sh</code>)</h2>
 <ul>
-<li>Compile or download the bundle <code>eclipse-mosaic-25.1-SNAPSHOT.zip</code></li>
+<li>Compile or download the bundle <code>eclipse-mosaic-25.2-SNAPSHOT.zip</code></li>
 <li>Extract the bundle and go to <code>&lt;bundle&gt;/bin/fed/ns3</code></li>
 <li>Run the script <code>./ns3_installer.sh --keep-src</code></li>
 <li>Run a simulation to test that you did the setup correctly  (e.g., the <code>Tiergarten</code> scenario can be activated with <code>ns-3</code>).</li>
@@ -1314,6 +1314,18 @@ make -j1
 make -j1
 bash run_manually.sh
 # start MOSAIC from the IDE
+</code></pre>
+<p><strong>For federate debugging</strong></p>
+<pre><code class="language-bash">sudo apt install gdb
+
+cd ns3-federate
+make -j1
+gdb ./bin/Debug/ns3-federate
+set env LD_LIBRARY_PATH /path/to/ns-3.36.1/build/lib
+break mosaic-node-manager.cc:319
+run --port=5011 --cmdPort=0 --configFile=ns3_federate_config.xml
+# start MOSAIC from the IDE
+# do your GDB debugging
 </code></pre>
 <p><strong>For ns-3 development</strong></p>
 <pre><code class="language-bash">cd ns-allinone-3.36.1/ns-3.36.1
@@ -1715,7 +1727,7 @@ bash run_manually.sh
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 12 Aug 2025, 11:44 UTC
+      Website built on 13 Oct 2025, 09:23 UTC
     </p>
     
   </div>

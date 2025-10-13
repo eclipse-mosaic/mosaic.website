@@ -788,8 +788,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.1-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.2-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.2-SNAPSHOT
   </a>
 </div>
 
@@ -1124,6 +1124,7 @@
   <ul>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#examples">Examples</a></li>
   </ul>
 </nav>
 
@@ -1212,16 +1213,15 @@
 <a href="/mosaic/docs/mosaic_configuration/environment_config/">Environment Configuration</a>.</p>
   </div>
 </div>
-<p>The root node of the configuration is a list of environment events. Each event require the type of the event, a rectangle area, a
-strength and the time window. The following example shows the configuration of an &ldquo;Obstacle&rdquo; event which is valid in the
-designated area (Rectangle) during the simulation time between 0 to 2000 seconds:</p>
+<p>The root node of the configuration is a list of environment events.
+Each event require the type of the event, its event value, an event area (&ldquo;polygon&rdquo;, &ldquo;rectangle&rdquo;, or &ldquo;circle&rdquo;), and the time window.
+The following example shows the configuration of an <code>OBSTACLE_ON_ROAD</code> event which is valid in the
+designated area (rectangle) during the simulation time between 0 to 2000 seconds:</p>
 <pre><code class="language-json">{
     &quot;events&quot; : [
         {
-            &quot;type&quot;: {
-                &quot;sensorType&quot;: &quot;OBSTACLE&quot;,
-                &quot;value&quot;: 1
-            },
+            &quot;type&quot;: &quot;EVENT&quot;,
+            &quot;value&quot;: &quot;OBSTACLE_ON_ROAD&quot;,
             &quot;location&quot;: {
                 &quot;area&quot;: {
                     &quot;type&quot;: &quot;Rectangle&quot;,
@@ -1242,6 +1242,89 @@ designated area (Rectangle) during the simulation time between 0 to 2000 seconds
         }
     ]
 }
+</code></pre>
+<p>The configured events can be used within vehicle applications as soon as it enters such areas.
+To achieve this, the <code>BasicSensorModule</code> must be acquired:</p>
+<pre><code class="language-java">@Override
+public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {
+
+    getOs().getBasicSensorModule().getSensorValue(Sensor.EVENT).ifPresent(event -&gt; {
+        if (event == EnvironmentEventCause.OBSTACLE_ON_ROAD) {
+            // do something
+        }
+    });
+}
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p>Configure a traction hazard in a circular area which is valid during the whole time of the simulation:</p>
+<pre><code class="language-json">{
+    &quot;events&quot; : [
+        {
+            &quot;type&quot;: &quot;TRACTION_HAZARD&quot;,
+            &quot;value&quot;: &quot;ICE&quot;,
+            &quot;location&quot;: {
+                &quot;area&quot;: {
+                    &quot;type&quot;: &quot;Circle&quot;,
+                    &quot;center&quot;: {
+                        &quot;latitude&quot;: 52.53654,
+                        &quot;longitude&quot;: 13.42116
+                    },
+                    &quot;radius&quot;: 30
+                }
+            }
+        }
+    ]
+}
+</code></pre>
+<pre><code class="language-java">getOs().getBasicSensorModule().getSensorValue(Sensor.TRACTION_HAZARD).ifPresent(hazard -&gt; {
+    if (hazard == TractionHazard.ICE) {
+      // do something
+    }
+});
+</code></pre>
+<hr>
+<p>Configure a specific road condition value (e.g., as IRI) which is valid on a specific road:</p>
+<pre><code class="language-json">{
+    &quot;events&quot; : [
+        {
+            &quot;type&quot;: &quot;ROAD_SURFACE_CONDITION&quot;,
+            &quot;value&quot;: 5,
+            &quot;location&quot;: {
+                &quot;connectionId&quot;: &quot;8972_5082_1002&quot;
+            }
+        }
+    ]
+}
+</code></pre>
+<pre><code class="language-java">getOs().getBasicSensorModule().getSensorValue(Sensor.ROAD_SURFACE_CONDITION).ifPresent(iri -&gt; {
+    if (iri &gt; 2.0) {
+      // do something
+    }
+});
+</code></pre>
+<hr>
+<p>Configure a global windy event which only occurs for a short period of time:</p>
+<pre><code class="language-json">{
+    &quot;events&quot; : [
+        {
+            &quot;type&quot;: &quot;WIND&quot;,
+            &quot;value&quot;: { 
+                &quot;speed&quot;: 30,
+                &quot;direction&quot;: 45
+            },
+            &quot;time&quot;: {
+                &quot;start&quot;: &quot;300 s&quot;,
+                &quot;end&quot;: &quot;360 s&quot;
+            }
+        }
+    ]
+}
+</code></pre>
+<pre><code class="language-java">getOs().getBasicSensorModule().getSensorValue(Sensor.WIND).ifPresent(wind -&gt; {
+    if (wind.speed &gt; 20.0) {
+      // do something
+    }
+});
 </code></pre>
 
           </div>
@@ -1635,7 +1718,7 @@ designated area (Rectangle) during the simulation time between 0 to 2000 seconds
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 12 Aug 2025, 11:44 UTC
+      Website built on 13 Oct 2025, 09:23 UTC
     </p>
     
   </div>

@@ -35,7 +35,7 @@
 &lt;a class=&#34;mosaic-btn mosaic-btn-primary&#34; href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; title=&#34;Download scenario-convert from DCAITI mirror&#34;&gt;&lt;i class=&#34;fas fa-download&#34;&gt;&lt;/i&gt;Download scenario-convert from DCAITI mirror&lt;/a&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-25.0.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-25.1.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as
 MOSAIC (&lt;code&gt;&amp;lt;mosaic-root&amp;gt;&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Use the call &lt;code&gt;scenario-convert.bat/sh&lt;/code&gt; on the command line to execute the tool.&lt;/li&gt;
@@ -1377,7 +1377,7 @@ For the example in listing &amp;lsquo;Example Configuration&amp;rsquo; it is exp
 &lt;p&gt;Each value that should be changed in a run is defined by a &lt;code&gt;parameter&lt;/code&gt; element identified by a &lt;code&gt;name&lt;/code&gt; (see listing above). The base value is the &lt;code&gt;file&lt;/code&gt; which should be changed (relative to the scenario folder). Currently it is needed to define what &lt;code&gt;fileFormat&lt;/code&gt; is expected from that file, which has impact on the syntax of the item definition which denotes what part of this file should be changed (this will be explained in a bit). The final value is the &lt;code&gt;type&lt;/code&gt; which denotes how the value change behaves. The child elements depend on this definition and will also be explained in a bit.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;fileFormat&lt;/code&gt; can be one of &lt;code&gt;xml&lt;/code&gt; or &lt;code&gt;json&lt;/code&gt;. The item syntax is as followed:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;xml&lt;/code&gt;: contains an XPath1 expression&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;xml&lt;/code&gt;: contains an XPath expression (but without the root element)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;json&lt;/code&gt;: contains an array-style definition of the target value. The value in the listing above would change line 13 in the listing below. (In the first entry of vehicles the attribute weight of the types first entry).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{

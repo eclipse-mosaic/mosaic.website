@@ -283,30 +283,6 @@ have the option of:&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The network file contains this line for the &lt;code&gt;&amp;lt;location&amp;gt;&lt;/code&gt; element:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;    &amp;lt;location netOffset=&amp;quot;-369461.94,-5798955.14&amp;quot; convBoundary=&amp;quot;0.00,1201.70,46116.88,38132.49&amp;quot; origBoundary=&amp;quot;13.080829,52.333059,13.764084,52.671235&amp;quot; projParameter=&amp;quot;+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&amp;quot;/&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To find out the cartesian offset take a look at the &lt;code&gt;netOffset&lt;/code&gt; attribute. The first number corresponds to the X coordinate,
-while the second corresponds to the Y coordinate. So the &lt;code&gt;cartesianOffset&lt;/code&gt; attribute in the &lt;code&gt;scenario_config.json&lt;/code&gt; should look like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-    &amp;quot;simulation&amp;quot;: {
-        &amp;quot;id&amp;quot;: &amp;quot;My_Simulation&amp;quot;,
-        &amp;quot;duration&amp;quot;: &amp;quot;4h&amp;quot;,
-        &amp;quot;projection&amp;quot;: {
-            &amp;quot;centerCoordinates&amp;quot;: {
-                &amp;quot;latitude&amp;quot;: 52.525192,
-                &amp;quot;longitude&amp;quot;: 13.422281
-            },
-            &amp;quot;cartesianOffset&amp;quot;: {
-                &amp;quot;x&amp;quot;: -369461.94,
-                &amp;quot;y&amp;quot;: -5798955.14
-            }
-        }
-    }
-}
-    
-&lt;/code&gt;&lt;/pre&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;a name=&#34;reference-network&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;network-addressing&#34;&gt;Network Addressing&lt;/h2&gt;
@@ -2096,23 +2072,6 @@ have the option of:&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;type&lt;/td&gt;
-&lt;td&gt;
-
-
-
-
-
-  
-  
-
-&lt;a href=&#34;#reference-eventtype&#34;&gt;&lt;code&gt;eventType&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Object to define the type of an event.&lt;/td&gt;
-&lt;td&gt;✓ Yes&lt;/td&gt;
-&lt;td&gt;None&lt;/td&gt;
-&lt;td&gt;None&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td&gt;location&lt;/td&gt;
 &lt;td&gt;
 
@@ -2125,7 +2084,7 @@ have the option of:&lt;/p&gt;
 
 &lt;a href=&#34;#reference-eventlocation&#34;&gt;&lt;code&gt;eventLocation&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Object to define the event location configuration, which is either a GeoArea (e.g. rectangle, circle, or polygon) or a specific street segment.&lt;/td&gt;
-&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;/tr&gt;
@@ -2142,44 +2101,25 @@ have the option of:&lt;/p&gt;
 
 &lt;a href=&#34;#reference-eventtime&#34;&gt;&lt;code&gt;eventTime&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Object to define the temporal properties of an event.&lt;/td&gt;
-&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;a name=&#34;reference-eventtype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;eventtype&#34;&gt;eventType&lt;/h2&gt;
-&lt;p&gt;Object to define the type of an event.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;Required&lt;/th&gt;
-&lt;th&gt;Boundaries&lt;/th&gt;
-&lt;th&gt;Default&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;sensorType&lt;/td&gt;
+&lt;td&gt;type&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Represents the type of sensor value this event is emitting (e.g. Ice, Snow, or an arbitrary Obstacle). The value can be set to any valid string.&lt;/td&gt;
+&lt;td&gt;Represents the type of event value this event is emitting (e.g., TRACTION_HAZARD, VISIBILITY_HAZARD, WIND, TEMPERATURE, or an arbitrary EVENT). The value can be set to any valid string.&lt;/td&gt;
 &lt;td&gt;✓ Yes&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;value&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Used for assigning a value to the event. It can be used as the strength of an event, the amount of free parking spots in a parking lot, etc.&lt;/td&gt;
-&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;object&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used for assigning a value to the event. It can be used as the strength of an event, the road surface quality, or the name of a specific event cause, etc.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4710,6 +4650,14 @@ have the option of:&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;visualizer&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Starts the GUI interface of SUMO, if set to true (default: false).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;updateInterval&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;

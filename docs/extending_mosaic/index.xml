@@ -1471,14 +1471,14 @@ Uncheck INET and decide for yourself if you want to install the examples.&lt;/p&
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The INET framework is supported in version 4.1.1. To ensure the correct version is installed, install it manually:&lt;/p&gt;
+&lt;p&gt;The INET framework is supported in version 4.5.4. To ensure the correct version is installed, install it manually:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Download 
 
 
 
 
-&lt;a href=&#34;https://github.com/inet-framework/inet/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;INET 4.1.1&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://github.com/inet-framework/inet/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;INET 4.5.4&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Unpack it into the working directory of OMNeT++ IDE (Eclipse)&lt;/li&gt;
 &lt;li&gt;Rename the unpacked directory &lt;code&gt;inet4&lt;/code&gt; to &lt;code&gt;inet&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Insert the directory &lt;code&gt;inet&lt;/code&gt; as project to OMNeT++ IDE (as described above)&lt;/li&gt;
@@ -1866,7 +1866,7 @@ On Ubuntu 24.04 we ran into problems when compiling ns-3.36.1.
 An upgrade to newer version is in the works.&lt;/p&gt;
 &lt;h2 id=&#34;federate-development-with-the-bundle-and-ns3_installersh&#34;&gt;Federate Development with the Bundle (and &lt;code&gt;ns3_installer.sh&lt;/code&gt;)&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Compile or download the bundle &lt;code&gt;eclipse-mosaic-25.1-SNAPSHOT.zip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Compile or download the bundle &lt;code&gt;eclipse-mosaic-25.2-SNAPSHOT.zip&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Extract the bundle and go to &lt;code&gt;&amp;lt;bundle&amp;gt;/bin/fed/ns3&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run the script &lt;code&gt;./ns3_installer.sh --keep-src&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run a simulation to test that you did the setup correctly  (e.g., the &lt;code&gt;Tiergarten&lt;/code&gt; scenario can be activated with &lt;code&gt;ns-3&lt;/code&gt;).&lt;/li&gt;
@@ -1944,6 +1944,18 @@ make -j1
 make -j1
 bash run_manually.sh
 # start MOSAIC from the IDE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;For federate debugging&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt install gdb
+
+cd ns3-federate
+make -j1
+gdb ./bin/Debug/ns3-federate
+set env LD_LIBRARY_PATH /path/to/ns-3.36.1/build/lib
+break mosaic-node-manager.cc:319
+run --port=5011 --cmdPort=0 --configFile=ns3_federate_config.xml
+# start MOSAIC from the IDE
+# do your GDB debugging
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;For ns-3 development&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ns-allinone-3.36.1/ns-3.36.1

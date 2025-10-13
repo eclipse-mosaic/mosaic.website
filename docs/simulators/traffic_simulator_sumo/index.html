@@ -786,8 +786,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.1-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.2-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.2-SNAPSHOT
   </a>
 </div>
 
@@ -1126,7 +1126,11 @@
     <li><a href="#using-libsumo-with-eclipse-mosaic">Using LibSumo with Eclipse MOSAIC</a></li>
     <li><a href="#adding-vehicles">Adding Vehicles</a></li>
     <li><a href="#deep-dive-route-files--additional-files">Deep dive: Route Files / Additional Files</a></li>
-    <li><a href="#access-sumo-traci-from-applications">Access SUMO TraCI From Applications</a></li>
+    <li><a href="#access-sumo-traci-from-applications">Access SUMO TraCI From Applications</a>
+      <ul>
+        <li><a href="#use-sumo-python-client-alongside-mosaic">Use SUMO Python Client alongside MOSAIC</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -1217,12 +1221,7 @@ individually.</p>
 <tr>
 <td><strong>Supported version(s)</strong></td>
 <td>Recommended version:<br>Full support:<br>Limited support:</td>
-<td>1.22.0<br>1.9.2 - 1.22.0<br>below 1.9.2</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
+<td>1.24.0<br>1.9.2 - 1.24.0<br>below 1.9.2</td>
 </tr>
 </tbody>
 </table>
@@ -1250,12 +1249,13 @@ pkgutil --pkg-info org.eclipse.sumo.framework
 <p>The SUMO ambassador can be configured with a configuration file. The specific path is <code>&lt;scenarioName&gt;/sumo/sumo_config.json</code>.
 If no such file exists, the following default configuration options are used:</p>
 <pre><code class="language-json">{ 
-    &quot;updateInterval&quot;: 1000, 
+    &quot;updateInterval&quot;: &quot;1s&quot;,
     &quot;sumoConfigurationFile&quot;: &quot;&lt;scenarioName&gt;.sumo.cfg&quot;, 
     &quot;exitOnInsertionError&quot;: true, 
     &quot;additionalSumoParameters&quot;: &quot;--time-to-teleport 0  --seed 100000&quot;, 
     &quot;subscriptions&quot;: [ &quot;roadposition&quot;, &quot;signals&quot;, &quot;emissions&quot; ],
-    &quot;subscribeToAllVehicles&quot;: true
+    &quot;subscribeToAllVehicles&quot;: true,
+    &quot;visualizer&quot;: false
 }
 </code></pre>
 <div class="alert alert-tip">
@@ -1293,7 +1293,7 @@ If no such file exists, the following default configuration options are used:</p
    └─ sumo
       ├─ &lt;scenarioName&gt;.net.xml .............. SUMO Network file
       ├─ &lt;scenarioName&gt;.sumocfg .............. SUMO configuration file
-      └─ sumo_config.json .................... Ambassador configuraition file]
+      └─ sumo_config.json .................... Ambassador configuration file
 </code></pre>
 <p>The SUMO configuration consists of sumo specific config files and the sumo-ambassador configuration
 file. The main configuration file name must end with the suffix *.sumocfg, which needs to refer to the network.
@@ -1328,20 +1328,20 @@ configured a vehicle type called <code>MyVehicle</code> in the Mapping configura
 <p>Further information about SUMO and its configuration can be found in the official SUMO wiki.</p>
 <h2 id="using-the-sumo-gui-with-eclipse-mosaic">Using the SUMO GUI with Eclipse MOSAIC</h2>
 <p>It is also possible to use the graphical interface of SUMO in order to visualize and interact with the simulation.
-To
-achieve this, Eclipse MOSAIC can be configured to start the GUI process of SUMO as the federate rather than the
-command
-line interface.</p>
-<p>In order to use the SUMO GUI the file <code>&lt;mosaic&gt;/etc/runtime.json</code> needs to be edited.
-Here, the entry
-<code>org.eclipse.mosaic.fed.sumo.ambassador.SumoAmbassador</code> must be
-replaced with
-<code>org.eclipse.mosaic.fed.sumo.ambassador.SumoGuiAmbassador</code>.</p>
+To achieve this, Eclipse MOSAIC can be configured to start the GUI process of SUMO as the federate rather than the
+command line interface.</p>
+<p>With the current version, the GUI is enabled by setting the field <code>visualizer</code> to <code>true</code> in the <code>sumo/sumo_config.json</code> file of the scenario:</p>
+<pre><code class="language-json">{
+    &quot;updateInterval&quot;: &quot;1s&quot;,
+    &quot;visualizer&quot;: true
+}
+</code></pre>
+<p>Until version 25.0 of Eclipse MOSAIC, the SUMO GUI could be activated by replacing the entry <code>SumoAmbassador</code> with <code>SumoGuiAmbassador</code>
+inside the <code>&lt;mosaic&gt;/etc/runtime.json</code> file.</p>
 <div class="alert alert-note">
   <div>
 <p>Keep in mind to launch Eclipse MOSAIC with the argument <code>-w 0</code> in order to disable the watchdog timer.
-Otherwise, it
-would shut down Eclipse MOSAIC if the simulation is paused in the SUMO GUI.</p>
+Otherwise, it would shut down Eclipse MOSAIC if the simulation is paused in the SUMO GUI.</p>
   </div>
 </div>
 <h2 id="using-libsumo-with-eclipse-mosaic">Using LibSumo with Eclipse MOSAIC</h2>
@@ -1358,7 +1358,7 @@ to get this running, you need to follow these steps:</p>
 <li>Check, if there&rsquo;s a <code>bin/libsumojni.dll</code> or <code>bin/liblibsumojni.so</code> file in your SUMO installation directory. If not, you might
 need to install the &ldquo;extras&rdquo; release bundle of SUMO (Windows), or you need to re-build SUMO from sources and activate
 the build of libsumo (see <a href="https://sumo.dlr.de/docs/Libsumo.html#building_it)">https://sumo.dlr.de/docs/Libsumo.html#building_it)</a>.</li>
-<li>Only the recent SUMO version (1.22.0) is supported.</li>
+<li>Only the recent SUMO version (1.24.0) is supported.</li>
 </ul>
 <p>If these pre-requisites are met, you can activate this feature editing the file <code>&lt;mosaic&gt;/etc/runtime.json</code>.
 Here, the entry
@@ -1454,6 +1454,65 @@ commands are delivered to TraCI without any prior checks.</p>
 in the additional examples bundle on the <a href="https://www.dcaiti.tu-berlin.de/research/simulation/download/" target="_blank">DCAITI website</a>.</p>
   </div>
 </div>
+<h3 id="use-sumo-python-client-alongside-mosaic">Use SUMO Python Client alongside MOSAIC</h3>
+<p>MOSAIC and SUMO are coupled using TraCI, in which SUMO acts as the server and MOSAIC as the client.
+The SUMO simulation (=TraCI server) allows the connection of multiple clients, which interact with the simulation.
+This allows to interact with the SUMO simulation alongside MOSAIC, e.g., with custom Python scripts.
+Clients have to be executed in a fixed order for each simulation step.
+As MOSAIC first starts the simulation and afterwards connects its client to said simulation, we set MOSAIC&rsquo;s order to <code>1</code> per default (configurable via <code>CSumo#simulationClientOrder</code>).
+Your additional clients (i.e., your Python scripts) will have to set an order number larger than <code>1</code>, e.g., by calling <code>taci.setOrder(2)</code>.</p>
+<blockquote>
+<p>Note: Though clients can interact with each other in a way that they can both retrieve and set values of the simulation and its units,
+it is not possible for i.e., Python clients to retrieve or interact with MOSAIC&rsquo;s API (e.g., V2X capabilities).</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<p>In order to have multiple clients interacting with the same simulation, a couple of configuration steps are required.
+Following we provide a minimal example for the Barnim scenario.
+First, we&rsquo;ll have to change MOSAIC&rsquo;s way of randomly assigning ports to SUMO by adjusting the port inside the <code>runtime.json</code>.</p>
+<pre><code class="language-xml">...
+    {
+        &quot;id&quot;: &quot;sumo&quot;,
+        &quot;classname&quot;: &quot;org.eclipse.mosaic.fed.sumo.ambassador.SumoAmbassador&quot;,
+        &quot;configuration&quot;: &quot;sumo_config.json&quot;,
+        &quot;priority&quot;: 50,
+        &quot;host&quot;: &quot;local&quot;,
+        &quot;port&quot;: &lt;ANY-FREE-PORT&gt;,
+        &quot;deploy&quot;: true,
+        &quot;start&quot;: true,
+        &quot;subscriptions&quot;: [
+</code></pre>
+<p>Next, a slight adjustment within the <code>.sumocfg</code> is necessary.
+We have to tell SUMO the amount of clients it should be waiting for.
+For this example we&rsquo;ll just add one additional client (the first one being MOSAIC&rsquo;s client).</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;configuration&gt;
+    &lt;input&gt;
+        &lt;net-file value=&quot;Barnim.net.xml&quot;/&gt;
+    &lt;/input&gt;
+    &lt;time&gt;
+        &lt;begin value=&quot;0&quot;/&gt;
+        &lt;end value=&quot;10000&quot;/&gt;
+    &lt;/time&gt;
+    &lt;!-- Add the number of clients you want to connect to your simulation --&gt;
+    &lt;traci_server&gt;
+        &lt;num-clients value=&quot;2&quot;/&gt;
+    &lt;/traci_server&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>Finally, we can implement a tiny client using TraCI&rsquo;s python API, which first adds a route at second 1 and then adds a vehicle driving along that route at second 10.</p>
+<pre><code class="language-python">import traci
+
+traci.init(8765) # add the port you specified in the runtime.json here
+traci.setOrder(2) # MOSAIC's client sets order to 1
+
+while traci.simulation.getTime() &lt; 1000:
+    if traci.simulation.getTime() == 1:
+        traci.route.add(&quot;my_python_route&quot;, [&quot;9659058_75670639_268746441&quot;, &quot;9659058_268746441_75666594&quot;, &quot;9659083_75666594_75670644&quot;])
+    if traci.simulation.getTime() == 10:
+        traci.vehicle.add(&quot;traci_vehicle&quot;, &quot;my_python_route&quot;)
+    traci.simulation.step() # ! every client needs to call step
+</code></pre>
+<p>From here on out, you should be able to figure out things on your own.</p>
 
           </div>
 
@@ -1846,7 +1905,7 @@ in the additional examples bundle on the <a href="https://www.dcaiti.tu-berlin.d
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 12 Aug 2025, 11:44 UTC
+      Website built on 13 Oct 2025, 09:23 UTC
     </p>
     
   </div>

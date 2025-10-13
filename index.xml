@@ -5,7 +5,7 @@
     <link>https://www.eclipse.dev/mosaic/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/index.xml" rel="self" type="application/rss+xml" />
     <description>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 14 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 10 Oct 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
@@ -1574,7 +1574,7 @@ table th:nth-of-type(2) {
 &lt;/table&gt;
 &lt;p&gt;While Eclipse MOSAIC is running, it prints some information on the command line:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[user@gnulinux mosaic]$ ./mosaic.sh -s HelloWorld
-2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 25.0 on Java JRE v1.8.0_202 (AdoptOpenJdk)
+2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 25.1 on Java JRE v1.8.0_202 (AdoptOpenJdk)
 2020-09-08 16:46:09,941 INFO  FederationManagement - Start federation with id &#39;HelloWorld&#39;
 2020-09-08 16:46:09,943 INFO  FederationManagement - Add ambassador/federate with id &#39;application&#39;
 2020-09-08 16:46:09,944 INFO  FederationManagement - Add ambassador/federate with id &#39;mapping&#39;
@@ -1713,7 +1713,7 @@ in the
 &lt;a class=&#34;mosaic-btn mosaic-btn-primary&#34; href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; title=&#34;Download scenario-convert from DCAITI mirror&#34;&gt;&lt;i class=&#34;fas fa-download&#34;&gt;&lt;/i&gt;Download scenario-convert from DCAITI mirror&lt;/a&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-25.0.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-25.1.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as
 MOSAIC (&lt;code&gt;&amp;lt;mosaic-root&amp;gt;&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Use the call &lt;code&gt;scenario-convert.bat/sh&lt;/code&gt; on the command line to execute the tool.&lt;/li&gt;
@@ -2662,12 +2662,7 @@ individually.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Supported version(s)&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Recommended version:&lt;br&gt;Full support:&lt;br&gt;Limited support:&lt;/td&gt;
-&lt;td&gt;1.22.0&lt;br&gt;1.9.2 - 1.22.0&lt;br&gt;below 1.9.2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1.24.0&lt;br&gt;1.9.2 - 1.24.0&lt;br&gt;below 1.9.2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2695,12 +2690,13 @@ pkgutil --pkg-info org.eclipse.sumo.framework
 &lt;p&gt;The SUMO ambassador can be configured with a configuration file. The specific path is &lt;code&gt;&amp;lt;scenarioName&amp;gt;/sumo/sumo_config.json&lt;/code&gt;.
 If no such file exists, the following default configuration options are used:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{ 
-    &amp;quot;updateInterval&amp;quot;: 1000, 
+    &amp;quot;updateInterval&amp;quot;: &amp;quot;1s&amp;quot;,
     &amp;quot;sumoConfigurationFile&amp;quot;: &amp;quot;&amp;lt;scenarioName&amp;gt;.sumo.cfg&amp;quot;, 
     &amp;quot;exitOnInsertionError&amp;quot;: true, 
     &amp;quot;additionalSumoParameters&amp;quot;: &amp;quot;--time-to-teleport 0  --seed 100000&amp;quot;, 
     &amp;quot;subscriptions&amp;quot;: [ &amp;quot;roadposition&amp;quot;, &amp;quot;signals&amp;quot;, &amp;quot;emissions&amp;quot; ],
-    &amp;quot;subscribeToAllVehicles&amp;quot;: true
+    &amp;quot;subscribeToAllVehicles&amp;quot;: true,
+    &amp;quot;visualizer&amp;quot;: false
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;alert alert-tip&#34;&gt;
@@ -2738,7 +2734,7 @@ If no such file exists, the following default configuration options are used:&lt
    └─ sumo
       ├─ &amp;lt;scenarioName&amp;gt;.net.xml .............. SUMO Network file
       ├─ &amp;lt;scenarioName&amp;gt;.sumocfg .............. SUMO configuration file
-      └─ sumo_config.json .................... Ambassador configuraition file]
+      └─ sumo_config.json .................... Ambassador configuration file
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The SUMO configuration consists of sumo specific config files and the sumo-ambassador configuration
 file. The main configuration file name must end with the suffix *.sumocfg, which needs to refer to the network.
@@ -2773,20 +2769,20 @@ configured a vehicle type called &lt;code&gt;MyVehicle&lt;/code&gt; in the Mappi
 &lt;p&gt;Further information about SUMO and its configuration can be found in the official SUMO wiki.&lt;/p&gt;
 &lt;h2 id=&#34;using-the-sumo-gui-with-eclipse-mosaic&#34;&gt;Using the SUMO GUI with Eclipse MOSAIC&lt;/h2&gt;
 &lt;p&gt;It is also possible to use the graphical interface of SUMO in order to visualize and interact with the simulation.
-To
-achieve this, Eclipse MOSAIC can be configured to start the GUI process of SUMO as the federate rather than the
-command
-line interface.&lt;/p&gt;
-&lt;p&gt;In order to use the SUMO GUI the file &lt;code&gt;&amp;lt;mosaic&amp;gt;/etc/runtime.json&lt;/code&gt; needs to be edited.
-Here, the entry
-&lt;code&gt;org.eclipse.mosaic.fed.sumo.ambassador.SumoAmbassador&lt;/code&gt; must be
-replaced with
-&lt;code&gt;org.eclipse.mosaic.fed.sumo.ambassador.SumoGuiAmbassador&lt;/code&gt;.&lt;/p&gt;
+To achieve this, Eclipse MOSAIC can be configured to start the GUI process of SUMO as the federate rather than the
+command line interface.&lt;/p&gt;
+&lt;p&gt;With the current version, the GUI is enabled by setting the field &lt;code&gt;visualizer&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt; in the &lt;code&gt;sumo/sumo_config.json&lt;/code&gt; file of the scenario:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;updateInterval&amp;quot;: &amp;quot;1s&amp;quot;,
+    &amp;quot;visualizer&amp;quot;: true
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Until version 25.0 of Eclipse MOSAIC, the SUMO GUI could be activated by replacing the entry &lt;code&gt;SumoAmbassador&lt;/code&gt; with &lt;code&gt;SumoGuiAmbassador&lt;/code&gt;
+inside the &lt;code&gt;&amp;lt;mosaic&amp;gt;/etc/runtime.json&lt;/code&gt; file.&lt;/p&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
 &lt;p&gt;Keep in mind to launch Eclipse MOSAIC with the argument &lt;code&gt;-w 0&lt;/code&gt; in order to disable the watchdog timer.
-Otherwise, it
-would shut down Eclipse MOSAIC if the simulation is paused in the SUMO GUI.&lt;/p&gt;
+Otherwise, it would shut down Eclipse MOSAIC if the simulation is paused in the SUMO GUI.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;using-libsumo-with-eclipse-mosaic&#34;&gt;Using LibSumo with Eclipse MOSAIC&lt;/h2&gt;
@@ -2803,7 +2799,7 @@ to get this running, you need to follow these steps:&lt;/p&gt;
 &lt;li&gt;Check, if there&amp;rsquo;s a &lt;code&gt;bin/libsumojni.dll&lt;/code&gt; or &lt;code&gt;bin/liblibsumojni.so&lt;/code&gt; file in your SUMO installation directory. If not, you might
 need to install the &amp;ldquo;extras&amp;rdquo; release bundle of SUMO (Windows), or you need to re-build SUMO from sources and activate
 the build of libsumo (see &lt;a href=&#34;https://sumo.dlr.de/docs/Libsumo.html#building_it)&#34;&gt;https://sumo.dlr.de/docs/Libsumo.html#building_it)&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Only the recent SUMO version (1.22.0) is supported.&lt;/li&gt;
+&lt;li&gt;Only the recent SUMO version (1.24.0) is supported.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If these pre-requisites are met, you can activate this feature editing the file &lt;code&gt;&amp;lt;mosaic&amp;gt;/etc/runtime.json&lt;/code&gt;.
 Here, the entry
@@ -2899,6 +2895,65 @@ commands are delivered to TraCI without any prior checks.&lt;/p&gt;
 in the additional examples bundle on the &lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; target=&#34;_blank&#34;&gt;DCAITI website&lt;/a&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+&lt;h3 id=&#34;use-sumo-python-client-alongside-mosaic&#34;&gt;Use SUMO Python Client alongside MOSAIC&lt;/h3&gt;
+&lt;p&gt;MOSAIC and SUMO are coupled using TraCI, in which SUMO acts as the server and MOSAIC as the client.
+The SUMO simulation (=TraCI server) allows the connection of multiple clients, which interact with the simulation.
+This allows to interact with the SUMO simulation alongside MOSAIC, e.g., with custom Python scripts.
+Clients have to be executed in a fixed order for each simulation step.
+As MOSAIC first starts the simulation and afterwards connects its client to said simulation, we set MOSAIC&amp;rsquo;s order to &lt;code&gt;1&lt;/code&gt; per default (configurable via &lt;code&gt;CSumo#simulationClientOrder&lt;/code&gt;).
+Your additional clients (i.e., your Python scripts) will have to set an order number larger than &lt;code&gt;1&lt;/code&gt;, e.g., by calling &lt;code&gt;taci.setOrder(2)&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: Though clients can interact with each other in a way that they can both retrieve and set values of the simulation and its units,
+it is not possible for i.e., Python clients to retrieve or interact with MOSAIC&amp;rsquo;s API (e.g., V2X capabilities).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In order to have multiple clients interacting with the same simulation, a couple of configuration steps are required.
+Following we provide a minimal example for the Barnim scenario.
+First, we&amp;rsquo;ll have to change MOSAIC&amp;rsquo;s way of randomly assigning ports to SUMO by adjusting the port inside the &lt;code&gt;runtime.json&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;...
+    {
+        &amp;quot;id&amp;quot;: &amp;quot;sumo&amp;quot;,
+        &amp;quot;classname&amp;quot;: &amp;quot;org.eclipse.mosaic.fed.sumo.ambassador.SumoAmbassador&amp;quot;,
+        &amp;quot;configuration&amp;quot;: &amp;quot;sumo_config.json&amp;quot;,
+        &amp;quot;priority&amp;quot;: 50,
+        &amp;quot;host&amp;quot;: &amp;quot;local&amp;quot;,
+        &amp;quot;port&amp;quot;: &amp;lt;ANY-FREE-PORT&amp;gt;,
+        &amp;quot;deploy&amp;quot;: true,
+        &amp;quot;start&amp;quot;: true,
+        &amp;quot;subscriptions&amp;quot;: [
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, a slight adjustment within the &lt;code&gt;.sumocfg&lt;/code&gt; is necessary.
+We have to tell SUMO the amount of clients it should be waiting for.
+For this example we&amp;rsquo;ll just add one additional client (the first one being MOSAIC&amp;rsquo;s client).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;configuration&amp;gt;
+    &amp;lt;input&amp;gt;
+        &amp;lt;net-file value=&amp;quot;Barnim.net.xml&amp;quot;/&amp;gt;
+    &amp;lt;/input&amp;gt;
+    &amp;lt;time&amp;gt;
+        &amp;lt;begin value=&amp;quot;0&amp;quot;/&amp;gt;
+        &amp;lt;end value=&amp;quot;10000&amp;quot;/&amp;gt;
+    &amp;lt;/time&amp;gt;
+    &amp;lt;!-- Add the number of clients you want to connect to your simulation --&amp;gt;
+    &amp;lt;traci_server&amp;gt;
+        &amp;lt;num-clients value=&amp;quot;2&amp;quot;/&amp;gt;
+    &amp;lt;/traci_server&amp;gt;
+&amp;lt;/configuration&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, we can implement a tiny client using TraCI&amp;rsquo;s python API, which first adds a route at second 1 and then adds a vehicle driving along that route at second 10.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import traci
+
+traci.init(8765) # add the port you specified in the runtime.json here
+traci.setOrder(2) # MOSAIC&#39;s client sets order to 1
+
+while traci.simulation.getTime() &amp;lt; 1000:
+    if traci.simulation.getTime() == 1:
+        traci.route.add(&amp;quot;my_python_route&amp;quot;, [&amp;quot;9659058_75670639_268746441&amp;quot;, &amp;quot;9659058_268746441_75666594&amp;quot;, &amp;quot;9659083_75666594_75670644&amp;quot;])
+    if traci.simulation.getTime() == 10:
+        traci.vehicle.add(&amp;quot;traci_vehicle&amp;quot;, &amp;quot;my_python_route&amp;quot;)
+    traci.simulation.step() # ! every client needs to call step
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From here on out, you should be able to figure out things on your own.&lt;/p&gt;
 </description>
     </item>
     
@@ -3269,7 +3324,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;ol&gt;
-&lt;li&gt;Extract the &lt;strong&gt;&lt;code&gt;phabmacs-federate-25.0-bundle.zip&lt;/code&gt;&lt;/strong&gt; archive into the &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; directory of your MOSAIC Extended installation. Create the directory, if not existing.&lt;/li&gt;
+&lt;li&gt;Extract the &lt;strong&gt;&lt;code&gt;phabmacs-federate-25.1-bundle.zip&lt;/code&gt;&lt;/strong&gt; archive into the &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; directory of your MOSAIC Extended installation. Create the directory, if not existing.&lt;/li&gt;
 &lt;li&gt;Navigate to &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; and execute the &lt;code&gt;activate_phabmacs.sh/bat&lt;/code&gt; file. Enter your MOSAIC credentials.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
@@ -5409,7 +5464,7 @@ For the example in listing &amp;lsquo;Example Configuration&amp;rsquo; it is exp
 &lt;p&gt;Each value that should be changed in a run is defined by a &lt;code&gt;parameter&lt;/code&gt; element identified by a &lt;code&gt;name&lt;/code&gt; (see listing above). The base value is the &lt;code&gt;file&lt;/code&gt; which should be changed (relative to the scenario folder). Currently it is needed to define what &lt;code&gt;fileFormat&lt;/code&gt; is expected from that file, which has impact on the syntax of the item definition which denotes what part of this file should be changed (this will be explained in a bit). The final value is the &lt;code&gt;type&lt;/code&gt; which denotes how the value change behaves. The child elements depend on this definition and will also be explained in a bit.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;fileFormat&lt;/code&gt; can be one of &lt;code&gt;xml&lt;/code&gt; or &lt;code&gt;json&lt;/code&gt;. The item syntax is as followed:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;xml&lt;/code&gt;: contains an XPath1 expression&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;xml&lt;/code&gt;: contains an XPath expression (but without the root element)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;json&lt;/code&gt;: contains an array-style definition of the target value. The value in the listing above would change line 13 in the listing below. (In the first entry of vehicles the attribute weight of the types first entry).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
@@ -5651,7 +5706,7 @@ For more information on the &lt;strong&gt;INET&lt;/strong&gt; extension you shou
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Supported version(s)&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;OMNeT++ 5.5.1 &lt;br&gt;INET 4.1.1&lt;/td&gt;
+&lt;td&gt;OMNeT++ 6.1 &lt;br&gt;INET 4.5.4&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Dependencies&lt;/strong&gt;&lt;/td&gt;
@@ -5703,7 +5758,7 @@ the following options are possible:&lt;/p&gt;
   
 
 &lt;a href=&#34;#installation-for-users&#34;&gt;USER&lt;/a&gt;&lt;br&gt;(installation script)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This installation type addresses those who only want to use the &lt;strong&gt;OMNeT++&lt;/strong&gt; network simulator for simulations.&lt;br&gt;Network configurations can also be adjusted.&lt;br&gt;&lt;br&gt;If you install the federate with this installation type, &lt;strong&gt;OMNeT++ 5.5.1&lt;/strong&gt; and &lt;strong&gt;INET 4.1.1&lt;/strong&gt; will automatically be installed inside &lt;code&gt;&amp;lt;mosaic&amp;gt;/bin/fed/omnetpp&lt;/code&gt; during the installation.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This installation type addresses those who only want to use the &lt;strong&gt;OMNeT++&lt;/strong&gt; network simulator for simulations.&lt;br&gt;Network configurations can also be adjusted.&lt;br&gt;&lt;br&gt;If you install the federate with this installation type, &lt;strong&gt;OMNeT++ 6.1&lt;/strong&gt; and &lt;strong&gt;INET 4.5.4&lt;/strong&gt; will automatically be installed inside &lt;code&gt;&amp;lt;mosaic&amp;gt;/bin/fed/omnetpp&lt;/code&gt; during the installation.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
@@ -5716,7 +5771,7 @@ the following options are possible:&lt;/p&gt;
   
 
 &lt;a href=&#34;#installation-for-developers&#34;&gt;DEVELOPER&lt;/a&gt;&lt;br&gt;(installation script)&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.&lt;br&gt;&lt;br&gt;This installation type awaits that &lt;strong&gt;OMNeT++ 5.5.1&lt;/strong&gt; is already installed on your system and&lt;br&gt;- &lt;code&gt;PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/bin&lt;/code&gt;&lt;br&gt;- &lt;code&gt;LD_LIBRARY_PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/lib&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;The installation for developers addresses those who want to make changes or extend the MOSAIC OMNeT++ Federate.&lt;br&gt;&lt;br&gt;This installation type awaits that &lt;strong&gt;OMNeT++ 6.1&lt;/strong&gt; is already installed on your system and&lt;br&gt;- &lt;code&gt;PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/bin&lt;/code&gt;&lt;br&gt;- &lt;code&gt;LD_LIBRARY_PATH&lt;/code&gt; contains &lt;code&gt;/path/to/omnetpp/lib&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
@@ -5729,7 +5784,7 @@ the following options are possible:&lt;/p&gt;
   
 
 &lt;a href=&#34;#installation-in-docker-environment&#34;&gt;Docker&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This installation type addresses those who only want to use the &lt;strong&gt;OMNeT++&lt;/strong&gt; network simulator for simulations.&lt;br&gt;Network configurations can also be adjusted.&lt;br&gt;&lt;br&gt;If you install the federate with this installation type, &lt;strong&gt;OMNeT++ 5.5.1&lt;/strong&gt; and &lt;strong&gt;INET 4.1.1&lt;/strong&gt; will automatically be installed bundled as a Docker image.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This installation type addresses those who only want to use the &lt;strong&gt;OMNeT++&lt;/strong&gt; network simulator for simulations.&lt;br&gt;Network configurations can also be adjusted.&lt;br&gt;&lt;br&gt;If you install the federate with this installation type, &lt;strong&gt;OMNeT++ 6.1&lt;/strong&gt; and &lt;strong&gt;INET 4.5.4&lt;/strong&gt; will automatically be installed bundled as a Docker image.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;manual installation&lt;/td&gt;
@@ -5764,7 +5819,7 @@ the following options are possible:&lt;/p&gt;
 &lt;/table&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
-&lt;p&gt;If you already have &lt;strong&gt;OMNeT++ 5.5.1&lt;/strong&gt; and &lt;strong&gt;INET 4.1.1&lt;/strong&gt; installed on your
+&lt;p&gt;If you already have &lt;strong&gt;OMNeT++ 6.1&lt;/strong&gt; and &lt;strong&gt;INET 4.5.4&lt;/strong&gt; installed on your
 system, but you simply want to use &lt;strong&gt;OMNeT++&lt;/strong&gt; for simulations with Eclipse MOSAIC without developing further the MOSAIC
 OMNeT++ Federate, you may also choose the 
 
@@ -5807,33 +5862,33 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;OMNeT++&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;5.5.1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;6.1&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 
 
 
 
-&lt;a href=&#34;https://github.com/omnetpp/omnetpp/releases/tag/omnetpp-5.5.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/omnetpp/omnetpp/releases/&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://github.com/omnetpp/omnetpp/releases/tag/omnetpp-6.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/omnetpp/omnetpp/releases/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;INET&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;4.1.1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4.5.4&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 
 
 
 
-&lt;a href=&#34;https://github.com/inet-framework/inet/releases/tag/v4.1.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/inet-framework/inet/releases&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://github.com/inet-framework/inet/releases/tag/v4.5.4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/inet-framework/inet/releases&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;MOSAIC OMNeT++ Federate&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;25.0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;25.1&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 
 
 
 
-&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/25.0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/25.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5923,9 +5978,9 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 chmod +x omnet_installer.sh`
 ./omnet_installer.sh \
     --installation-type USER \
-    --omnetpp /path/to/omnetpp-5.5.1-src.tgz \
-    --inet /path/to/inet-4.1.1-src.tgz \
-    --federate /path/to/omnetpp-federate-25.0.zip
+    --omnetpp /path/to/omnetpp-6.1-src.tgz \
+    --inet /path/to/inet-4.5.4-src.tgz \
+    --federate /path/to/omnetpp-federate-25.1.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The parameters &lt;code&gt;--omnetpp&lt;/code&gt;, &lt;code&gt;--inet&lt;/code&gt;, and &lt;code&gt;--federate&lt;/code&gt; are optional. If not given, the respective source code package will be downloaded by the installation script.&lt;br&gt;
 The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
@@ -5946,7 +6001,7 @@ make
 chmod +x omnet_installer.sh`
 ./omnet_installer.sh \
     --installation-type DEVELOPER \
-    --federate /path/to/omnetpp-federate-25.0.zip
+    --federate /path/to/omnetpp-federate-25.1.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The installation script should terminate with &lt;code&gt;SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
 &lt;p&gt;Please continue reading 
@@ -5997,7 +6052,7 @@ need to manually install OMNeT++ and can even run OMNeT++ on Windows hosts.&lt;/
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Switch to the location of the Dockerfile in &lt;code&gt;&amp;lt;mosaic&amp;gt;/bin/fed/omnetpp&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Download &lt;code&gt;inet-4.1.1-src.tgz&lt;/code&gt; and &lt;code&gt;omnetpp-5.5.1-src-linux.tgz&lt;/code&gt; and place them in &lt;code&gt;&amp;lt;mosaic&amp;gt;/bin/fed/omnetpp&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Download &lt;code&gt;inet-4.5.4-src.tgz&lt;/code&gt; and &lt;code&gt;omnetpp-6.1-src-linux.tgz&lt;/code&gt; and place them in &lt;code&gt;&amp;lt;mosaic&amp;gt;/bin/fed/omnetpp&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Execute the following command on command line:
 &lt;code&gt;docker build -t omnetpp-federate&lt;/code&gt; .
 This could take a while to finish.&lt;/li&gt;
@@ -8990,14 +9045,14 @@ Uncheck INET and decide for yourself if you want to install the examples.&lt;/p&
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The INET framework is supported in version 4.1.1. To ensure the correct version is installed, install it manually:&lt;/p&gt;
+&lt;p&gt;The INET framework is supported in version 4.5.4. To ensure the correct version is installed, install it manually:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Download 
 
 
 
 
-&lt;a href=&#34;https://github.com/inet-framework/inet/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;INET 4.1.1&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://github.com/inet-framework/inet/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;INET 4.5.4&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Unpack it into the working directory of OMNeT++ IDE (Eclipse)&lt;/li&gt;
 &lt;li&gt;Rename the unpacked directory &lt;code&gt;inet4&lt;/code&gt; to &lt;code&gt;inet&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Insert the directory &lt;code&gt;inet&lt;/code&gt; as project to OMNeT++ IDE (as described above)&lt;/li&gt;
@@ -9385,7 +9440,7 @@ On Ubuntu 24.04 we ran into problems when compiling ns-3.36.1.
 An upgrade to newer version is in the works.&lt;/p&gt;
 &lt;h2 id=&#34;federate-development-with-the-bundle-and-ns3_installersh&#34;&gt;Federate Development with the Bundle (and &lt;code&gt;ns3_installer.sh&lt;/code&gt;)&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Compile or download the bundle &lt;code&gt;eclipse-mosaic-25.1-SNAPSHOT.zip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Compile or download the bundle &lt;code&gt;eclipse-mosaic-25.2-SNAPSHOT.zip&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Extract the bundle and go to &lt;code&gt;&amp;lt;bundle&amp;gt;/bin/fed/ns3&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run the script &lt;code&gt;./ns3_installer.sh --keep-src&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run a simulation to test that you did the setup correctly  (e.g., the &lt;code&gt;Tiergarten&lt;/code&gt; scenario can be activated with &lt;code&gt;ns-3&lt;/code&gt;).&lt;/li&gt;
@@ -9463,6 +9518,18 @@ make -j1
 make -j1
 bash run_manually.sh
 # start MOSAIC from the IDE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;For federate debugging&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt install gdb
+
+cd ns3-federate
+make -j1
+gdb ./bin/Debug/ns3-federate
+set env LD_LIBRARY_PATH /path/to/ns-3.36.1/build/lib
+break mosaic-node-manager.cc:319
+run --port=5011 --cmdPort=0 --configFile=ns3_federate_config.xml
+# start MOSAIC from the IDE
+# do your GDB debugging
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;For ns-3 development&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ns-allinone-3.36.1/ns-3.36.1
@@ -11058,16 +11125,15 @@ and their identifiers are generated during the import. Each connection ID consis
 &lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/docs/mosaic_configuration/environment_config/&#34;&gt;Environment Configuration&lt;/a&gt;.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;The root node of the configuration is a list of environment events. Each event require the type of the event, a rectangle area, a
-strength and the time window. The following example shows the configuration of an &amp;ldquo;Obstacle&amp;rdquo; event which is valid in the
-designated area (Rectangle) during the simulation time between 0 to 2000 seconds:&lt;/p&gt;
+&lt;p&gt;The root node of the configuration is a list of environment events.
+Each event require the type of the event, its event value, an event area (&amp;ldquo;polygon&amp;rdquo;, &amp;ldquo;rectangle&amp;rdquo;, or &amp;ldquo;circle&amp;rdquo;), and the time window.
+The following example shows the configuration of an &lt;code&gt;OBSTACLE_ON_ROAD&lt;/code&gt; event which is valid in the
+designated area (rectangle) during the simulation time between 0 to 2000 seconds:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
     &amp;quot;events&amp;quot; : [
         {
-            &amp;quot;type&amp;quot;: {
-                &amp;quot;sensorType&amp;quot;: &amp;quot;OBSTACLE&amp;quot;,
-                &amp;quot;value&amp;quot;: 1
-            },
+            &amp;quot;type&amp;quot;: &amp;quot;EVENT&amp;quot;,
+            &amp;quot;value&amp;quot;: &amp;quot;OBSTACLE_ON_ROAD&amp;quot;,
             &amp;quot;location&amp;quot;: {
                 &amp;quot;area&amp;quot;: {
                     &amp;quot;type&amp;quot;: &amp;quot;Rectangle&amp;quot;,
@@ -11088,6 +11154,89 @@ designated area (Rectangle) during the simulation time between 0 to 2000 seconds
         }
     ]
 }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The configured events can be used within vehicle applications as soon as it enters such areas.
+To achieve this, the &lt;code&gt;BasicSensorModule&lt;/code&gt; must be acquired:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
+public void onVehicleUpdated(VehicleData previousVehicleData, VehicleData updatedVehicleData) {
+
+    getOs().getBasicSensorModule().getSensorValue(Sensor.EVENT).ifPresent(event -&amp;gt; {
+        if (event == EnvironmentEventCause.OBSTACLE_ON_ROAD) {
+            // do something
+        }
+    });
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;examples&#34;&gt;Examples&lt;/h2&gt;
+&lt;p&gt;Configure a traction hazard in a circular area which is valid during the whole time of the simulation:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;events&amp;quot; : [
+        {
+            &amp;quot;type&amp;quot;: &amp;quot;TRACTION_HAZARD&amp;quot;,
+            &amp;quot;value&amp;quot;: &amp;quot;ICE&amp;quot;,
+            &amp;quot;location&amp;quot;: {
+                &amp;quot;area&amp;quot;: {
+                    &amp;quot;type&amp;quot;: &amp;quot;Circle&amp;quot;,
+                    &amp;quot;center&amp;quot;: {
+                        &amp;quot;latitude&amp;quot;: 52.53654,
+                        &amp;quot;longitude&amp;quot;: 13.42116
+                    },
+                    &amp;quot;radius&amp;quot;: 30
+                }
+            }
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;getOs().getBasicSensorModule().getSensorValue(Sensor.TRACTION_HAZARD).ifPresent(hazard -&amp;gt; {
+    if (hazard == TractionHazard.ICE) {
+      // do something
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;Configure a specific road condition value (e.g., as IRI) which is valid on a specific road:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;events&amp;quot; : [
+        {
+            &amp;quot;type&amp;quot;: &amp;quot;ROAD_SURFACE_CONDITION&amp;quot;,
+            &amp;quot;value&amp;quot;: 5,
+            &amp;quot;location&amp;quot;: {
+                &amp;quot;connectionId&amp;quot;: &amp;quot;8972_5082_1002&amp;quot;
+            }
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;getOs().getBasicSensorModule().getSensorValue(Sensor.ROAD_SURFACE_CONDITION).ifPresent(iri -&amp;gt; {
+    if (iri &amp;gt; 2.0) {
+      // do something
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;Configure a global windy event which only occurs for a short period of time:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;events&amp;quot; : [
+        {
+            &amp;quot;type&amp;quot;: &amp;quot;WIND&amp;quot;,
+            &amp;quot;value&amp;quot;: { 
+                &amp;quot;speed&amp;quot;: 30,
+                &amp;quot;direction&amp;quot;: 45
+            },
+            &amp;quot;time&amp;quot;: {
+                &amp;quot;start&amp;quot;: &amp;quot;300 s&amp;quot;,
+                &amp;quot;end&amp;quot;: &amp;quot;360 s&amp;quot;
+            }
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;getOs().getBasicSensorModule().getSensorValue(Sensor.WIND).ifPresent(wind -&amp;gt; {
+    if (wind.speed &amp;gt; 20.0) {
+      // do something
+    }
+});
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
@@ -11363,30 +11512,6 @@ have the option of:&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The network file contains this line for the &lt;code&gt;&amp;lt;location&amp;gt;&lt;/code&gt; element:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;    &amp;lt;location netOffset=&amp;quot;-369461.94,-5798955.14&amp;quot; convBoundary=&amp;quot;0.00,1201.70,46116.88,38132.49&amp;quot; origBoundary=&amp;quot;13.080829,52.333059,13.764084,52.671235&amp;quot; projParameter=&amp;quot;+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&amp;quot;/&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To find out the cartesian offset take a look at the &lt;code&gt;netOffset&lt;/code&gt; attribute. The first number corresponds to the X coordinate,
-while the second corresponds to the Y coordinate. So the &lt;code&gt;cartesianOffset&lt;/code&gt; attribute in the &lt;code&gt;scenario_config.json&lt;/code&gt; should look like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-    &amp;quot;simulation&amp;quot;: {
-        &amp;quot;id&amp;quot;: &amp;quot;My_Simulation&amp;quot;,
-        &amp;quot;duration&amp;quot;: &amp;quot;4h&amp;quot;,
-        &amp;quot;projection&amp;quot;: {
-            &amp;quot;centerCoordinates&amp;quot;: {
-                &amp;quot;latitude&amp;quot;: 52.525192,
-                &amp;quot;longitude&amp;quot;: 13.422281
-            },
-            &amp;quot;cartesianOffset&amp;quot;: {
-                &amp;quot;x&amp;quot;: -369461.94,
-                &amp;quot;y&amp;quot;: -5798955.14
-            }
-        }
-    }
-}
-    
-&lt;/code&gt;&lt;/pre&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;a name=&#34;reference-network&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;network-addressing&#34;&gt;Network Addressing&lt;/h2&gt;
@@ -13176,23 +13301,6 @@ have the option of:&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;type&lt;/td&gt;
-&lt;td&gt;
-
-
-
-
-
-  
-  
-
-&lt;a href=&#34;#reference-eventtype&#34;&gt;&lt;code&gt;eventType&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Object to define the type of an event.&lt;/td&gt;
-&lt;td&gt;✓ Yes&lt;/td&gt;
-&lt;td&gt;None&lt;/td&gt;
-&lt;td&gt;None&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td&gt;location&lt;/td&gt;
 &lt;td&gt;
 
@@ -13205,7 +13313,7 @@ have the option of:&lt;/p&gt;
 
 &lt;a href=&#34;#reference-eventlocation&#34;&gt;&lt;code&gt;eventLocation&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Object to define the event location configuration, which is either a GeoArea (e.g. rectangle, circle, or polygon) or a specific street segment.&lt;/td&gt;
-&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;/tr&gt;
@@ -13222,44 +13330,25 @@ have the option of:&lt;/p&gt;
 
 &lt;a href=&#34;#reference-eventtime&#34;&gt;&lt;code&gt;eventTime&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Object to define the temporal properties of an event.&lt;/td&gt;
-&lt;td&gt;✓ Yes&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;a name=&#34;reference-eventtype&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;eventtype&#34;&gt;eventType&lt;/h2&gt;
-&lt;p&gt;Object to define the type of an event.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;Required&lt;/th&gt;
-&lt;th&gt;Boundaries&lt;/th&gt;
-&lt;th&gt;Default&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;sensorType&lt;/td&gt;
+&lt;td&gt;type&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Represents the type of sensor value this event is emitting (e.g. Ice, Snow, or an arbitrary Obstacle). The value can be set to any valid string.&lt;/td&gt;
+&lt;td&gt;Represents the type of event value this event is emitting (e.g., TRACTION_HAZARD, VISIBILITY_HAZARD, WIND, TEMPERATURE, or an arbitrary EVENT). The value can be set to any valid string.&lt;/td&gt;
 &lt;td&gt;✓ Yes&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;value&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;integer&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Used for assigning a value to the event. It can be used as the strength of an event, the amount of free parking spots in a parking lot, etc.&lt;/td&gt;
-&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;br&gt;&lt;code&gt;object&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Used for assigning a value to the event. It can be used as the strength of an event, the road surface quality, or the name of a specific event cause, etc.&lt;/td&gt;
+&lt;td&gt;✓ Yes&lt;/td&gt;
 &lt;td&gt;None&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -15791,6 +15880,14 @@ have the option of:&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td&gt;visualizer&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Starts the GUI interface of SUMO, if set to true (default: false).&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;updateInterval&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;br&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;The Interval after which positions are published. If defined as a number, then the default unit is ms. Alternatively this can be defined as a string to include the unit of measurement (e.g. &amp;lsquo;1 s&amp;rsquo;). Define the size of one simulation step in sumo.&lt;/td&gt;
@@ -17000,6 +17097,129 @@ modeling of charging stations, without the need of being super accurate with the
     </item>
     
     <item>
+      <title>2025 Autumn Release of Eclipse MOSAIC</title>
+      <link>https://www.eclipse.dev/mosaic/post/release-25-1/</link>
+      <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/release-25-1/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;The autumn release of Eclipse MOSAIC is here! The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 25.1 to the open source community.
+The new version finally introduces detailed full-stack simulation of cellular communication in ns-3, starting with the LTE C-V2X stack.
+Furthermore, it is now possible to integrate persons from SUMO into MOSAIC simulations and equip them with cellular communication devices.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+&lt;p&gt;MOSAIC 25.1 requires at least &lt;strong&gt;Java 17 Runtime Environment&lt;/strong&gt; to be executed. For more details, see 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/getting_started/&#34;&gt;Getting Started&lt;/a&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;🚀 You can find the new version in our 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
+
+
+
+
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
+&lt;p&gt;2025-10-13&lt;/p&gt;
+&lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;* [C+] Introduced simulation of cellular communication using ns-3 federate (LTE stack).
+* [C+] Upgraded OMNeT++ federate to OMNeT++ 6.1
+* [C+] Exchange cellular messages among persons by using agent applications and mosaic-cell simulator. 
+* [A+] Added possibility to map agent applications to SUMO persons via mapping configuration.
+* [A+] Major overhaul of environment event API.
+* [M+] Perception models are now available as separate library.
+* [M-] Startup procedure and logging of docker-based federates is now more robust. 
+* [S+] Completely new command line interface for scenario-convert tool (see `--help` or website).
+* [T+] Now supports SUMO 1.24.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;⭐ A huge thanks to all users who contributed to this release:
+
+
+
+
+
+&lt;a href=&#34;https://github.com/hoelger&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; hoelger&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;, and
+
+
+
+
+
+&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[M]&lt;/code&gt; &lt;em&gt;Eclipse MOSAIC&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[X]&lt;/code&gt; &lt;em&gt;MOSAIC Extended&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[A]&lt;/code&gt; &lt;em&gt;Application simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[C]&lt;/code&gt; &lt;em&gt;Communication simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[E]&lt;/code&gt; &lt;em&gt;Environment simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[N]&lt;/code&gt; &lt;em&gt;Navigation component&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[S]&lt;/code&gt; &lt;em&gt;Scenario-convert&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[T]&lt;/code&gt; &lt;em&gt;Traffic simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[+/-]&lt;/code&gt; &lt;em&gt;new Feature/Bugfix&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2025 Spring Release of Eclipse MOSAIC</title>
       <link>https://www.eclipse.dev/mosaic/post/release-25-0/</link>
       <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
@@ -17324,7 +17544,7 @@ communication simulators OMNeT++ and ns-3 .&lt;/strong&gt;&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://sumo.dlr.de/releases/1.22.0/sumo-win64-1.22.0.msi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Installer&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://sumo.dlr.de/releases/1.24.0/sumo-win64-1.24.0.msi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Installer&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
@@ -17338,13 +17558,13 @@ communication simulators OMNeT++ and ns-3 .&lt;/strong&gt;&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic/archive/refs/tags/25.0.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse MOSAIC Source Code (version 25.0)&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic/archive/refs/tags/25.1.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse MOSAIC Source Code (version 25.1)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
 
 
-&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/extended/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MOSAIC Extended (version 25.0)&lt;/a&gt; (User licence required)&lt;/li&gt;
+&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/extended/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MOSAIC Extended (version 25.1)&lt;/a&gt; (User licence required)&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

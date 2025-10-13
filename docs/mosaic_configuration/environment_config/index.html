@@ -790,8 +790,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.1-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.1-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.2-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.2-SNAPSHOT
   </a>
 </div>
 
@@ -1126,7 +1126,6 @@
   <ul>
     <li><a href="#environment-events">Environment Events</a></li>
     <li><a href="#event">event</a></li>
-    <li><a href="#eventtype">eventType</a></li>
     <li><a href="#eventlocation">eventLocation</a></li>
     <li><a href="#area">area</a>
       <ul>
@@ -1258,23 +1257,6 @@ have the option of:</p>
 </thead>
 <tbody>
 <tr>
-<td>type</td>
-<td>
-
-
-
-
-
-  
-  
-
-<a href="#reference-eventtype"><code>eventType</code></a></td>
-<td>Object to define the type of an event.</td>
-<td>✓ Yes</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
 <td>location</td>
 <td>
 
@@ -1287,7 +1269,7 @@ have the option of:</p>
 
 <a href="#reference-eventlocation"><code>eventLocation</code></a></td>
 <td>Object to define the event location configuration, which is either a GeoArea (e.g. rectangle, circle, or polygon) or a specific street segment.</td>
-<td>✓ Yes</td>
+<td>No</td>
 <td>None</td>
 <td>None</td>
 </tr>
@@ -1304,44 +1286,25 @@ have the option of:</p>
 
 <a href="#reference-eventtime"><code>eventTime</code></a></td>
 <td>Object to define the temporal properties of an event.</td>
-<td>✓ Yes</td>
+<td>No</td>
 <td>None</td>
 <td>None</td>
 </tr>
-</tbody>
-</table>
-<hr>
-<p><a name="reference-eventtype"></a></p>
-<h2 id="eventtype">eventType</h2>
-<p>Object to define the type of an event.</p>
-<p><strong>Properties</strong></p>
-<table>
-<thead>
 <tr>
-<th></th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-<th>Boundaries</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sensorType</td>
+<td>type</td>
 <td><code>string</code></td>
-<td>Represents the type of sensor value this event is emitting (e.g. Ice, Snow, or an arbitrary Obstacle). The value can be set to any valid string.</td>
+<td>Represents the type of event value this event is emitting (e.g., TRACTION_HAZARD, VISIBILITY_HAZARD, WIND, TEMPERATURE, or an arbitrary EVENT). The value can be set to any valid string.</td>
 <td>✓ Yes</td>
 <td>None</td>
 <td>None</td>
 </tr>
 <tr>
 <td>value</td>
-<td><code>integer</code></td>
-<td>Used for assigning a value to the event. It can be used as the strength of an event, the amount of free parking spots in a parking lot, etc.</td>
-<td>No</td>
+<td><code>string</code><br><code>number</code><br><code>object</code></td>
+<td>Used for assigning a value to the event. It can be used as the strength of an event, the road surface quality, or the name of a specific event cause, etc.</td>
+<td>✓ Yes</td>
 <td>None</td>
-<td><code>1</code></td>
+<td>None</td>
 </tr>
 </tbody>
 </table>
@@ -2065,7 +2028,7 @@ have the option of:</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 12 Aug 2025, 11:44 UTC
+      Website built on 13 Oct 2025, 09:23 UTC
     </p>
     
   </div>
