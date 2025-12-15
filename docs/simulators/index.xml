@@ -1007,7 +1007,7 @@ individually.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Supported version(s)&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Recommended version:&lt;br&gt;Full support:&lt;br&gt;Limited support:&lt;/td&gt;
-&lt;td&gt;1.24.0&lt;br&gt;1.9.2 - 1.24.0&lt;br&gt;below 1.9.2&lt;/td&gt;
+&lt;td&gt;1.25.0&lt;br&gt;1.9.2 - 1.25.0&lt;br&gt;below 1.9.2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1144,7 +1144,7 @@ to get this running, you need to follow these steps:&lt;/p&gt;
 &lt;li&gt;Check, if there&amp;rsquo;s a &lt;code&gt;bin/libsumojni.dll&lt;/code&gt; or &lt;code&gt;bin/liblibsumojni.so&lt;/code&gt; file in your SUMO installation directory. If not, you might
 need to install the &amp;ldquo;extras&amp;rdquo; release bundle of SUMO (Windows), or you need to re-build SUMO from sources and activate
 the build of libsumo (see &lt;a href=&#34;https://sumo.dlr.de/docs/Libsumo.html#building_it)&#34;&gt;https://sumo.dlr.de/docs/Libsumo.html#building_it)&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Only the recent SUMO version (1.24.0) is supported.&lt;/li&gt;
+&lt;li&gt;Only the recent SUMO version (1.25.0) is supported.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If these pre-requisites are met, you can activate this feature editing the file &lt;code&gt;&amp;lt;mosaic&amp;gt;/etc/runtime.json&lt;/code&gt;.
 Here, the entry
@@ -1669,7 +1669,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;ol&gt;
-&lt;li&gt;Extract the &lt;strong&gt;&lt;code&gt;phabmacs-federate-25.1-bundle.zip&lt;/code&gt;&lt;/strong&gt; archive into the &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; directory of your MOSAIC Extended installation. Create the directory, if not existing.&lt;/li&gt;
+&lt;li&gt;Extract the &lt;strong&gt;&lt;code&gt;phabmacs-federate-25.2-bundle.zip&lt;/code&gt;&lt;/strong&gt; archive into the &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; directory of your MOSAIC Extended installation. Create the directory, if not existing.&lt;/li&gt;
 &lt;li&gt;Navigate to &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; and execute the &lt;code&gt;activate_phabmacs.sh/bat&lt;/code&gt; file. Enter your MOSAIC credentials.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
@@ -2340,13 +2340,13 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;MOSAIC OMNeT++ Federate&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;25.1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;25.2&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 
 
 
 
-&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/25.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/25.2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2438,7 +2438,7 @@ chmod +x omnet_installer.sh`
     --installation-type USER \
     --omnetpp /path/to/omnetpp-6.1-src.tgz \
     --inet /path/to/inet-4.5.4-src.tgz \
-    --federate /path/to/omnetpp-federate-25.1.zip
+    --federate /path/to/omnetpp-federate-25.2.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The parameters &lt;code&gt;--omnetpp&lt;/code&gt;, &lt;code&gt;--inet&lt;/code&gt;, and &lt;code&gt;--federate&lt;/code&gt; are optional. If not given, the respective source code package will be downloaded by the installation script.&lt;br&gt;
 The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
@@ -2459,7 +2459,7 @@ make
 chmod +x omnet_installer.sh`
 ./omnet_installer.sh \
     --installation-type DEVELOPER \
-    --federate /path/to/omnetpp-federate-25.1.zip
+    --federate /path/to/omnetpp-federate-25.2.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The installation script should terminate with &lt;code&gt;SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
 &lt;p&gt;Please continue reading 

@@ -421,32 +421,7 @@ The &amp;ldquo;Sent by&amp;rdquo; column is not necessarily complete for all int
 &lt;h2 id=&#34;mapping&#34;&gt;mapping&lt;/h2&gt;
 &lt;p&gt;All interactions in this package are concerned with adding/registering simulation-units to the simulation.
 While most of the introductions are handled by the &lt;code&gt;Mapping&lt;/code&gt;- or &lt;code&gt;Application&lt;/code&gt;-ambassador, some of them
-are handled by the ambassadors for the traffic simulators (see 
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/lust/&#34;&gt;LuST&lt;/a&gt;-scenario).
+are handled by the ambassadors for the traffic simulators.
 In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -458,9 +433,9 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleRegistration&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent by the vehicle mapping component to indicate the introduction of a new vehicle to the simulation. Note, this does not necessarily imply that the added vehicle is already simulated by the traffic simulator.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;AgentRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of an agent (person) unit to the simulation.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStationRegistration&lt;/code&gt;&lt;/td&gt;
@@ -473,14 +448,14 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TmcRegistration&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a traffic management center to the simulation. It holds a list of all applications and all induction loops and lane are detectors the TMC is responsible for.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ServerRegistration&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a server to the simulation. It holds a list of all applications.&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping3&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TmcRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a traffic management center to the simulation. It holds a list of all applications and all induction loops and lane are detectors the TMC is responsible for.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficLightRegistration&lt;/code&gt;&lt;/td&gt;
@@ -491,6 +466,11 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSignRegistration&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a traffic sign.&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent by the vehicle mapping component to indicate the introduction of a new vehicle to the simulation. Note, this does not necessarily imply that the added vehicle is already simulated by the traffic simulator.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -511,9 +491,14 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Phabmacs&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ScenarioAgentRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to register agents based on persons which have been added by SUMO itself from preconfigured route files.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ScenarioVehicleRegistration&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to add vehicles to a simulation using a preconfigured scenario, which could be defined by using Sumo.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo(Scenario)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to register vehicles which have been added by SUMO itself from preconfigured route files.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;RoutelessVehicleRegistration&lt;/code&gt;&lt;/td&gt;
@@ -523,7 +508,8 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;communication&#34;&gt;communication&lt;/h2&gt;
-&lt;p&gt;This package contains interactions regarding the setup of communication-components in simulation units and interactions concerned with the transfer of V2X-messages.&lt;/p&gt;
+&lt;p&gt;This package contains interactions regarding the setup of communication-components in simulation units and interactions concerned with the
+transfer of V2X-messages.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -563,12 +549,12 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xMessageReception&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to exchange information about a received V2X message.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Omnet++&lt;/code&gt;,&lt;br&gt;&lt;code&gt;ns-3&lt;/code&gt;,&lt;br&gt;&lt;code&gt;SimpleNetworkSimulator&lt;/code&gt;,&lt;br&gt;&lt;code&gt;cell&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;OMNeT++&lt;/code&gt;,&lt;br&gt;&lt;code&gt;ns-3&lt;/code&gt;,&lt;br&gt;&lt;code&gt;SNS&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Cell&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xFullMessageReception&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction carries the payload that represents an arbitrary V2XMessage that is supposed to be received by the receiver of this Eclipse MOSAIC Interaction.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Omnet++&lt;/code&gt;,&lt;br&gt;&lt;code&gt;ns-3&lt;/code&gt;,&lt;br&gt;&lt;code&gt;SimpleNetworkSimulator&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Cell&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;OMNeT++&lt;/code&gt;,&lt;br&gt;&lt;code&gt;ns-3&lt;/code&gt;,&lt;br&gt;&lt;code&gt;SNS&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Cell&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xMessageRemoval&lt;/code&gt;&lt;/td&gt;
@@ -583,7 +569,8 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;vehicle&#34;&gt;vehicle&lt;/h2&gt;
-&lt;p&gt;The interactions contained in this package are usually used to enable applications to forward vehicle-control to the used traffic simulators.&lt;/p&gt;
+&lt;p&gt;The interactions contained in this package are usually used to enable applications to forward vehicle-control to the used traffic
+simulators.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -594,19 +581,14 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleActuatorsChange&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to directly control the throttle/brake of an vehicle. At the moment this is only supported by Phabmacs.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleDistanceSensorActivation&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to enable the distance sensors of a vehicle. A multitude of sensors can be enabled with one interaction given they use the same maximum lookahead distance.&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleFederateAssignment&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used, when more than one traffic simulator is used in a simulation. It enables the passing of information on which vehicle are passed externally. At the moment this is used by the PhSCA-ambassador.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;PhaSCA&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used, when more than one traffic simulator is used in a simulation. It enables the passing of information on which vehicle are passed externally. At the moment this is used by the Traffic-Sync-ambassador.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Traffic Coupling&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleLaneChange&lt;/code&gt;&lt;/td&gt;
@@ -631,11 +613,6 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleRouteRegistration&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to propagate a newly generated route which is not yet known. It consists of the id of the route and a list of all its edges.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleSightDistanceConfiguration&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to configure the sight distance for a vehicle (driver), this information can for example be used to implement applications regarding traffic sign recognition.&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -667,9 +644,14 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;AgentUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to update the position and other data of some or all agents (persons) of the simulation.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Agent&lt;/code&gt; (Extended)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;CellularHandoverUpdates&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is used by the cell ambassador to communicate handovers.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;cell&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Cell&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;InductionLoopDetectorSubscription&lt;/code&gt;&lt;/td&gt;
@@ -732,22 +714,22 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingDenialResponse&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent out by the charging station ambassador to inform the application simulator (the vehicles) when a charging station is already in use. e.g. a vehicle wants to start charging on an engaged charging station -&amp;gt; ChargingStartDenial.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;  (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStartResponse&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to forward a started charging process at a ChargingSpot to the RTI.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;  (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStationUpdates&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This extension interaction is intended to be used to forward the updated state of a ChargingStation to the RTI.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStopResponse&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to forward a stopped charging process at a charging station to the RTI.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleChargingStartRequest&lt;/code&gt;&lt;/td&gt;
@@ -760,9 +742,9 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleElectricityUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleBatteryUpdates&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to inform the applications of simulation units about changed electric information, send out by the battery ambassador.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Battery&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Battery&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -808,22 +790,27 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;AbstractTrafficSignChange&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction can be sent to traffic sign ambassador in order to change a variable traffic sign. All interaction-classes, that are concerned with changing traffic signs extend this class.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSignLaneAssignmentChange&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction can be sent to traffic sign ambassador in order to change a variable lane assignment sign.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSignSpeedLimitChange&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction can be sent to traffic sign ambassador in order to change a variable speed sign.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleSeenTrafficSingsUpdate&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction stores a map of all traffic signs which are in sight distance of a specific vehicle and a map of all  traffic signs which became invalid for that vehicle.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSign&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSign&lt;/code&gt; (Extended)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleSignVisibilityConfiguration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to configure the sight distance for a vehicle (driver), this information can for example be used to implement applications regarding traffic sign recognition.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -857,6 +844,11 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;SumoTraciResponse&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction holds the TraCI response for a SumoTraciRequest. It is sent by the SumoAmbassador and will usually be handled by the Application that sent the request.&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;SumoSurroundingObjectsConfiguration &lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent if perception based on SUMO&amp;rsquo;s internal calculation of surrounding vehicles is used.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1866,7 +1858,7 @@ On Ubuntu 24.04 we ran into problems when compiling ns-3.36.1.
 An upgrade to newer version is in the works.&lt;/p&gt;
 &lt;h2 id=&#34;federate-development-with-the-bundle-and-ns3_installersh&#34;&gt;Federate Development with the Bundle (and &lt;code&gt;ns3_installer.sh&lt;/code&gt;)&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Compile or download the bundle &lt;code&gt;eclipse-mosaic-25.2-SNAPSHOT.zip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Compile or download the bundle &lt;code&gt;eclipse-mosaic-26.0-SNAPSHOT.zip&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Extract the bundle and go to &lt;code&gt;&amp;lt;bundle&amp;gt;/bin/fed/ns3&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run the script &lt;code&gt;./ns3_installer.sh --keep-src&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run a simulation to test that you did the setup correctly  (e.g., the &lt;code&gt;Tiergarten&lt;/code&gt; scenario can be activated with &lt;code&gt;ns-3&lt;/code&gt;).&lt;/li&gt;

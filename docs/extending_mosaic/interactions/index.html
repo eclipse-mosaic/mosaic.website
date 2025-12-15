@@ -786,8 +786,8 @@
   
   
   
-  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 25.2-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
-    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 25.2-SNAPSHOT
+  <a class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="The documentation corresponds to the latest version of Eclipse MOSAIC 26.0-SNAPSHOT." href="https://github.com/eclipse-mosaic/mosaic">
+    <i class="fab fa-github"></i>&nbsp;Eclipse MOSAIC 26.0-SNAPSHOT
   </a>
 </div>
 
@@ -1191,32 +1191,7 @@ The &ldquo;Sent by&rdquo; column is not necessarily complete for all interaction
 <h2 id="mapping">mapping</h2>
 <p>All interactions in this package are concerned with adding/registering simulation-units to the simulation.
 While most of the introductions are handled by the <code>Mapping</code>- or <code>Application</code>-ambassador, some of them
-are handled by the ambassadors for the traffic simulators (see 
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-<a href="/mosaic/tutorials/lust/">LuST</a>-scenario).
+are handled by the ambassadors for the traffic simulators.
 In this case the interactions are used to initialize the scenario.</p>
 <table>
 <thead>
@@ -1228,9 +1203,9 @@ In this case the interactions are used to initialize the scenario.</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><code>VehicleRegistration</code></td>
-<td style="text-align:left">This interaction is sent by the vehicle mapping component to indicate the introduction of a new vehicle to the simulation. Note, this does not necessarily imply that the added vehicle is already simulated by the traffic simulator.</td>
-<td style="text-align:left"><code>Mapping</code>,<br><code>Application</code></td>
+<td style="text-align:left"><code>AgentRegistration</code></td>
+<td style="text-align:left">This interaction indicates the introduction of an agent (person) unit to the simulation.</td>
+<td style="text-align:left"><code>Mapping</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>ChargingStationRegistration</code></td>
@@ -1243,14 +1218,14 @@ In this case the interactions are used to initialize the scenario.</p>
 <td style="text-align:left"><code>Mapping</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><code>TmcRegistration</code></td>
-<td style="text-align:left">This interaction indicates the introduction of a traffic management center to the simulation. It holds a list of all applications and all induction loops and lane are detectors the TMC is responsible for.</td>
-<td style="text-align:left"><code>Mapping</code></td>
-</tr>
-<tr>
 <td style="text-align:left"><code>ServerRegistration</code></td>
 <td style="text-align:left">This interaction indicates the introduction of a server to the simulation. It holds a list of all applications.</td>
 <td style="text-align:left"><code>Mapping3</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TmcRegistration</code></td>
+<td style="text-align:left">This interaction indicates the introduction of a traffic management center to the simulation. It holds a list of all applications and all induction loops and lane are detectors the TMC is responsible for.</td>
+<td style="text-align:left"><code>Mapping</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>TrafficLightRegistration</code></td>
@@ -1261,6 +1236,11 @@ In this case the interactions are used to initialize the scenario.</p>
 <td style="text-align:left"><code>TrafficSignRegistration</code></td>
 <td style="text-align:left">This interaction indicates the introduction of a traffic sign.</td>
 <td style="text-align:left"><code>Mapping</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleRegistration</code></td>
+<td style="text-align:left">This interaction is sent by the vehicle mapping component to indicate the introduction of a new vehicle to the simulation. Note, this does not necessarily imply that the added vehicle is already simulated by the traffic simulator.</td>
+<td style="text-align:left"><code>Mapping</code>,<br><code>Application</code></td>
 </tr>
 </tbody>
 </table>
@@ -1281,9 +1261,14 @@ In this case the interactions are used to initialize the scenario.</p>
 <td style="text-align:left"><code>Sumo</code>,<br><code>Phabmacs</code></td>
 </tr>
 <tr>
+<td style="text-align:left"><code>ScenarioAgentRegistration</code></td>
+<td style="text-align:left">This interaction is used to register agents based on persons which have been added by SUMO itself from preconfigured route files.</td>
+<td style="text-align:left"><code>Sumo</code></td>
+</tr>
+<tr>
 <td style="text-align:left"><code>ScenarioVehicleRegistration</code></td>
-<td style="text-align:left">This interaction is used to add vehicles to a simulation using a preconfigured scenario, which could be defined by using Sumo.</td>
-<td style="text-align:left"><code>Sumo(Scenario)</code></td>
+<td style="text-align:left">This interaction is used to register vehicles which have been added by SUMO itself from preconfigured route files.</td>
+<td style="text-align:left"><code>Sumo</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>RoutelessVehicleRegistration</code></td>
@@ -1293,7 +1278,8 @@ In this case the interactions are used to initialize the scenario.</p>
 </tbody>
 </table>
 <h2 id="communication">communication</h2>
-<p>This package contains interactions regarding the setup of communication-components in simulation units and interactions concerned with the transfer of V2X-messages.</p>
+<p>This package contains interactions regarding the setup of communication-components in simulation units and interactions concerned with the
+transfer of V2X-messages.</p>
 <table>
 <thead>
 <tr>
@@ -1333,12 +1319,12 @@ In this case the interactions are used to initialize the scenario.</p>
 <tr>
 <td style="text-align:left"><code>V2xMessageReception</code></td>
 <td style="text-align:left">This interaction is intended to be used to exchange information about a received V2X message.</td>
-<td style="text-align:left"><code>Omnet++</code>,<br><code>ns-3</code>,<br><code>SimpleNetworkSimulator</code>,<br><code>cell</code></td>
+<td style="text-align:left"><code>OMNeT++</code>,<br><code>ns-3</code>,<br><code>SNS</code>,<br><code>Cell</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>V2xFullMessageReception</code></td>
 <td style="text-align:left">This interaction carries the payload that represents an arbitrary V2XMessage that is supposed to be received by the receiver of this Eclipse MOSAIC Interaction.</td>
-<td style="text-align:left"><code>Omnet++</code>,<br><code>ns-3</code>,<br><code>SimpleNetworkSimulator</code>,<br><code>Cell</code></td>
+<td style="text-align:left"><code>OMNeT++</code>,<br><code>ns-3</code>,<br><code>SNS</code>,<br><code>Cell</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>V2xMessageRemoval</code></td>
@@ -1353,7 +1339,8 @@ In this case the interactions are used to initialize the scenario.</p>
 </tbody>
 </table>
 <h2 id="vehicle">vehicle</h2>
-<p>The interactions contained in this package are usually used to enable applications to forward vehicle-control to the used traffic simulators.</p>
+<p>The interactions contained in this package are usually used to enable applications to forward vehicle-control to the used traffic
+simulators.</p>
 <table>
 <thead>
 <tr>
@@ -1364,19 +1351,14 @@ In this case the interactions are used to initialize the scenario.</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><code>VehicleActuatorsChange</code></td>
-<td style="text-align:left">This interaction is used to directly control the throttle/brake of an vehicle. At the moment this is only supported by Phabmacs.</td>
-<td style="text-align:left"><code>Application</code></td>
-</tr>
-<tr>
 <td style="text-align:left"><code>VehicleDistanceSensorActivation</code></td>
 <td style="text-align:left">This interaction is used to enable the distance sensors of a vehicle. A multitude of sensors can be enabled with one interaction given they use the same maximum lookahead distance.</td>
 <td style="text-align:left"><code>Application</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>VehicleFederateAssignment</code></td>
-<td style="text-align:left">This interaction is intended to be used, when more than one traffic simulator is used in a simulation. It enables the passing of information on which vehicle are passed externally. At the moment this is used by the PhSCA-ambassador.</td>
-<td style="text-align:left"><code>PhaSCA</code></td>
+<td style="text-align:left">This interaction is intended to be used, when more than one traffic simulator is used in a simulation. It enables the passing of information on which vehicle are passed externally. At the moment this is used by the Traffic-Sync-ambassador.</td>
+<td style="text-align:left"><code>Traffic Coupling</code> (Extended)</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>VehicleLaneChange</code></td>
@@ -1401,11 +1383,6 @@ In this case the interactions are used to initialize the scenario.</p>
 <tr>
 <td style="text-align:left"><code>VehicleRouteRegistration</code></td>
 <td style="text-align:left">This interaction is used to propagate a newly generated route which is not yet known. It consists of the id of the route and a list of all its edges.</td>
-<td style="text-align:left"><code>Application</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>VehicleSightDistanceConfiguration</code></td>
-<td style="text-align:left">This interaction is used to configure the sight distance for a vehicle (driver), this information can for example be used to implement applications regarding traffic sign recognition.</td>
 <td style="text-align:left"><code>Application</code></td>
 </tr>
 <tr>
@@ -1437,9 +1414,14 @@ In this case the interactions are used to initialize the scenario.</p>
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left"><code>AgentUpdates</code></td>
+<td style="text-align:left">This interaction is used to update the position and other data of some or all agents (persons) of the simulation.</td>
+<td style="text-align:left"><code>Sumo</code>,<br><code>Agent</code> (Extended)</td>
+</tr>
+<tr>
 <td style="text-align:left"><code>CellularHandoverUpdates</code></td>
 <td style="text-align:left">This interaction is used by the cell ambassador to communicate handovers.</td>
-<td style="text-align:left"><code>cell</code></td>
+<td style="text-align:left"><code>Cell</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>InductionLoopDetectorSubscription</code></td>
@@ -1502,22 +1484,22 @@ In this case the interactions are used to initialize the scenario.</p>
 <tr>
 <td style="text-align:left"><code>ChargingDenialResponse</code></td>
 <td style="text-align:left">This interaction is sent out by the charging station ambassador to inform the application simulator (the vehicles) when a charging station is already in use. e.g. a vehicle wants to start charging on an engaged charging station -&gt; ChargingStartDenial.</td>
-<td style="text-align:left"><code>ChargingStation</code></td>
+<td style="text-align:left"><code>ChargingStation</code>  (Extended)</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>ChargingStartResponse</code></td>
 <td style="text-align:left">This interaction is intended to be used to forward a started charging process at a ChargingSpot to the RTI.</td>
-<td style="text-align:left"><code>ChargingStation</code></td>
+<td style="text-align:left"><code>ChargingStation</code>  (Extended)</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>ChargingStationUpdates</code></td>
 <td style="text-align:left">This extension interaction is intended to be used to forward the updated state of a ChargingStation to the RTI.</td>
-<td style="text-align:left"><code>ChargingStation</code></td>
+<td style="text-align:left"><code>ChargingStation</code> (Extended)</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>ChargingStopResponse</code></td>
 <td style="text-align:left">This interaction is intended to be used to forward a stopped charging process at a charging station to the RTI.</td>
-<td style="text-align:left"><code>ChargingStation</code></td>
+<td style="text-align:left"><code>ChargingStation</code> (Extended)</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>VehicleChargingStartRequest</code></td>
@@ -1530,9 +1512,9 @@ In this case the interactions are used to initialize the scenario.</p>
 <td style="text-align:left"><code>Application</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><code>VehicleElectricityUpdates</code></td>
+<td style="text-align:left"><code>VehicleBatteryUpdates</code></td>
 <td style="text-align:left">This interaction is used to inform the applications of simulation units about changed electric information, send out by the battery ambassador.</td>
-<td style="text-align:left"><code>Battery</code></td>
+<td style="text-align:left"><code>Battery</code> (Extended)</td>
 </tr>
 </tbody>
 </table>
@@ -1578,22 +1560,27 @@ In this case the interactions are used to initialize the scenario.</p>
 <tr>
 <td style="text-align:left"><code>AbstractTrafficSignChange</code></td>
 <td style="text-align:left">This interaction can be sent to traffic sign ambassador in order to change a variable traffic sign. All interaction-classes, that are concerned with changing traffic signs extend this class.</td>
-<td style="text-align:left"><code>Application</code></td>
+<td style="text-align:left"><code>Application</code> (Extended)</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>TrafficSignLaneAssignmentChange</code></td>
 <td style="text-align:left">This interaction can be sent to traffic sign ambassador in order to change a variable lane assignment sign.</td>
-<td style="text-align:left"><code>Application</code></td>
+<td style="text-align:left"><code>Application</code> (Extended)</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>TrafficSignSpeedLimitChange</code></td>
 <td style="text-align:left">This interaction can be sent to traffic sign ambassador in order to change a variable speed sign.</td>
-<td style="text-align:left"><code>Application</code></td>
+<td style="text-align:left"><code>Application</code> (Extended)</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>VehicleSeenTrafficSingsUpdate</code></td>
 <td style="text-align:left">This interaction stores a map of all traffic signs which are in sight distance of a specific vehicle and a map of all  traffic signs which became invalid for that vehicle.</td>
-<td style="text-align:left"><code>TrafficSign</code></td>
+<td style="text-align:left"><code>TrafficSign</code> (Extended)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VehicleSignVisibilityConfiguration</code></td>
+<td style="text-align:left">This interaction is used to configure the sight distance for a vehicle (driver), this information can for example be used to implement applications regarding traffic sign recognition.</td>
+<td style="text-align:left"><code>Application</code> (Extended)</td>
 </tr>
 </tbody>
 </table>
@@ -1627,6 +1614,11 @@ In this case the interactions are used to initialize the scenario.</p>
 <td style="text-align:left"><code>SumoTraciResponse</code></td>
 <td style="text-align:left">This interaction holds the TraCI response for a SumoTraciRequest. It is sent by the SumoAmbassador and will usually be handled by the Application that sent the request.</td>
 <td style="text-align:left"><code>Sumo</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SumoSurroundingObjectsConfiguration </code></td>
+<td style="text-align:left">This interaction is sent if perception based on SUMO&rsquo;s internal calculation of surrounding vehicles is used.</td>
+<td style="text-align:left"><code>Application</code></td>
 </tr>
 </tbody>
 </table>
@@ -2022,7 +2014,7 @@ In this case the interactions are used to initialize the scenario.</p>
       <br>
       Header image &#169; fanjianhua/ iStock
       <br>
-      Website built on 15 Oct 2025, 08:31 UTC
+      Website built on 15 Dec 2025, 15:47 UTC
     </p>
     
   </div>

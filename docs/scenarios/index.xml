@@ -41,7 +41,7 @@ Please follow the &lt;code&gt;--help&lt;/code&gt; command, or use this page to l
 &lt;a class=&#34;mosaic-btn mosaic-btn-primary&#34; href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; title=&#34;Download scenario-convert from DCAITI mirror&#34;&gt;&lt;i class=&#34;fas fa-download&#34;&gt;&lt;/i&gt;Download scenario-convert from DCAITI mirror&lt;/a&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-25.1.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-25.2.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as
 MOSAIC (&lt;code&gt;&amp;lt;mosaic-root&amp;gt;&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Use the call &lt;code&gt;scenario-convert.bat/sh&lt;/code&gt; on the command line to execute the tool.&lt;/li&gt;

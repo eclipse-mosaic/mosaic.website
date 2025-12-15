@@ -5,7 +5,7 @@
     <link>https://www.eclipse.dev/mosaic/</link>
       <atom:link href="https://www.eclipse.dev/mosaic/index.xml" rel="self" type="application/rss+xml" />
     <description>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 10 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 15 Dec 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.eclipse.dev/mosaic/images/logo.svg</url>
       <title>Eclipse MOSAIC – A Multi-Domain and Multi-Scale Simulation Framework for Connected and Automated Mobility</title>
@@ -1574,7 +1574,7 @@ table th:nth-of-type(2) {
 &lt;/table&gt;
 &lt;p&gt;While Eclipse MOSAIC is running, it prints some information on the command line:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[user@gnulinux mosaic]$ ./mosaic.sh -s HelloWorld
-2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 25.1 on Java JRE v1.8.0_202 (AdoptOpenJdk)
+2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 25.2 on Java JRE v1.8.0_202 (AdoptOpenJdk)
 2020-09-08 16:46:09,941 INFO  FederationManagement - Start federation with id &#39;HelloWorld&#39;
 2020-09-08 16:46:09,943 INFO  FederationManagement - Add ambassador/federate with id &#39;application&#39;
 2020-09-08 16:46:09,944 INFO  FederationManagement - Add ambassador/federate with id &#39;mapping&#39;
@@ -1719,7 +1719,7 @@ Please follow the &lt;code&gt;--help&lt;/code&gt; command, or use this page to l
 &lt;a class=&#34;mosaic-btn mosaic-btn-primary&#34; href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/download/&#34; title=&#34;Download scenario-convert from DCAITI mirror&#34;&gt;&lt;i class=&#34;fas fa-download&#34;&gt;&lt;/i&gt;Download scenario-convert from DCAITI mirror&lt;/a&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-25.1.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Download the &lt;code&gt;scenario-convert-25.2.zip/tar.gz&lt;/code&gt; bundle from the mirror above.&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Extract the package to an arbitrary path. It is recommended to extract the package in the very same directory as
 MOSAIC (&lt;code&gt;&amp;lt;mosaic-root&amp;gt;&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Use the call &lt;code&gt;scenario-convert.bat/sh&lt;/code&gt; on the command line to execute the tool.&lt;/li&gt;
@@ -2569,7 +2569,7 @@ individually.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Supported version(s)&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Recommended version:&lt;br&gt;Full support:&lt;br&gt;Limited support:&lt;/td&gt;
-&lt;td&gt;1.24.0&lt;br&gt;1.9.2 - 1.24.0&lt;br&gt;below 1.9.2&lt;/td&gt;
+&lt;td&gt;1.25.0&lt;br&gt;1.9.2 - 1.25.0&lt;br&gt;below 1.9.2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2706,7 +2706,7 @@ to get this running, you need to follow these steps:&lt;/p&gt;
 &lt;li&gt;Check, if there&amp;rsquo;s a &lt;code&gt;bin/libsumojni.dll&lt;/code&gt; or &lt;code&gt;bin/liblibsumojni.so&lt;/code&gt; file in your SUMO installation directory. If not, you might
 need to install the &amp;ldquo;extras&amp;rdquo; release bundle of SUMO (Windows), or you need to re-build SUMO from sources and activate
 the build of libsumo (see &lt;a href=&#34;https://sumo.dlr.de/docs/Libsumo.html#building_it)&#34;&gt;https://sumo.dlr.de/docs/Libsumo.html#building_it)&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Only the recent SUMO version (1.24.0) is supported.&lt;/li&gt;
+&lt;li&gt;Only the recent SUMO version (1.25.0) is supported.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If these pre-requisites are met, you can activate this feature editing the file &lt;code&gt;&amp;lt;mosaic&amp;gt;/etc/runtime.json&lt;/code&gt;.
 Here, the entry
@@ -3231,7 +3231,7 @@ For further information on licenses, feel free to contact us via &lt;strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;ol&gt;
-&lt;li&gt;Extract the &lt;strong&gt;&lt;code&gt;phabmacs-federate-25.1-bundle.zip&lt;/code&gt;&lt;/strong&gt; archive into the &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; directory of your MOSAIC Extended installation. Create the directory, if not existing.&lt;/li&gt;
+&lt;li&gt;Extract the &lt;strong&gt;&lt;code&gt;phabmacs-federate-25.2-bundle.zip&lt;/code&gt;&lt;/strong&gt; archive into the &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; directory of your MOSAIC Extended installation. Create the directory, if not existing.&lt;/li&gt;
 &lt;li&gt;Navigate to &lt;code&gt;bin/fed/phabmacs&lt;/code&gt; and execute the &lt;code&gt;activate_phabmacs.sh/bat&lt;/code&gt; file. Enter your MOSAIC credentials.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
@@ -3829,32 +3829,7 @@ The &amp;ldquo;Sent by&amp;rdquo; column is not necessarily complete for all int
 &lt;h2 id=&#34;mapping&#34;&gt;mapping&lt;/h2&gt;
 &lt;p&gt;All interactions in this package are concerned with adding/registering simulation-units to the simulation.
 While most of the introductions are handled by the &lt;code&gt;Mapping&lt;/code&gt;- or &lt;code&gt;Application&lt;/code&gt;-ambassador, some of them
-are handled by the ambassadors for the traffic simulators (see 
-
-
-
-
-
-  
-  
-
-    
-
-    
-    
-      
-      
-      
-      
-    
-
-    
-    
-
-    
-  
-
-&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/tutorials/lust/&#34;&gt;LuST&lt;/a&gt;-scenario).
+are handled by the ambassadors for the traffic simulators.
 In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -3866,9 +3841,9 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleRegistration&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent by the vehicle mapping component to indicate the introduction of a new vehicle to the simulation. Note, this does not necessarily imply that the added vehicle is already simulated by the traffic simulator.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;AgentRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of an agent (person) unit to the simulation.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStationRegistration&lt;/code&gt;&lt;/td&gt;
@@ -3881,14 +3856,14 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TmcRegistration&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a traffic management center to the simulation. It holds a list of all applications and all induction loops and lane are detectors the TMC is responsible for.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ServerRegistration&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a server to the simulation. It holds a list of all applications.&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping3&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TmcRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a traffic management center to the simulation. It holds a list of all applications and all induction loops and lane are detectors the TMC is responsible for.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficLightRegistration&lt;/code&gt;&lt;/td&gt;
@@ -3899,6 +3874,11 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSignRegistration&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction indicates the introduction of a traffic sign.&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent by the vehicle mapping component to indicate the introduction of a new vehicle to the simulation. Note, this does not necessarily imply that the added vehicle is already simulated by the traffic simulator.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Mapping&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3919,9 +3899,14 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Phabmacs&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ScenarioAgentRegistration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to register agents based on persons which have been added by SUMO itself from preconfigured route files.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ScenarioVehicleRegistration&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to add vehicles to a simulation using a preconfigured scenario, which could be defined by using Sumo.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo(Scenario)&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to register vehicles which have been added by SUMO itself from preconfigured route files.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;RoutelessVehicleRegistration&lt;/code&gt;&lt;/td&gt;
@@ -3931,7 +3916,8 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;communication&#34;&gt;communication&lt;/h2&gt;
-&lt;p&gt;This package contains interactions regarding the setup of communication-components in simulation units and interactions concerned with the transfer of V2X-messages.&lt;/p&gt;
+&lt;p&gt;This package contains interactions regarding the setup of communication-components in simulation units and interactions concerned with the
+transfer of V2X-messages.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -3971,12 +3957,12 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xMessageReception&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to exchange information about a received V2X message.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Omnet++&lt;/code&gt;,&lt;br&gt;&lt;code&gt;ns-3&lt;/code&gt;,&lt;br&gt;&lt;code&gt;SimpleNetworkSimulator&lt;/code&gt;,&lt;br&gt;&lt;code&gt;cell&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;OMNeT++&lt;/code&gt;,&lt;br&gt;&lt;code&gt;ns-3&lt;/code&gt;,&lt;br&gt;&lt;code&gt;SNS&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Cell&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xFullMessageReception&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction carries the payload that represents an arbitrary V2XMessage that is supposed to be received by the receiver of this Eclipse MOSAIC Interaction.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Omnet++&lt;/code&gt;,&lt;br&gt;&lt;code&gt;ns-3&lt;/code&gt;,&lt;br&gt;&lt;code&gt;SimpleNetworkSimulator&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Cell&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;OMNeT++&lt;/code&gt;,&lt;br&gt;&lt;code&gt;ns-3&lt;/code&gt;,&lt;br&gt;&lt;code&gt;SNS&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Cell&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;V2xMessageRemoval&lt;/code&gt;&lt;/td&gt;
@@ -3991,7 +3977,8 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;vehicle&#34;&gt;vehicle&lt;/h2&gt;
-&lt;p&gt;The interactions contained in this package are usually used to enable applications to forward vehicle-control to the used traffic simulators.&lt;/p&gt;
+&lt;p&gt;The interactions contained in this package are usually used to enable applications to forward vehicle-control to the used traffic
+simulators.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -4002,19 +3989,14 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleActuatorsChange&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to directly control the throttle/brake of an vehicle. At the moment this is only supported by Phabmacs.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleDistanceSensorActivation&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to enable the distance sensors of a vehicle. A multitude of sensors can be enabled with one interaction given they use the same maximum lookahead distance.&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleFederateAssignment&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used, when more than one traffic simulator is used in a simulation. It enables the passing of information on which vehicle are passed externally. At the moment this is used by the PhSCA-ambassador.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;PhaSCA&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used, when more than one traffic simulator is used in a simulation. It enables the passing of information on which vehicle are passed externally. At the moment this is used by the Traffic-Sync-ambassador.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Traffic Coupling&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleLaneChange&lt;/code&gt;&lt;/td&gt;
@@ -4039,11 +4021,6 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleRouteRegistration&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to propagate a newly generated route which is not yet known. It consists of the id of the route and a list of all its edges.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleSightDistanceConfiguration&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to configure the sight distance for a vehicle (driver), this information can for example be used to implement applications regarding traffic sign recognition.&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -4075,9 +4052,14 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;AgentUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to update the position and other data of some or all agents (persons) of the simulation.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;,&lt;br&gt;&lt;code&gt;Agent&lt;/code&gt; (Extended)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;CellularHandoverUpdates&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is used by the cell ambassador to communicate handovers.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;cell&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Cell&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;InductionLoopDetectorSubscription&lt;/code&gt;&lt;/td&gt;
@@ -4140,22 +4122,22 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingDenialResponse&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent out by the charging station ambassador to inform the application simulator (the vehicles) when a charging station is already in use. e.g. a vehicle wants to start charging on an engaged charging station -&amp;gt; ChargingStartDenial.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;  (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStartResponse&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to forward a started charging process at a ChargingSpot to the RTI.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;  (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStationUpdates&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This extension interaction is intended to be used to forward the updated state of a ChargingStation to the RTI.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStopResponse&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is intended to be used to forward a stopped charging process at a charging station to the RTI.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;ChargingStation&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleChargingStartRequest&lt;/code&gt;&lt;/td&gt;
@@ -4168,9 +4150,9 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleElectricityUpdates&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleBatteryUpdates&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to inform the applications of simulation units about changed electric information, send out by the battery ambassador.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Battery&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Battery&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4216,22 +4198,27 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;AbstractTrafficSignChange&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction can be sent to traffic sign ambassador in order to change a variable traffic sign. All interaction-classes, that are concerned with changing traffic signs extend this class.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSignLaneAssignmentChange&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction can be sent to traffic sign ambassador in order to change a variable lane assignment sign.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSignSpeedLimitChange&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction can be sent to traffic sign ambassador in order to change a variable speed sign.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleSeenTrafficSingsUpdate&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction stores a map of all traffic signs which are in sight distance of a specific vehicle and a map of all  traffic signs which became invalid for that vehicle.&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSign&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;TrafficSign&lt;/code&gt; (Extended)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VehicleSignVisibilityConfiguration&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is used to configure the sight distance for a vehicle (driver), this information can for example be used to implement applications regarding traffic sign recognition.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt; (Extended)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4265,6 +4252,11 @@ In this case the interactions are used to initialize the scenario.&lt;/p&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;SumoTraciResponse&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;This interaction holds the TraCI response for a SumoTraciRequest. It is sent by the SumoAmbassador and will usually be handled by the Application that sent the request.&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Sumo&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;SumoSurroundingObjectsConfiguration &lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;This interaction is sent if perception based on SUMO&amp;rsquo;s internal calculation of surrounding vehicles is used.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;Application&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5789,13 +5781,13 @@ to avoid multiple installations of &lt;strong&gt;OMNeT++&lt;/strong&gt; and &lt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;MOSAIC OMNeT++ Federate&lt;/strong&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;25.1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;25.2&lt;/td&gt;
 &lt;td style=&#34;text-align:left&#34;&gt;
 
 
 
 
-&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/25.1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
+&lt;a href=&#34;https://github.com/mosaic-addons/omnetpp-federate/releases/tag/25.2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mosaic-addons/omnetpp-federate/releases&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5887,7 +5879,7 @@ chmod +x omnet_installer.sh`
     --installation-type USER \
     --omnetpp /path/to/omnetpp-6.1-src.tgz \
     --inet /path/to/inet-4.5.4-src.tgz \
-    --federate /path/to/omnetpp-federate-25.1.zip
+    --federate /path/to/omnetpp-federate-25.2.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The parameters &lt;code&gt;--omnetpp&lt;/code&gt;, &lt;code&gt;--inet&lt;/code&gt;, and &lt;code&gt;--federate&lt;/code&gt; are optional. If not given, the respective source code package will be downloaded by the installation script.&lt;br&gt;
 The installation script should terminate with &lt;code&gt;SUCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
@@ -5908,7 +5900,7 @@ make
 chmod +x omnet_installer.sh`
 ./omnet_installer.sh \
     --installation-type DEVELOPER \
-    --federate /path/to/omnetpp-federate-25.1.zip
+    --federate /path/to/omnetpp-federate-25.2.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The installation script should terminate with &lt;code&gt;SUCCESS: The MOSAIC OMNeT++ Federate was successfully installed.&lt;/code&gt; otherwise the installation failed.&lt;/p&gt;
 &lt;p&gt;Please continue reading 
@@ -9347,7 +9339,7 @@ On Ubuntu 24.04 we ran into problems when compiling ns-3.36.1.
 An upgrade to newer version is in the works.&lt;/p&gt;
 &lt;h2 id=&#34;federate-development-with-the-bundle-and-ns3_installersh&#34;&gt;Federate Development with the Bundle (and &lt;code&gt;ns3_installer.sh&lt;/code&gt;)&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Compile or download the bundle &lt;code&gt;eclipse-mosaic-25.2-SNAPSHOT.zip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Compile or download the bundle &lt;code&gt;eclipse-mosaic-26.0-SNAPSHOT.zip&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Extract the bundle and go to &lt;code&gt;&amp;lt;bundle&amp;gt;/bin/fed/ns3&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run the script &lt;code&gt;./ns3_installer.sh --keep-src&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run a simulation to test that you did the setup correctly  (e.g., the &lt;code&gt;Tiergarten&lt;/code&gt; scenario can be activated with &lt;code&gt;ns-3&lt;/code&gt;).&lt;/li&gt;
@@ -17004,6 +16996,101 @@ modeling of charging stations, without the need of being super accurate with the
     </item>
     
     <item>
+      <title>2025 Christmas Release of Eclipse MOSAIC</title>
+      <link>https://www.eclipse.dev/mosaic/post/release-25-2/</link>
+      <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.eclipse.dev/mosaic/post/release-25-2/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;The special Christmas release of Eclipse MOSAIC is here! 🎄 The committer team from Fraunhofer FOKUS and DCAITI is proud to present Eclipse MOSAIC 25.2 to the open source community.
+The release brings built-in support for your DRT (Demand Responsive Traffic) simulation needs. Additionally, if you were building on large-scale ns3 simulation, our new preemptive simulation approach
+should speed up things significantly.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;🚀 You can find the new version in our 
+
+
+
+
+
+  
+  
+
+    
+
+    
+    
+      
+      
+      
+      
+    
+
+    
+    
+
+    
+  
+
+&lt;a href=&#34;https://www.eclipse.dev/mosaic/mosaic/download/&#34;&gt;Download section&lt;/a&gt;, and in our 
+
+
+
+
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;release-date&#34;&gt;Release Date&lt;/h3&gt;
+&lt;p&gt;2025-12-15&lt;/p&gt;
+&lt;h3 id=&#34;changelog&#34;&gt;Changelog&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;- [A+] Introduce support for modeling demand responsive traffic (e.g., ride pooling, taxis) using SUMO
+- [T+] Add support for integrating SUMO&#39;s taxi device API via TraCI/libsumo
+- [M+] Introduce concept of preemptive execution in the core RTI (see upcoming publication)
+- [C+] Improve performance of ns3 federate by utilizing preemptive execution
+- [T+] Now supports SUMO 1.25.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;⭐ A huge thanks to all users who contributed to this release:
+
+
+
+
+
+&lt;a href=&#34;https://github.com/Jacenty00&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; Jacenty00&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/gogokotsev00&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; gogokotsev00&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/kschrab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; kschrab&lt;/a&gt;,
+
+
+
+
+
+&lt;a href=&#34;https://github.com/schwepmo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; schwepmo&lt;/a&gt;, and
+
+
+
+
+
+&lt;a href=&#34;https://github.com/rprotzmann&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; &lt;i class=&#34;fab fa-github&#34;&gt;&lt;/i&gt; rprotzmann&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Changelog Legend&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[M]&lt;/code&gt; &lt;em&gt;Eclipse MOSAIC&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[X]&lt;/code&gt; &lt;em&gt;MOSAIC Extended&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[A]&lt;/code&gt; &lt;em&gt;Application simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[C]&lt;/code&gt; &lt;em&gt;Communication simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[E]&lt;/code&gt; &lt;em&gt;Environment simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[N]&lt;/code&gt; &lt;em&gt;Navigation component&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[S]&lt;/code&gt; &lt;em&gt;Scenario-convert&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[T]&lt;/code&gt; &lt;em&gt;Traffic simulator&lt;/em&gt;&lt;br&gt;
+&lt;code&gt;[+/-]&lt;/code&gt; &lt;em&gt;new Feature/Bugfix&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2025 Autumn Release of Eclipse MOSAIC</title>
       <link>https://www.eclipse.dev/mosaic/post/release-25-1/</link>
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
@@ -17451,7 +17538,7 @@ communication simulators OMNeT++ and ns-3 .&lt;/strong&gt;&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://sumo.dlr.de/releases/1.24.0/sumo-win64-1.24.0.msi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Installer&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://sumo.dlr.de/releases/1.25.0/sumo-win64-1.25.0.msi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Installer&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
@@ -17465,13 +17552,13 @@ communication simulators OMNeT++ and ns-3 .&lt;/strong&gt;&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic/archive/refs/tags/25.1.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse MOSAIC Source Code (version 25.1)&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://github.com/eclipse-mosaic/mosaic/archive/refs/tags/25.2.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse MOSAIC Source Code (version 25.2)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;
 
 
 
 
-&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/extended/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MOSAIC Extended (version 25.1)&lt;/a&gt; (User licence required)&lt;/li&gt;
+&lt;a href=&#34;https://www.dcaiti.tu-berlin.de/research/simulation/extended/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MOSAIC Extended (version 25.2)&lt;/a&gt; (User licence required)&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

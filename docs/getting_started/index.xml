@@ -170,7 +170,7 @@ table th:nth-of-type(2) {
 &lt;/table&gt;
 &lt;p&gt;While Eclipse MOSAIC is running, it prints some information on the command line:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[user@gnulinux mosaic]$ ./mosaic.sh -s HelloWorld
-2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 25.1 on Java JRE v1.8.0_202 (AdoptOpenJdk)
+2020-09-08 16:46:09,794 INFO  ROOT - Running Eclipse MOSAIC 25.2 on Java JRE v1.8.0_202 (AdoptOpenJdk)
 2020-09-08 16:46:09,941 INFO  FederationManagement - Start federation with id &#39;HelloWorld&#39;
 2020-09-08 16:46:09,943 INFO  FederationManagement - Add ambassador/federate with id &#39;application&#39;
 2020-09-08 16:46:09,944 INFO  FederationManagement - Add ambassador/federate with id &#39;mapping&#39;
