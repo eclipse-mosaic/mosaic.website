@@ -41,6 +41,7 @@ should speed up things significantly.**
 [ <i class="fab fa-github"></i> Jacenty00](https://github.com/Jacenty00),
 [ <i class="fab fa-github"></i> gogokotsev00](https://github.com/gogokotsev00),
 [ <i class="fab fa-github"></i> kschrab](https://github.com/kschrab),
+[ <i class="fab fa-github"></i> hoelger](https://github.com/hoelger),
 [ <i class="fab fa-github"></i> schwepmo](https://github.com/schwepmo), and
 [ <i class="fab fa-github"></i> rprotzmann](https://github.com/rprotzmann).
 
