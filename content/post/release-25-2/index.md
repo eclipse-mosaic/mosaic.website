@@ -3,8 +3,8 @@ title: 2025 Christmas Release of Eclipse MOSAIC
 categories:
   - Release
 release:
-  name: "Eclipse MOSAIC 25.1"
-  github_url: "https://github.com/eclipse-mosaic/mosaic/releases/tag/25.1"
+  name: "Eclipse MOSAIC 25.2"
+  github_url: "https://github.com/eclipse-mosaic/mosaic/releases/tag/25.2"
 date: "2025-12-15T00:00:00Z"
 lastMod: "2025-12-15T00:00:00Z"
 math: false
